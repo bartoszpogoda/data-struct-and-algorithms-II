@@ -13,4 +13,6 @@ public:
 	virtual int degree() = 0;
 
 	virtual void print(std::ostream &out) = 0;
+
+	// TODO: virtual ~Graph() = 0;
 };

@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdjacencyList.cpp" />
     <ClCompile Include="CLInterfaceCommon.cpp" />
     <ClCompile Include="DirectedListGraph.cpp" />
     <ClCompile Include="DirectedMatrixGraph.cpp" />
@@ -151,6 +152,8 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdjacencyList.h" />
+    <ClInclude Include="AdjacencyListNode.h" />
     <ClInclude Include="DirectedMatrixGraph.h" />
     <ClInclude Include="GraphFileData.h" />
     <ClInclude Include="GraphFileReader.h" />

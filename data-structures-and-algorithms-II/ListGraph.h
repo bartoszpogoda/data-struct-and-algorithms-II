@@ -5,5 +5,6 @@
 class ListGraph : public Graph {
 protected:
 	ListGraph(int n) : Graph(n) {}
+
 	
 };
