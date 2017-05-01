@@ -14,6 +14,12 @@ DirectedMatrixGraph::DirectedMatrixGraph(int n) : MatrixGraph(n) {
 	}
 }
 
+DirectedMatrixGraph::~DirectedMatrixGraph() {
+	for (size_t i = 0; i < n; i++) {
+		delete[] adjacencyMatrix[i];
+	}
+}
+
 void DirectedMatrixGraph::addEdge(int beginV, int endV, int weight) {
 
 	adjacencyMatrix[beginV][endV] = weight;

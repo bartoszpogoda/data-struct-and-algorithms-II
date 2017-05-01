@@ -8,4 +8,5 @@ protected:
 	int** adjacencyMatrix;
 
 	MatrixGraph(int n) : Graph(n), adjacencyMatrix(new int*[n]) {}
+	virtual ~MatrixGraph();
 };

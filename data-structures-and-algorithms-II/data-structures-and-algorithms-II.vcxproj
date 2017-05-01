@@ -150,6 +150,7 @@
     <ClCompile Include="IndirectedListGraph.cpp" />
     <ClCompile Include="IndirectedMatrixGraph.cpp" />
     <ClCompile Include="ListGraph.cpp" />
+    <ClCompile Include="MatrixGraph.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>

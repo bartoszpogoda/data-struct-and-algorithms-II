@@ -6,6 +6,7 @@
 class IndirectedMatrixGraph : public MatrixGraph {
 public:
 	IndirectedMatrixGraph(int n);
+	virtual ~IndirectedMatrixGraph();
 
 	void addEdge(int beginV, int endV, int weight);
 	int checkEdge(int beginV, int endV);

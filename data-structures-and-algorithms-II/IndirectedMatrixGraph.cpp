@@ -15,6 +15,12 @@ IndirectedMatrixGraph::IndirectedMatrixGraph(int n) : MatrixGraph(n) {
 	}
 }
 
+IndirectedMatrixGraph::~IndirectedMatrixGraph() {
+	for (size_t i = 0; i < n; i++) {
+		delete[] adjacencyMatrix[i];
+	}
+}
+
 void IndirectedMatrixGraph::addEdge(int beginV, int endV, int weight) {
 
 	adjacencyMatrix[std::max(beginV, endV)][std::min(beginV, endV)] = weight;

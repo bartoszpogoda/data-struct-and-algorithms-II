@@ -93,6 +93,9 @@
     <ClCompile Include="ListGraph.cpp">
       <Filter>Source Files\model\structures\list-graph</Filter>
     </ClCompile>
+    <ClCompile Include="MatrixGraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">

@@ -7,6 +7,7 @@ class ListGraph : public Graph {
 protected:
 	AdjacencyList** adjacencyLists;
 	ListGraph(int n);
+	virtual ~ListGraph();
 
 	void print(std::ostream &out);
 };
