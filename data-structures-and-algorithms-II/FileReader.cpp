@@ -1,10 +1,16 @@
 #include "GraphFileReader.h"
 
-Graph * GraphFileReader::read(std::string filename, GraphRepresentation representation, GraphType type)
+#include "Graph.h"
+#include "ListGraph.h"
+#include "MatrixGraph.h"
+
+GraphFileData * GraphFileReader::read(std::string filename, GraphRepresentation representation, GraphType type)
 {
 	Graph* graph = nullptr;
+	int firstVerticle = -1;
 
 	// read graph size
+	// read firstVerticle
 
 	if (representation == MATRIX) {
 		if (type = DIRECTED) {
@@ -25,5 +31,5 @@ Graph * GraphFileReader::read(std::string filename, GraphRepresentation represen
 
 	// graph creation logic
 
-	return graph;
+	return new GraphFileData(graph, firstVerticle);
 }
