@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CLInterfaceCommon.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="GraphFileData.h" />
     <ClInclude Include="GraphFileReader.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="CLInterface.h" />
     <ClInclude Include="MSTPrim.h" />
     <ClInclude Include="ListGraph.h" />
     <ClInclude Include="MatrixGraph.h" />

@@ -13,32 +13,44 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\structures">
-      <UniqueIdentifier>{26007c2c-217d-4539-a380-e43c46624af9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\structures">
-      <UniqueIdentifier>{942d2fda-0219-4964-887a-142f7da0ef0e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\helper">
       <UniqueIdentifier>{ee7e9fcb-3f42-4c36-9138-0047a23dd5bf}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\helper">
       <UniqueIdentifier>{f032d401-e2ed-4d5b-af7f-e78779063c77}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\algorithms-MST">
+    <Filter Include="Header Files\model">
+      <UniqueIdentifier>{fe9689fd-e325-4c5c-a217-883b9c9e3451}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model\algorithms-MST">
       <UniqueIdentifier>{252cce1c-adf4-4842-900a-dc13a892cade}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\algorithms-spath">
-      <UniqueIdentifier>{049ccd8a-8847-4be8-9842-7464ffacf3c4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\algorithms-spath\impl">
-      <UniqueIdentifier>{d5d3561c-a3b0-4e5a-be06-09a4f9c0dca3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\algorithms-MST\impl">
+    <Filter Include="Header Files\model\algorithms-MST\impl">
       <UniqueIdentifier>{18c3ef8d-05c7-4a9f-9d2b-e5cee35a3117}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\structures\impl">
+    <Filter Include="Header Files\model\algorithms-spath">
+      <UniqueIdentifier>{049ccd8a-8847-4be8-9842-7464ffacf3c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model\algorithms-spath\impl">
+      <UniqueIdentifier>{d5d3561c-a3b0-4e5a-be06-09a4f9c0dca3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model\structures">
+      <UniqueIdentifier>{26007c2c-217d-4539-a380-e43c46624af9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model\structures\impl">
       <UniqueIdentifier>{f406abc0-2b57-4425-a7cc-805c22e121de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\interface">
+      <UniqueIdentifier>{2fa36598-f9bd-45d7-b674-7020d57b8aab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\model">
+      <UniqueIdentifier>{e975408f-8be2-4d38-a048-0d988210a720}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\model\structures">
+      <UniqueIdentifier>{942d2fda-0219-4964-887a-142f7da0ef0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\interface">
+      <UniqueIdentifier>{22afaee8-11d9-43e1-ab46-92dc3ffb30fa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,10 +60,13 @@
     <ClCompile Include="FileReader.cpp">
       <Filter>Source Files\helper</Filter>
     </ClCompile>
+    <ClCompile Include="CLInterfaceCommon.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph.h">
-      <Filter>Header Files\structures</Filter>
+      <Filter>Header Files\model\structures</Filter>
     </ClInclude>
     <ClInclude Include="GraphFileReader.h">
       <Filter>Header Files\helper</Filter>
@@ -60,31 +75,34 @@
       <Filter>Header Files\helper</Filter>
     </ClInclude>
     <ClInclude Include="MST.h">
-      <Filter>Header Files\algorithms-MST</Filter>
+      <Filter>Header Files\model\algorithms-MST</Filter>
     </ClInclude>
     <ClInclude Include="SPath.h">
-      <Filter>Header Files\algorithms-spath</Filter>
+      <Filter>Header Files\model\algorithms-spath</Filter>
     </ClInclude>
     <ClInclude Include="SPathBellmanFord.h">
-      <Filter>Header Files\algorithms-spath\impl</Filter>
+      <Filter>Header Files\model\algorithms-spath\impl</Filter>
     </ClInclude>
     <ClInclude Include="SPathDjikstra.h">
-      <Filter>Header Files\algorithms-spath\impl</Filter>
+      <Filter>Header Files\model\algorithms-spath\impl</Filter>
     </ClInclude>
     <ClInclude Include="Path.h">
-      <Filter>Header Files\algorithms-spath\impl</Filter>
+      <Filter>Header Files\model\algorithms-spath\impl</Filter>
     </ClInclude>
     <ClInclude Include="MSTPrim.h">
-      <Filter>Header Files\algorithms-MST\impl</Filter>
+      <Filter>Header Files\model\algorithms-MST\impl</Filter>
     </ClInclude>
     <ClInclude Include="MSTKruskal.h">
-      <Filter>Header Files\algorithms-MST\impl</Filter>
+      <Filter>Header Files\model\algorithms-MST\impl</Filter>
     </ClInclude>
     <ClInclude Include="ListGraph.h">
-      <Filter>Header Files\structures\impl</Filter>
+      <Filter>Header Files\model\structures\impl</Filter>
     </ClInclude>
     <ClInclude Include="MatrixGraph.h">
-      <Filter>Header Files\structures\impl</Filter>
+      <Filter>Header Files\model\structures\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="CLInterface.h">
+      <Filter>Header Files\interface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 #include <iostream>
+#include "CLInterface.h"
 
 int main() {
-	std::cout << "Hello wor1d";
+	CLInterface::enter();
 }
