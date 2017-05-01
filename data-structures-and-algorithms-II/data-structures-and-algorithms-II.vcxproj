@@ -149,6 +149,7 @@
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="IndirectedListGraph.cpp" />
     <ClCompile Include="IndirectedMatrixGraph.cpp" />
+    <ClCompile Include="ListGraph.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>

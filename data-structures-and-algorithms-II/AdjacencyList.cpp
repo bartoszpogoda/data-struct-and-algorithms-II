@@ -32,8 +32,8 @@ AdjacencyList::~AdjacencyList() {
 	delete iterator;
 }
 
-
-void AdjacencyList::addEnd(int adjacent, int weight) {
+/* no check for duplicate implementation
+void AdjacencyList::add(int adjacent, int weight) {
 	AdjacencyListNode* newNode = new AdjacencyListNode(adjacent, weight);
 
 	if (head == nullptr) {
@@ -43,6 +43,27 @@ void AdjacencyList::addEnd(int adjacent, int weight) {
 		tail->setNext(newNode);
 		newNode->setPrev(tail);
 		tail = newNode;
+	}
+}*/
+
+void AdjacencyList::add(int adjacent, int weight) {
+
+	AdjacencyListNode* node = find(adjacent);
+
+	if (node != nullptr) {
+		node->setWeight(weight);
+		return;
+	}
+
+	node = new AdjacencyListNode(adjacent, weight);
+
+	if (head == nullptr) {
+		head = node;
+		tail = node;
+	} else {
+		tail->setNext(node);
+		node->setPrev(tail);
+		tail = node;
 	}
 }
 
@@ -111,25 +132,23 @@ int AdjacencyList::getEdgeWeight(int adjacent) {
 format: [adj1 weigh1 adj2 weigh2 ...]
 */
 std::string AdjacencyList::toString() {
-	std::string result = "[";
+	std::string result = "";
 
 	if (head == nullptr) {
-		result += "empty]";
+		result += "[empty]";
 		return result;
 	} else {
-		result += std::to_string(head->getAdjacent());
-		result += " " + std::to_string(head->getWeight());
+		result += "[" + std::to_string(head->getAdjacent());
+		result += " " + std::to_string(head->getWeight()) + "] ";
 	}
 
 	AdjacencyListNode* iterator = head;
 
 	while (iterator->getNext() != nullptr) {
 		iterator = iterator->getNext();
-		result += " " + std::to_string(iterator->getAdjacent());
-		result += " " + std::to_string(iterator->getWeight());
+		result += "[" + std::to_string(iterator->getAdjacent());
+		result += " " + std::to_string(iterator->getWeight()) + "] ";
 	}
-
-	result += "]";
 
 	return result;
 }

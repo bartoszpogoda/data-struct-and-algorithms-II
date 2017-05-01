@@ -14,7 +14,7 @@ public:
 	AdjacencyList() : head(nullptr), tail(nullptr) {}
 	~AdjacencyList();
 
-	void addEnd(int adjacent, int weight);
+	void add(int adjacent, int weight);
 	void remove(int adjacent);
 	int getEdgeWeight(int adjacent);
 

@@ -90,6 +90,9 @@
     <ClCompile Include="AdjacencyList.cpp">
       <Filter>Source Files\model\structures\list-graph</Filter>
     </ClCompile>
+    <ClCompile Include="ListGraph.cpp">
+      <Filter>Source Files\model\structures\list-graph</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">

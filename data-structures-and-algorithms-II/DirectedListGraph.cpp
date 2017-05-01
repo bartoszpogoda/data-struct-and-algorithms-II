@@ -1,22 +1,18 @@
 #include "DirectedListGraph.h"
 
-DirectedListGraph::DirectedListGraph(int n) : ListGraph(n) {
-
-}
-
 void DirectedListGraph::addEdge(int beginV, int endV, int weight) {
+
+	adjacencyLists[beginV]->add(endV, weight);
 }
 
 int DirectedListGraph::checkEdge(int beginV, int endV) {
-	return 0;
+	return adjacencyLists[beginV]->getEdgeWeight(endV);
 }
 
 void DirectedListGraph::removeEdge(int beginV, int endV) {
+	adjacencyLists[beginV]->remove(endV);
 }
 
 int DirectedListGraph::degree() {
 	return 0;
-}
-
-void DirectedListGraph::print(std::ostream & out) {
 }
