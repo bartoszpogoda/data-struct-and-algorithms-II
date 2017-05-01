@@ -64,6 +64,15 @@
     <Filter Include="Header Files\model\structures\impl\matrix-graph">
       <UniqueIdentifier>{4e436c4e-6da0-4945-b4d4-309896809be7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\model\algorithms-MST">
+      <UniqueIdentifier>{02332cd3-e244-47ff-8477-575847228224}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model\structures\impl\other">
+      <UniqueIdentifier>{bb6511f5-f9a0-490a-8ce0-1b9a44cec411}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\model\structures\other">
+      <UniqueIdentifier>{07bf119a-aa3a-4f70-ac8d-28c72443ddb5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -87,14 +96,20 @@
     <ClCompile Include="IndirectedListGraph.cpp">
       <Filter>Source Files\model\structures\list-graph</Filter>
     </ClCompile>
-    <ClCompile Include="AdjacencyList.cpp">
-      <Filter>Source Files\model\structures\list-graph</Filter>
-    </ClCompile>
     <ClCompile Include="ListGraph.cpp">
       <Filter>Source Files\model\structures\list-graph</Filter>
     </ClCompile>
     <ClCompile Include="MatrixGraph.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MSTKruskal.cpp">
+      <Filter>Source Files\model\algorithms-MST</Filter>
+    </ClCompile>
+    <ClCompile Include="AdjacencyList.cpp">
+      <Filter>Source Files\model\structures\other</Filter>
+    </ClCompile>
+    <ClCompile Include="MinimumEdgeHeap.cpp">
+      <Filter>Source Files\model\structures\other</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,11 +167,17 @@
     <ClInclude Include="MatrixGraph.h">
       <Filter>Header Files\model\structures</Filter>
     </ClInclude>
-    <ClInclude Include="AdjacencyList.h">
-      <Filter>Header Files\model\structures\impl\list-graph</Filter>
-    </ClInclude>
     <ClInclude Include="AdjacencyListNode.h">
-      <Filter>Header Files\model\structures\impl\list-graph</Filter>
+      <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="AdjacencyList.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="MinimumEdgeHeap.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="Edge.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

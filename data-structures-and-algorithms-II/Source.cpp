@@ -6,33 +6,29 @@
 #include "IndirectedListGraph.h"
 #include "IndirectedMatrixGraph.h"
 #include "DirectedMatrixGraph.h"
+#include "Edge.h"
+#include "MinimumEdgeHeap.h"
 
 int main() {
 
-	//AdjacencyList* list = new AdjacencyList();
+	Edge** edges = new Edge*[5];
+	edges[0] = new Edge(1, 2, 0);
+	edges[1] = new Edge(3, 1, 4);
+	edges[2] = new Edge(1, 4, 12);
+	edges[3] = new Edge(0, 2, 3);
+	edges[4] = new Edge(0, 3, 1);
 
-	//list->addEnd(2, 3);
-	//list->addEnd(4, 2);
-	//list->addEnd(1, 1);
-	
-	//std::cout << list->toString();
+	MinimumEdgeHeap* heap = new MinimumEdgeHeap(edges, 5);
+	std::cout << heap->toStringTable();
+	delete[] edges;
 
-	Graph* graph = new DirectedListGraph(5);
-	Graph* graph1 = new DirectedMatrixGraph(5);
-	Graph* graph2 = new IndirectedListGraph(5);
-	Graph* graph3 = new IndirectedMatrixGraph(5);
+	for (size_t i = 0; i < 5; i++) {
+		Edge* edge = heap->getRoot();
+		std::cout << edge->getWeight() << " ";
+		delete edge;
+	}
 
-	graph->addEdge(1, 2, 3);
-	graph->addEdge(2, 1, 2);
-	graph1->addEdge(2, 1, 2);
-	graph2->addEdge(2, 1, 2);
-	graph3->addEdge(2, 1, 2);
-	graph->print(std::cout);
-
-	delete graph;
-	delete graph1;
-	delete graph2;
-	delete graph3;
+	delete heap;
 
 	int x;
 	std::cin >> x;
