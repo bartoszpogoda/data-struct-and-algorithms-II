@@ -2,6 +2,8 @@
 
 #include "Graph.h"
 
-class ListGraph : Graph {
+class ListGraph : public Graph {
+protected:
+	ListGraph(int n) : Graph(n) {}
 	
 };

@@ -52,6 +52,18 @@
     <Filter Include="Source Files\interface">
       <UniqueIdentifier>{22afaee8-11d9-43e1-ab46-92dc3ffb30fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\model\structures\impl\matrix-graph">
+      <UniqueIdentifier>{4e436c4e-6da0-4945-b4d4-309896809be7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model\structures\impl\list-graph">
+      <UniqueIdentifier>{e943264a-4233-4bb6-ab26-b08b61e05979}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\model\structures\matrix-graph">
+      <UniqueIdentifier>{8106ad98-cc11-44f2-9f34-a167ac2d6220}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\model\structures\list-graph">
+      <UniqueIdentifier>{6de15c51-a602-4a7c-b94f-dc314d804e29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -62,6 +74,18 @@
     </ClCompile>
     <ClCompile Include="CLInterfaceCommon.cpp">
       <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectedMatrixGraph.cpp">
+      <Filter>Source Files\model\structures\matrix-graph</Filter>
+    </ClCompile>
+    <ClCompile Include="IndirectedMatrixGraph.cpp">
+      <Filter>Source Files\model\structures\matrix-graph</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectedListGraph.cpp">
+      <Filter>Source Files\model\structures\list-graph</Filter>
+    </ClCompile>
+    <ClCompile Include="IndirectedListGraph.cpp">
+      <Filter>Source Files\model\structures\list-graph</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,14 +119,29 @@
     <ClInclude Include="MSTKruskal.h">
       <Filter>Header Files\model\algorithms-MST\impl</Filter>
     </ClInclude>
-    <ClInclude Include="ListGraph.h">
-      <Filter>Header Files\model\structures\impl</Filter>
-    </ClInclude>
-    <ClInclude Include="MatrixGraph.h">
-      <Filter>Header Files\model\structures\impl</Filter>
-    </ClInclude>
     <ClInclude Include="CLInterface.h">
       <Filter>Header Files\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Infinity.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGraph.h">
+      <Filter>Header Files\model\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="ListGraph.h">
+      <Filter>Header Files\model\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="IndirectedMatrixGraph.h">
+      <Filter>Header Files\model\structures\impl\matrix-graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectedMatrixGraph.h">
+      <Filter>Header Files\model\structures\impl\matrix-graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectedListGraph.h">
+      <Filter>Header Files\model\structures\impl\list-graph</Filter>
+    </ClInclude>
+    <ClInclude Include="IndirectedListGraph.h">
+      <Filter>Header Files\model\structures\impl\list-graph</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
