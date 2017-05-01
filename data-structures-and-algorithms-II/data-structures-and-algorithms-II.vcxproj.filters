@@ -25,6 +25,21 @@
     <Filter Include="Source Files\helper">
       <UniqueIdentifier>{f032d401-e2ed-4d5b-af7f-e78779063c77}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\algorithms-MST">
+      <UniqueIdentifier>{252cce1c-adf4-4842-900a-dc13a892cade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\algorithms-spath">
+      <UniqueIdentifier>{049ccd8a-8847-4be8-9842-7464ffacf3c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\algorithms-spath\impl">
+      <UniqueIdentifier>{d5d3561c-a3b0-4e5a-be06-09a4f9c0dca3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\algorithms-MST\impl">
+      <UniqueIdentifier>{18c3ef8d-05c7-4a9f-9d2b-e5cee35a3117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\structures\impl">
+      <UniqueIdentifier>{f406abc0-2b57-4425-a7cc-805c22e121de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -38,14 +53,38 @@
     <ClInclude Include="Graph.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
-    <ClInclude Include="MatrixGraph.h">
-      <Filter>Header Files\structures</Filter>
-    </ClInclude>
-    <ClInclude Include="ListGraph.h">
-      <Filter>Header Files\structures</Filter>
-    </ClInclude>
     <ClInclude Include="GraphFileReader.h">
       <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphFileData.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="MST.h">
+      <Filter>Header Files\algorithms-MST</Filter>
+    </ClInclude>
+    <ClInclude Include="SPath.h">
+      <Filter>Header Files\algorithms-spath</Filter>
+    </ClInclude>
+    <ClInclude Include="SPathBellmanFord.h">
+      <Filter>Header Files\algorithms-spath\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="SPathDjikstra.h">
+      <Filter>Header Files\algorithms-spath\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Header Files\algorithms-spath\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="MSTPrim.h">
+      <Filter>Header Files\algorithms-MST\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="MSTKruskal.h">
+      <Filter>Header Files\algorithms-MST\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="ListGraph.h">
+      <Filter>Header Files\structures\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGraph.h">
+      <Filter>Header Files\structures\impl</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

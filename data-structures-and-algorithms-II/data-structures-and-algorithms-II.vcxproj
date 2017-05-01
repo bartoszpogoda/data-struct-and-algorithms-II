@@ -146,10 +146,18 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GraphFileData.h" />
     <ClInclude Include="GraphFileReader.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="MSTPrim.h" />
     <ClInclude Include="ListGraph.h" />
     <ClInclude Include="MatrixGraph.h" />
+    <ClInclude Include="MST.h" />
+    <ClInclude Include="MSTKruskal.h" />
+    <ClInclude Include="Path.h" />
+    <ClInclude Include="SPath.h" />
+    <ClInclude Include="SPathBellmanFord.h" />
+    <ClInclude Include="SPathDjikstra.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
