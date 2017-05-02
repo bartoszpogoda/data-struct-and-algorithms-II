@@ -156,6 +156,7 @@
     <ClCompile Include="MSTKruskal.cpp" />
     <ClCompile Include="MSTPrim.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdjacencyList.h" />
@@ -182,6 +183,7 @@
     <ClInclude Include="SPath.h" />
     <ClInclude Include="SPathBellmanFord.h" />
     <ClInclude Include="SPathDjikstra.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

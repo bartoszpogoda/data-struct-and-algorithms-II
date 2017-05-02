@@ -40,6 +40,7 @@ Graph * MSTKruskal::execute(MatrixGraph * graph) {
 		delete edge;
 	}
 	
+	delete edgeHeap;
 	delete dsSet;
 	return forest;
 }
@@ -95,6 +96,7 @@ Graph * MSTKruskal::execute(ListGraph * graph) {
 		delete edge;
 	}
 
+	delete edgeHeap;
 	delete dsSet;
 	return forest;
 }

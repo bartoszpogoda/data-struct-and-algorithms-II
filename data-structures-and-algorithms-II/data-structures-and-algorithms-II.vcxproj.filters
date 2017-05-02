@@ -117,6 +117,9 @@
     <ClCompile Include="GraphFileReader.cpp">
       <Filter>Source Files\helper</Filter>
     </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\helper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">
@@ -189,6 +192,9 @@
       <Filter>Header Files\helper</Filter>
     </ClInclude>
     <ClInclude Include="ListGraphFileData.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
       <Filter>Header Files\helper</Filter>
     </ClInclude>
   </ItemGroup>
