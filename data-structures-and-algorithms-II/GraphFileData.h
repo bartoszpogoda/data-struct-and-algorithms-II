@@ -3,11 +3,16 @@
 #include "Graph.h"
 
 class GraphFileData {
-	Graph* graph;
-	int firstVerticle;
-public:
-	GraphFileData(Graph* graph, int firstVerticle) : graph(graph), firstVerticle(firstVerticle) { }
+	int startVerticle;
+	bool errorFlag;
+	std::string errorMessage;
 
-	Graph* getGraph() { return graph; }
-	int getFirstVerticle() { return firstVerticle; }
+public:
+	GraphFileData(int startVerticle) : startVerticle(startVerticle), errorFlag(false) { }
+	GraphFileData(std::string errorMessage) : errorFlag(true), errorMessage(errorMessage) { }
+
+	int getFirstVerticle() { return startVerticle; }
+
+	bool good() { return !errorFlag; }
+	std::string getErrorMessage() { return errorMessage; }
 };

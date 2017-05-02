@@ -1,13 +1,13 @@
 #pragma once
 
 #include <iostream>
-#include "GraphFileData.h"
+#include "MatrixGraphFileData.h"
+#include "ListGraphFileData.h"
 
 class GraphFileReader {
-
 public:
-	enum GraphRepresentation {LIST, MATRIX};
-	enum GraphType {DIRECTED, UNDIRECTED};
+	enum GraphType {DIRECTED, INDIRECTED};
 
-	GraphFileData* read(std::string filename, GraphRepresentation representation, GraphType type);
+	MatrixGraphFileData* readMatrixGraph(std::string filename, GraphType type);
+	ListGraphFileData* readListGraph(std::string filename, GraphType type);
 };

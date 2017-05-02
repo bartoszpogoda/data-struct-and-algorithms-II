@@ -78,9 +78,6 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileReader.cpp">
-      <Filter>Source Files\helper</Filter>
-    </ClCompile>
     <ClCompile Include="CLInterfaceCommon.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
@@ -116,6 +113,9 @@
     </ClCompile>
     <ClCompile Include="DisjointSet.cpp">
       <Filter>Source Files\model\structures\other</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphFileReader.cpp">
+      <Filter>Source Files\helper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +184,12 @@
     </ClInclude>
     <ClInclude Include="DisjointSet.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGraphFileData.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="ListGraphFileData.h">
+      <Filter>Header Files\helper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
