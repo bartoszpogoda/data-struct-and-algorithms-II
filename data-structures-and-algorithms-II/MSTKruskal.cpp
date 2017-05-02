@@ -3,15 +3,15 @@
 #include "Infinity.h"
 #include "MinimumEdgeHeap.h"
 
-bool MSTKruskal::isMST(Graph * graph) {
-	return false;
+Graph * MSTKruskal::execute(MatrixGraph * graph) {
+	return nullptr;
 }
 
-bool MSTKruskal::canAdd(Graph * graph, Edge * edge) {
-	return false;
+Graph * MSTKruskal::execute(ListGraph * graph) {
+	return nullptr;
 }
 
-Graph * MSTKruskal::execute(Graph * graph) {
+/*Graph * MSTKruskal::execute(Graph * graph) {
 
 	// trees 0,1, ..., n-1 in forest
 	Graph * forest = new IndirectedMatrixGraph(graph->getSize());
@@ -44,4 +44,4 @@ Graph * MSTKruskal::execute(Graph * graph) {
 	}
 	
 	return forest;
-}
+}*/

@@ -3,8 +3,8 @@
 
 class MSTKruskal : public MST {
 private:
-	bool isMST(Graph* graph);	// may be moved to MST depending on Prim's needs
-	bool canAdd(Graph* graph, Edge* edge);
+	//bool isSpanTree(Graph* graph);	// may be moved to MST depending on Prim's needs
 public:
-	Graph* execute(Graph* graph);
+	Graph* execute(MatrixGraph* graph);
+	Graph* execute(ListGraph* graph);
 };

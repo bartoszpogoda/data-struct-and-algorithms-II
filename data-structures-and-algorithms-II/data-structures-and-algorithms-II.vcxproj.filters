@@ -99,9 +99,6 @@
     <ClCompile Include="ListGraph.cpp">
       <Filter>Source Files\model\structures\list-graph</Filter>
     </ClCompile>
-    <ClCompile Include="MatrixGraph.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MSTKruskal.cpp">
       <Filter>Source Files\model\algorithms-MST</Filter>
     </ClCompile>
@@ -109,6 +106,15 @@
       <Filter>Source Files\model\structures\other</Filter>
     </ClCompile>
     <ClCompile Include="MinimumEdgeHeap.cpp">
+      <Filter>Source Files\model\structures\other</Filter>
+    </ClCompile>
+    <ClCompile Include="MSTPrim.cpp">
+      <Filter>Source Files\model\algorithms-MST</Filter>
+    </ClCompile>
+    <ClCompile Include="MatrixGraph.cpp">
+      <Filter>Source Files\model\structures\matrix-graph</Filter>
+    </ClCompile>
+    <ClCompile Include="DisjointSet.cpp">
       <Filter>Source Files\model\structures\other</Filter>
     </ClCompile>
   </ItemGroup>
@@ -177,6 +183,9 @@
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
     <ClInclude Include="Edge.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="DisjointSet.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
   </ItemGroup>
