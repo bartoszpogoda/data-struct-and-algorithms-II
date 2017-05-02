@@ -2,11 +2,13 @@
 
 class DisjointSet {
 	class Node;
+
 	Node** nodes;
 	int n;
 
 	Node* find(int elem);
 	void makeSet(int elem);
+
 public:
 	DisjointSet(int n);
 	~DisjointSet();

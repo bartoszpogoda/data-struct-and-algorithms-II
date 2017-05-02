@@ -1,8 +1,9 @@
 #pragma once
-#include "AdjacencyListNode.h"
 #include <iostream>
 
 class AdjacencyList {
+	class AdjacencyListNode;
+
 	AdjacencyListNode* head;
 	AdjacencyListNode* tail;
 
@@ -19,4 +20,16 @@ public:
 	int getEdgeWeight(int adjacent);
 
 	std::string toString();
+};
+
+
+class AdjacencyList::AdjacencyListNode {
+public:
+	AdjacencyListNode* prev;
+	AdjacencyListNode* next;
+
+	int adjacent;
+	int weight;
+
+	AdjacencyListNode(int adjacent, int weight) : adjacent(adjacent), weight(weight), prev(nullptr), next(nullptr) {}
 };

@@ -1,19 +1,19 @@
 #include "AdjacencyList.h"
 #include <time.h>      
 #include <string>
+#include "Infinity.h"
 
 
-
-AdjacencyListNode * AdjacencyList::find(int adjacent) {
+AdjacencyList::AdjacencyListNode * AdjacencyList::find(int adjacent) {
 	if (head == nullptr)
 		return nullptr;
 
 	AdjacencyListNode* iterator = head;
-	while (iterator->getNext() != nullptr && iterator->getAdjacent() != adjacent) {
-		iterator = iterator->getNext();
+	while (iterator->next != nullptr && iterator->adjacent != adjacent) {
+		iterator = iterator->next;
 	}
 
-	if (iterator->getAdjacent() == adjacent)
+	if (iterator->adjacent == adjacent)
 		return iterator;
 	else return nullptr;
 }
@@ -24,9 +24,9 @@ AdjacencyList::~AdjacencyList() {
 
 	AdjacencyListNode* iterator = tail;
 
-	while (iterator->getPrev() != nullptr) {
-		iterator = iterator->getPrev();
-		delete iterator->getNext();
+	while (iterator->prev != nullptr) {
+		iterator = iterator->prev;
+		delete iterator->next;
 	}
 
 	delete iterator;
@@ -51,7 +51,7 @@ void AdjacencyList::add(int adjacent, int weight) {
 	AdjacencyListNode* node = find(adjacent);
 
 	if (node != nullptr) {
-		node->setWeight(weight);
+		node->weight = weight;
 		return;
 	}
 
@@ -61,8 +61,8 @@ void AdjacencyList::add(int adjacent, int weight) {
 		head = node;
 		tail = node;
 	} else {
-		tail->setNext(node);
-		node->setPrev(tail);
+		tail->next = node;
+		node->prev = tail;
 		tail = node;
 	}
 }
@@ -79,8 +79,8 @@ void AdjacencyList::remove(int adjacent) {
 		deleteTail();
 	else {
 		
-		nodeToRemove->getNext()->setPrev(nodeToRemove->getPrev());
-		nodeToRemove->getPrev()->setNext(nodeToRemove->getNext());
+		nodeToRemove->next->prev = nodeToRemove->prev;
+		nodeToRemove->prev->next = nodeToRemove->next;
 
 		delete nodeToRemove;
 	}
@@ -90,14 +90,14 @@ void AdjacencyList::deleteHead() {
 	if (head == nullptr) {
 		return;
 	}
-	if (head->getNext() == nullptr) {
+	if (head->next == nullptr) {
 		delete head;
 		head = nullptr;
 		tail = nullptr;
 	} else {
-		head = head->getNext();
-		delete head->getPrev();
-		head->setPrev(nullptr);
+		head = head->next;
+		delete head->prev;
+		head->prev = nullptr;
 	}
 }
 
@@ -107,14 +107,14 @@ void AdjacencyList::deleteTail() {
 		return;
 	}
 
-	if (tail->getPrev() == nullptr) {
+	if (tail->prev == nullptr) {
 		delete tail;
 		tail = nullptr;
 		head = nullptr;
 	} else {
-		tail = tail->getPrev();
-		delete tail->getNext();
-		tail->setNext(nullptr);
+		tail = tail->prev;
+		delete tail->next;
+		tail->next = nullptr;
 	}
 }
 
@@ -124,7 +124,7 @@ int AdjacencyList::getEdgeWeight(int adjacent) {
 	if (node == nullptr)
 		return INF;
 	else
-		return node->getWeight();
+		return node->weight;
 
 }
 
@@ -138,16 +138,16 @@ std::string AdjacencyList::toString() {
 		result += "[empty]";
 		return result;
 	} else {
-		result += "[" + std::to_string(head->getAdjacent());
-		result += " " + std::to_string(head->getWeight()) + "] ";
+		result += "[" + std::to_string(head->adjacent);
+		result += " " + std::to_string(head->weight) + "] ";
 	}
 
 	AdjacencyListNode* iterator = head;
 
-	while (iterator->getNext() != nullptr) {
-		iterator = iterator->getNext();
-		result += "[" + std::to_string(iterator->getAdjacent());
-		result += " " + std::to_string(iterator->getWeight()) + "] ";
+	while (iterator->next != nullptr) {
+		iterator = iterator->next;
+		result += "[" + std::to_string(iterator->adjacent);
+		result += " " + std::to_string(iterator->weight) + "] ";
 	}
 
 	return result;

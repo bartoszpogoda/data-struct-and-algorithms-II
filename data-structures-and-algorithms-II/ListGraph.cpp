@@ -1,4 +1,5 @@
 #include "ListGraph.h"
+#include <string>
 
 ListGraph::ListGraph(int n) : Graph(n), adjacencyLists(new AdjacencyList*[n]) {
 	for (int i = 0; i < n; i++) {

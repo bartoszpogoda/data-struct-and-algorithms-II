@@ -9,16 +9,20 @@
 #include "Edge.h"
 #include "MinimumEdgeHeap.h"
 #include "DisjointSet.h"
+#include "AdjacencyList.h"
 
 int main() {
 
-	DisjointSet* djSet = new DisjointSet(5);
-	std::cout << djSet->makeUnion(1, 2);
-	std::cout << djSet->makeUnion(2, 1);
-	std::cout << djSet->makeUnion(3, 4);
-	std::cout << djSet->makeUnion(1, 0);
-	std::cout << djSet->makeUnion(3, 0);
-	std::cout << djSet->makeUnion(3, 2);
+
+	AdjacencyList* list = new AdjacencyList();
+	
+	list->add(2, 3);
+	list->add(4, 2);
+	list->add(1, 1);
+	list->remove(1);
+	
+	std::cout << list->toString();
+	
 
 	
 

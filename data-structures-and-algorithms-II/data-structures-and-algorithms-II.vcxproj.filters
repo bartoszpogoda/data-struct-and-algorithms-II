@@ -173,9 +173,6 @@
     <ClInclude Include="MatrixGraph.h">
       <Filter>Header Files\model\structures</Filter>
     </ClInclude>
-    <ClInclude Include="AdjacencyListNode.h">
-      <Filter>Header Files\model\structures\impl\other</Filter>
-    </ClInclude>
     <ClInclude Include="AdjacencyList.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>

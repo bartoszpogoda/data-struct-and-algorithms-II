@@ -159,7 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdjacencyList.h" />
-    <ClInclude Include="AdjacencyListNode.h" />
     <ClInclude Include="DirectedMatrixGraph.h" />
     <ClInclude Include="DisjointSet.h" />
     <ClInclude Include="Edge.h" />
