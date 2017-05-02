@@ -1,7 +1,13 @@
 #pragma once
 
 #include "Graph.h"
+#include"AdjacencyList.h"
 
-class ListGraph : Graph {
-	
+class ListGraph : public Graph {
+protected:
+	AdjacencyList** adjacencyLists;
+	ListGraph(int n);
+	virtual ~ListGraph();
+
+	void print(std::ostream &out);
 };

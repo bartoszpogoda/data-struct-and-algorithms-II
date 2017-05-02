@@ -3,5 +3,6 @@
 
 class MSTPrim : public MST{
 public:
-	Graph* execute(Graph* graph);
+	Graph* execute(MatrixGraph* graph);
+	Graph* execute(ListGraph* graph);
 };
