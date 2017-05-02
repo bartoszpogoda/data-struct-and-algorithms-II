@@ -130,6 +130,22 @@ int AdjacencyList::getEdgeWeight(int adjacent) {
 
 }
 
+bool AdjacencyList::iterHasNext() {
+	return iterator != nullptr && iterator->next != nullptr;
+}
+
+void AdjacencyList::iterNext() {
+	iterator = iterator->next;
+}
+
+int AdjacencyList::iterGetAdjacent() {
+	return iterator->adjacent;
+}
+
+int AdjacencyList::iterGetWeight() {
+	return iterator->weight;
+}
+
 /**
 format: [adj1 weigh1 adj2 weigh2 ...]
 */

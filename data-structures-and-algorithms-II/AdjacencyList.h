@@ -6,6 +6,7 @@ class AdjacencyList {
 
 	AdjacencyListNode* head;
 	AdjacencyListNode* tail;
+	AdjacencyListNode* iterator;
 
 	AdjacencyListNode* find(int adjacent);
 	void AdjacencyList::deleteHead();
@@ -18,6 +19,12 @@ public:
 	void add(int adjacent, int weight);
 	void remove(int adjacent);
 	int getEdgeWeight(int adjacent);
+
+	bool iterReset() { return (iterator = head) != nullptr; }
+	bool iterHasNext();
+	void iterNext();
+	int iterGetAdjacent(); 
+	int iterGetWeight();
 
 	std::string toString(int width);
 };

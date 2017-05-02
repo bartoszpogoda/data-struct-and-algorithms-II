@@ -15,13 +15,13 @@
 
 int main() {
 	GraphFileReader* gfr = new GraphFileReader();
-	ListGraphFileData* mgfd = gfr->readListGraph("data.txt", GraphFileReader::INDIRECTED);
+	MatrixGraphFileData* mgfd = gfr->readMatrixGraph("data.txt", GraphFileReader::INDIRECTED);
 
 	std::cout << mgfd->getErrorMessage();
 
 	
 	std::cout << "Before Kruskal's MST: " << std::endl;
-	ListGraph* graph = mgfd->getGraph();
+	MatrixGraph* graph = mgfd->getGraph();
 
 
 	graph->print(std::cout);
@@ -30,7 +30,7 @@ int main() {
 	Graph* result = kruskals->execute(graph);
 
 	std::cout << "Result: " << std::endl;
-	//result->print(std::cout);
+	result->print(std::cout);
 	
 	
 	int x;
