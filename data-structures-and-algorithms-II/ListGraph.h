@@ -6,6 +6,7 @@
 class ListGraph : public Graph {
 protected:
 	AdjacencyList** adjacencyLists;
+public:
 	ListGraph(int n);
 	virtual ~ListGraph();
 

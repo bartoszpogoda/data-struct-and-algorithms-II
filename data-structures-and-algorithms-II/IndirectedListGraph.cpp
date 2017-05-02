@@ -2,15 +2,15 @@
 #include <algorithm>
 
 void IndirectedListGraph::addEdge(int beginV, int endV, int weight) {
-	adjacencyLists[std::max(beginV, endV)]->add(std::min(beginV, endV), weight);
+	adjacencyLists[std::min(beginV, endV)]->add(std::max(beginV, endV), weight);
 }
 
 int IndirectedListGraph::checkEdge(int beginV, int endV) {
-	return adjacencyLists[std::max(beginV, endV)]->getEdgeWeight(std::min(beginV, endV));
+	return adjacencyLists[std::min(beginV, endV)]->getEdgeWeight(std::max(beginV, endV));
 }
 
 void IndirectedListGraph::removeEdge(int beginV, int endV) {
-	adjacencyLists[std::max(beginV, endV)]->remove(std::min(beginV, endV));
+	adjacencyLists[std::min(beginV, endV)]->remove(std::max(beginV, endV));
 }
 
 int IndirectedListGraph::degree() {
