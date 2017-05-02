@@ -23,17 +23,17 @@ IndirectedMatrixGraph::~IndirectedMatrixGraph() {
 
 void IndirectedMatrixGraph::addEdge(int beginV, int endV, int weight) {
 
-	adjacencyMatrix[std::max(beginV, endV)][std::min(beginV, endV)] = weight;
+	adjacencyMatrix[std::min(beginV, endV)][std::max(beginV, endV) - std::min(beginV, endV)] = weight;
 }
 
 int IndirectedMatrixGraph::checkEdge(int beginV, int endV) {
 
-	return adjacencyMatrix[std::max(beginV, endV)][std::min(beginV, endV)];
+	return adjacencyMatrix[std::min(beginV, endV)][std::max(beginV, endV) - std::min(beginV, endV)];
 }
 
 void IndirectedMatrixGraph::removeEdge(int beginV, int endV) {
 
-	adjacencyMatrix[std::max(beginV, endV)][std::min(beginV, endV)] = INF;
+	adjacencyMatrix[std::min(beginV, endV)][std::max(beginV, endV) - std::min(beginV, endV)] = INF;
 }
 
 int IndirectedMatrixGraph::degree() {

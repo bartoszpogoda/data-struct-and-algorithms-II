@@ -24,7 +24,7 @@ int main() {
 
 	*/
 	std::cout << "Graf dla kruskala: " << std::endl;
-	MatrixGraph* graph = new DirectedMatrixGraph(5);
+	MatrixGraph* graph = new IndirectedMatrixGraph(5);
 	graph->addEdge(1, 2, 3);
 	graph->addEdge(0, 2, 1);
 	graph->addEdge(2, 4, 5);
