@@ -1,6 +1,6 @@
 #include "DirectedMatrixGraph.h"
 #include "Infinity.h"
-
+#include <iomanip>
 #include <string>
 
 DirectedMatrixGraph::DirectedMatrixGraph(int n) : MatrixGraph(n) {
@@ -40,10 +40,30 @@ int DirectedMatrixGraph::degree() {
 }
 
 void DirectedMatrixGraph::print(std::ostream &out) {
+	out << "Adjacency Matrix: " << std::endl;
+
+	int argWidth = 4;
+
+	// indexes row
+	out << std::setw(argWidth) << std::setfill(' ') << "" << "|";
+	for (size_t i = 0; i < n; i++)
+		out << std::setw(argWidth) << i << "|";
+	out << std::endl;
+
+	// +---+.... row
+	for (int i = -1; i < n; i++)
+		out << std::setw(argWidth) << std::setfill('-') << "" << "+";
+	out << std::endl;
+
+	// main data loop
 	for (size_t i = 0; i < n; i++) {
+		out << std::setw(argWidth) << std::setfill(' ') << i << "|";
+
 		for (size_t j = 0; j < n; j++)
-			out << (adjacencyMatrix[i][j] == INF ? INF_STRING : std::to_string(adjacencyMatrix[i][j])) << " ";
-		
+			out << std::setw(argWidth) << (adjacencyMatrix[i][j] == INF ? INF_STRING : std::to_string(adjacencyMatrix[i][j])) << " ";
+
 		out << std::endl;
 	}
+
+	out << std::endl;
 }

@@ -19,7 +19,7 @@ public:
 	void remove(int adjacent);
 	int getEdgeWeight(int adjacent);
 
-	std::string toString();
+	std::string toString(int width);
 };
 
 

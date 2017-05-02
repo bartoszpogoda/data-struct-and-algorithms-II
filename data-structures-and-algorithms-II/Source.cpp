@@ -14,22 +14,13 @@
 #include "IndirectedMatrixGraph.h"
 
 int main() {
-	// IndirectedMatrixGraph is bugged! TODO:
-	/* should be like that rather
-	oo oo oo 1 2
-	   oo 3 oo oo
-	      oo 7 5
-	         oo 2
-	            oo
-
-	*/
-	std::cout << "Graf dla kruskala: " << std::endl;
+	std::cout << "Before Kruskal's MST: " << std::endl;
 	MatrixGraph* graph = new IndirectedMatrixGraph(5);
-	graph->addEdge(1, 2, 3);
-	graph->addEdge(0, 2, 1);
-	graph->addEdge(2, 4, 5);
-	graph->addEdge(0, 3, 1);
-	graph->addEdge(3, 4, 2);
+	graph->addEdge(1, 2, 33);
+	graph->addEdge(0, 2, 112);
+	graph->addEdge(2, 4, 57);
+	graph->addEdge(0, 3, 12);
+	graph->addEdge(3, 4, 48);
 	graph->addEdge(2, 3, 7);
 	graph->addEdge(0, 4, 2);
 
@@ -38,7 +29,7 @@ int main() {
 	MST* kruskals = new MSTKruskal();
 	Graph* result = kruskals->execute(graph);
 
-	std::cout << "MST: " << std::endl;
+	std::cout << "Result: " << std::endl;
 	result->print(std::cout);
 	
 	

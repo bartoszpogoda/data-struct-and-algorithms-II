@@ -1,6 +1,8 @@
 #include "AdjacencyList.h"
 #include <time.h>      
 #include <string>
+#include <sstream>   
+#include <iomanip>   
 #include "Infinity.h"
 
 
@@ -131,24 +133,24 @@ int AdjacencyList::getEdgeWeight(int adjacent) {
 /**
 format: [adj1 weigh1 adj2 weigh2 ...]
 */
-std::string AdjacencyList::toString() {
-	std::string result = "";
+std::string AdjacencyList::toString(int width) {
+	std::stringstream result;
+	result << "";
 
 	if (head == nullptr) {
-		result += "[empty]";
-		return result;
+		return result.str();
 	} else {
-		result += "[" + std::to_string(head->adjacent);
-		result += " " + std::to_string(head->weight) + "] ";
+		result << "(" << std::setw(width-1) << std::setfill(' ') << head->adjacent << "v;"
+			<< std::setw(width-1) << std::setfill(' ') << head->weight << "w) ";
 	}
 
 	AdjacencyListNode* iterator = head;
 
 	while (iterator->next != nullptr) {
 		iterator = iterator->next;
-		result += "[" + std::to_string(iterator->adjacent);
-		result += " " + std::to_string(iterator->weight) + "] ";
+		result << "(" << std::setw(width-1) << std::setfill(' ') << iterator->adjacent << "v;"
+			<< std::setw(width-1) << std::setfill(' ') << iterator->weight << "w) ";
 	}
 
-	return result;
+	return result.str();
 }
