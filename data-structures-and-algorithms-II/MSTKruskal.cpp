@@ -4,9 +4,10 @@
 #include "DisjointSet.h"
 #include "MinimumEdgeHeap.h"
 
-Graph * MSTKruskal::execute(MatrixGraph * graph) {
+void MSTKruskal::execute(IndirectedMatrixGraph * graph) {
 	// empty forest
-	Graph * forest = new IndirectedListGraph(graph->getSize());
+	resultMST = new IndirectedListGraph(graph->getSize());
+	resultWeight = 0;
 
 	// create edge heap
 	Edge** edges = new Edge*[graph->getSize() * graph->getSize()]; // mb track number of edges in Graph?
@@ -33,8 +34,9 @@ Graph * MSTKruskal::execute(MatrixGraph * graph) {
 	size_t addedEdges = 0;
 	while(addedEdges < graph->getSize() - 1 && (edge = edgeHeap->getRoot()) != nullptr) {
 		if (dsSet->makeUnion(edge->getStartV(), edge->getEndV())) {
-			forest->addEdge(edge->getStartV(), edge->getEndV(), edge->getWeight());
+			resultMST->addEdge(edge->getStartV(), edge->getEndV(), edge->getWeight());
 			addedEdges++;
+			resultWeight += edge->getWeight();
 		}
 
 		delete edge;
@@ -42,12 +44,12 @@ Graph * MSTKruskal::execute(MatrixGraph * graph) {
 	
 	delete edgeHeap;
 	delete dsSet;
-	return forest;
 }
 
-Graph * MSTKruskal::execute(ListGraph * graph) {
+void MSTKruskal::execute(IndirectedListGraph * graph) {
 	// empty forest
-	Graph * forest = new IndirectedListGraph(graph->getSize());
+	resultMST = new IndirectedListGraph(graph->getSize());
+	resultWeight = 0;
 
 	// create edge heap
 	Edge** edges = new Edge*[graph->getSize() * graph->getSize()]; // mb track number of edges in Graph?
@@ -75,6 +77,7 @@ Graph * MSTKruskal::execute(ListGraph * graph) {
 			if (weight != INF) {
 				edges[e] = new Edge(i, j, weight);
 				e++;
+				resultWeight += weight;
 			}
 		}
 	}
@@ -89,7 +92,7 @@ Graph * MSTKruskal::execute(ListGraph * graph) {
 	size_t addedEdges = 0;
 	while (addedEdges < graph->getSize() - 1 && (edge = edgeHeap->getRoot()) != nullptr) {
 		if (dsSet->makeUnion(edge->getStartV(), edge->getEndV())) {
-			forest->addEdge(edge->getStartV(), edge->getEndV(), edge->getWeight());
+			resultMST->addEdge(edge->getStartV(), edge->getEndV(), edge->getWeight());
 			addedEdges++;
 		}
 
@@ -98,40 +101,4 @@ Graph * MSTKruskal::execute(ListGraph * graph) {
 
 	delete edgeHeap;
 	delete dsSet;
-	return forest;
 }
-
-/*Graph * MSTKruskal::execute(Graph * graph) {
-
-	// trees 0,1, ..., n-1 in forest
-	Graph * forest = new IndirectedMatrixGraph(graph->getSize());
-
-	// create edge heap
-	Edge** edges = new Edge*[graph->getSize() * graph->getSize()]; // mb track number of edges in Graph?
-	int e = 0;
-
-	for (size_t i = 0; i < graph->getSize(); i++) {
-		for (size_t j = 0; j < graph->getSize(); j++) {
-			int weight = graph->checkEdge(i, j);
-
-			if (weight != INF) {
-				edges[e] = new Edge(i, j, weight);
-				e++;
-			}
-		}
-	}
-
-	MinimumEdgeHeap* edgeHeap = new MinimumEdgeHeap(edges, e);
-	delete[] edges;
-
-	// ...
-	Edge* edge = nullptr;
-	while ((edge = edgeHeap->getRoot()) != nullptr && isMST(forest)) {
-		if (canAdd(forest, edge))
-			;// ...
-		else
-			delete edge;
-	}
-	
-	return forest;
-}*/

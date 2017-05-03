@@ -120,12 +120,12 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files\helper</Filter>
     </ClCompile>
+    <ClCompile Include="MST.cpp">
+      <Filter>Source Files\model\algorithms-MST</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">
-      <Filter>Header Files\helper</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphFileData.h">
       <Filter>Header Files\helper</Filter>
     </ClInclude>
     <ClInclude Include="MST.h">
@@ -151,9 +151,6 @@
     </ClInclude>
     <ClInclude Include="CLInterface.h">
       <Filter>Header Files\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="Infinity.h">
-      <Filter>Header Files\helper</Filter>
     </ClInclude>
     <ClInclude Include="IndirectedListGraph.h">
       <Filter>Header Files\model\structures\impl\list-graph</Filter>
@@ -188,17 +185,14 @@
     <ClInclude Include="DisjointSet.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
-    <ClInclude Include="MatrixGraphFileData.h">
-      <Filter>Header Files\helper</Filter>
-    </ClInclude>
-    <ClInclude Include="ListGraphFileData.h">
-      <Filter>Header Files\helper</Filter>
-    </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Header Files\helper</Filter>
     </ClInclude>
     <ClInclude Include="PerformanceTestingUtil.h">
       <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Infinity.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

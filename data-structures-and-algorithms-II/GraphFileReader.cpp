@@ -9,120 +9,124 @@
 #include "IndirectedListGraph.h"
 #include <fstream>
 
-MatrixGraphFileData * GraphFileReader::readMatrixGraph(std::string filename, GraphType type)
-{
-	MatrixGraph* graph = nullptr;
-	int size = 0, startVerticle = -1, endVerticle, e;
-
-	std::ifstream file = std::ifstream(filename);
-
-	if (file.is_open()) {
-
-		file >> e;	
-		if (file.fail()) {
-			delete graph;
-			file.close();
-			return new MatrixGraphFileData("File read error : num of edges");
-		}
-
-		file >> size;
-		if (file.fail() || size <= 0)
-			return new MatrixGraphFileData("File read error : graph size");
-
-		if (type == DIRECTED) {
-			graph = new DirectedMatrixGraph(size);
-		} else {
-			graph = new IndirectedMatrixGraph(size);
-		}
-
-		file >> startVerticle;
-		if (file.fail()) {
-			delete graph;
-			file.close();
-			return new MatrixGraphFileData("File read error : start verticle");
-		}
-
-		file >> endVerticle;
-		if (file.fail()){
-			delete graph;
-			file.close();
-			return new MatrixGraphFileData("File read error : end verticle");
-		}
-
-		int begin, end, weight;
-		for (int i = 0; i < e; i++) {
-			file >> begin >> end >> weight;
-			if (file.fail()) {
-				delete graph;
-				file.close();
-				return new MatrixGraphFileData("File read error : data");
-			} else
-				graph->addEdge(begin, end, weight);
-		}
-
-		file.close();
-		return new MatrixGraphFileData(graph, startVerticle);
-	} 
-	else
-		return new MatrixGraphFileData("File read error : open");
-
-
+void GraphFileReader::insertLoadedEdges(Graph * graph) {
+	for (size_t i = 0; i < e; i++) {
+		graph->addEdge(edges[i]->getStartV(), edges[i]->getEndV(), edges[i]->getWeight());
+	}
 }
 
-ListGraphFileData * GraphFileReader::readListGraph(std::string filename, GraphType type) {
-	ListGraph* graph = nullptr;
-	int size = 0, startVerticle = -1, endVerticle, e;
+GraphFileReader::GraphFileReader(std::string filename) : startVerticle(-1), endVerticle(-1),
+														errorFlag(false), e(0), n(0), edges(nullptr) {
+	read(filename);
+}
+
+GraphFileReader::~GraphFileReader() {
+	if (edges != nullptr) {
+		for (size_t i = 0; i < e; i++) {
+			delete edges[i];
+		}
+		delete[] edges;
+		edges = nullptr;
+	}
+}
+
+void GraphFileReader::read(std::string filename) {
 
 	std::ifstream file = std::ifstream(filename);
+	errorFlag = false;
 
+	if (edges != nullptr) {
+		return;
+	}
+	
 	if (file.is_open()) {
 
 		file >> e;
 		if (file.fail()) {
-			delete graph;
 			file.close();
-			return new ListGraphFileData("File read error : num of edges");
+			errorFlag = true;
+			errorMessage = "File read error : num of edges";
+			return;
 		}
-
-		file >> size;
-		if (file.fail() || size <= 0)
-			return new ListGraphFileData("File read error : graph size");
-
-		if (type == DIRECTED) {
-			graph = new DirectedListGraph(size);
-		} else {
-			graph = new IndirectedListGraph(size);
+		
+		file >> n;
+		if (file.fail() || n <= 0) {
+			file.close();
+			errorFlag = true;
+			errorMessage = "File read error : graph size";
+			return;
 		}
 
 		file >> startVerticle;
 		if (file.fail()) {
-			delete graph;
 			file.close();
-			return new ListGraphFileData("File read error : start verticle");
+			errorFlag = true;
+			errorMessage = "File read error : start verticle";
+			return;
 		}
 
 		file >> endVerticle;
 		if (file.fail()) {
-			delete graph;
 			file.close();
-			return new ListGraphFileData("File read error : end verticle");
+			errorFlag = true;
+			errorMessage = "File read error : end verticle";
+			return;
 		}
+
+		edges = new Edge*[e];
 
 		int begin, end, weight;
 		for (int i = 0; i < e; i++) {
 			file >> begin >> end >> weight;
 			if (file.fail()) {
-				delete graph;
 				file.close();
-				return new ListGraphFileData("File read error : data");
+				errorFlag = true;
+				errorMessage = "File read error : edges data";
+
+				for (int j = 0; j < i; j++)
+					delete edges[j];
+				delete[] edges;
+
+				return;
 			} else
-				graph->addEdge(begin, end, weight);
+				edges[i] = new Edge(begin, end, weight);
 		}
 
 		file.close();
-		return new ListGraphFileData(graph, startVerticle);
-	} else
-		return new ListGraphFileData("File read error : open");
+	} else {
+		errorFlag = true;
+		errorMessage = "File read error : file open";
+	}
+}
 
+DirectedMatrixGraph * GraphFileReader::asDirectedMatrixGraph() {
+	if(errorFlag) return nullptr;
 
+	DirectedMatrixGraph* result = new DirectedMatrixGraph(n);
+	insertLoadedEdges(result);
+	return result;
+}
+
+IndirectedMatrixGraph * GraphFileReader::asIndirectedMatrixGraph() {
+	if (errorFlag) return nullptr;
+
+	IndirectedMatrixGraph* result = new IndirectedMatrixGraph(n);
+	insertLoadedEdges(result);
+	return result;
+}
+
+DirectedListGraph * GraphFileReader::asDirectedListGraph() {
+	if (errorFlag) return nullptr;
+
+	DirectedListGraph* result = new DirectedListGraph(n);
+	insertLoadedEdges(result);
+	return result;
+}
+
+IndirectedListGraph * GraphFileReader::asIndirectedListGraph() {
+	if (errorFlag) return nullptr;
+
+	IndirectedListGraph* result = new IndirectedListGraph(n);
+	insertLoadedEdges(result);
+	return result;
 }

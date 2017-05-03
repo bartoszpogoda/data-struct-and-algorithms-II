@@ -1,10 +1,20 @@
 #pragma once
-#include "ListGraph.h"
-#include "MatrixGraph.h"
+#include "IndirectedListGraph.h"
+#include "IndirectedMatrixGraph.h"
+#include "Infinity.h"
 
 class MST {
+protected:
+	Graph* resultMST;
+	int resultWeight;
 public:
-	/* Returns Minimum Spanning Tree of the graph */
-	virtual Graph* execute(MatrixGraph* graph) = 0;
-	virtual Graph* execute(ListGraph* graph) = 0;
+	MST() : resultMST(nullptr), resultWeight(INF) {}
+	virtual ~MST() { delete resultMST; }
+	
+	Graph* getResultMST();
+	int getResultWeight();
+
+	/* Finds Minimum Spanning Tree of the graph */
+	virtual void execute(IndirectedMatrixGraph* graph) = 0;
+	virtual void execute(IndirectedListGraph* graph) = 0;
 };

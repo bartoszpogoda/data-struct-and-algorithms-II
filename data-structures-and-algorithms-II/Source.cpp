@@ -16,57 +16,35 @@
 #include <random>
 
 int main() {
-	Timer timer = Timer();
 
+	GraphFileReader* reader = new GraphFileReader("data.txt");
 	
-	int verticles = 1000;
-	int edges = 5000;
-	int weightRange = 1000;
+	if (reader->success()) {
+		// success
 
-	MST* kruskals = new MSTKruskal();
+		IndirectedListGraph* graph = reader->asIndirectedListGraph();
+		int firstVerticle = reader->getFirstVerticle();
 
-	for (int i = 0; i < 10; i++, verticles += 100, edges += 5000) {
-		std::cout << "MATRIX: " << std::endl;
-		MatrixGraph* graph = new IndirectedMatrixGraph(verticles);
+		graph->print(std::cout);
+		std::cout << "FV: " << firstVerticle;
 
-		for (size_t i = 0; i < edges; i++) {
-			graph->addEdge(rand() % verticles, rand() % verticles, rand() % weightRange);
-		}
+		MST* kruskal = new MSTKruskal();
+		kruskal->execute(graph);
+		Graph* result = kruskal->getResultMST();
+		result->print(std::cout);
+		std::cout << "Weight sum: " << kruskal->getResultWeight();
 
-
-		timer.startTimer();
-
-		Graph* result = kruskals->execute(graph);
-
-		timer.endTimer();
-
-		std::cout << "Result: " << timer.timeMiliSeconds() << "ms\n";
-
-		delete graph;
 		delete result;
+		delete kruskal;
+		delete graph;
+
+	} else { // failure
+		std::cout << "ERROR: " << reader->getErrorMessage();
 	}
-
-	delete kruskals;
-
 	
+	delete reader;
 
-	/*
-	std::cout << "LIST: " << std::endl;
-	ListGraph* listGraph = new IndirectedListGraph(verticles);
 
-	for (size_t i = 0; i < edges; i++) {
-		listGraph->addEdge(rand() % verticles, rand() % verticles, rand() % weightRange);
-	}
-
-	timer.startTimer();
-
-	kruskals->execute(listGraph);
-
-	timer.endTimer();
-
-	std::cout << "Result: " << timer.timeMiliSeconds() << "ms";
-	*/
-	
 	int x;
 	std::cin >> x;
 

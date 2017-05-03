@@ -1,13 +1,37 @@
 #pragma once
 
 #include <iostream>
-#include "MatrixGraphFileData.h"
-#include "ListGraphFileData.h"
+#include "Edge.h"
+#include "Graph.h"
+#include "DirectedMatrixGraph.h"
+#include "IndirectedMatrixGraph.h"
+#include "DirectedListGraph.h"
+#include "IndirectedListGraph.h"
 
+// reads data from a file given in constructor, allocates memory
 class GraphFileReader {
-public:
-	enum GraphType {DIRECTED, INDIRECTED};
+	int startVerticle, endVerticle, n, e;
+	Edge** edges;
 
-	MatrixGraphFileData* readMatrixGraph(std::string filename, GraphType type);
-	ListGraphFileData* readListGraph(std::string filename, GraphType type);
+	bool errorFlag;
+	std::string errorMessage;
+
+	void read(std::string filename);
+	void insertLoadedEdges(Graph* graph);
+
+public:
+	GraphFileReader(std::string filename);
+	~GraphFileReader();
+
+	// assert success
+	bool success() { return !errorFlag; }
+
+	// get data
+	DirectedMatrixGraph* asDirectedMatrixGraph();
+	IndirectedMatrixGraph* asIndirectedMatrixGraph();
+	DirectedListGraph* asDirectedListGraph();
+	IndirectedListGraph* asIndirectedListGraph();
+	int getFirstVerticle() { return startVerticle; }
+	int getEndVerticle() { return endVerticle; }
+	std::string getErrorMessage() { return errorMessage; }
 };
