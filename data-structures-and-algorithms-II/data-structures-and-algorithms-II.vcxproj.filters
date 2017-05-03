@@ -197,5 +197,8 @@
     <ClInclude Include="Timer.h">
       <Filter>Header Files\helper</Filter>
     </ClInclude>
+    <ClInclude Include="PerformanceTestingUtil.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

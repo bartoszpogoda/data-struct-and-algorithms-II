@@ -180,6 +180,7 @@
     <ClInclude Include="MST.h" />
     <ClInclude Include="MSTKruskal.h" />
     <ClInclude Include="Path.h" />
+    <ClInclude Include="PerformanceTestingUtil.h" />
     <ClInclude Include="SPath.h" />
     <ClInclude Include="SPathBellmanFord.h" />
     <ClInclude Include="SPathDjikstra.h" />
