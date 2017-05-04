@@ -3,6 +3,35 @@
 #include "Infinity.h"
 #include "DisjointSet.h"
 #include "MinimumEdgeHeap.h"
+/*
+//after refactor
+void MSTKruskal::execute(IndirectedMatrixGraph * graph) {
+	// empty forest
+	resultMST = new IndirectedListGraph(graph->getSize());
+	resultWeight = 0;
+
+	MinimumEdgeHeap* edgeHeap = new MinimumEdgeHeap(graph->getEdges(), graph->getEdgeCount());
+
+	DisjointSet* disjointSet = new DisjointSet(graph->getSize());
+
+	Edge* edge = nullptr;
+	// end after n-1 edges are added or when run out of edges
+	size_t addedEdges = 0;
+	while (addedEdges < graph->getSize() - 1 && !edgeHeap->isEmpty()) {
+		Edge edge = edgeHeap->getRoot();
+
+		if (disjointSet->makeUnion(edge.getStartV(), edge.getEndV())) {
+			resultMST->addEdge(edge);
+			addedEdges++;
+			resultWeight += edge->getWeight();
+		}
+
+		delete edge;
+	}
+
+	delete edgeHeap;
+	delete disjointSet;
+}
 
 void MSTKruskal::execute(IndirectedMatrixGraph * graph) {
 	// empty forest
@@ -102,3 +131,4 @@ void MSTKruskal::execute(IndirectedListGraph * graph) {
 	delete edgeHeap;
 	delete dsSet;
 }
+*/

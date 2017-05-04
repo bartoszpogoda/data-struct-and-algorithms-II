@@ -1,23 +1,14 @@
 #include <iostream>
 #include <string>
-#include "CLInterface.h"
-#include "AdjacencyList.h"
 #include "DirectedListGraph.h"
 #include "IndirectedListGraph.h"
 #include "IndirectedMatrixGraph.h"
 #include "DirectedMatrixGraph.h"
-#include "Edge.h"
-#include "MinimumEdgeHeap.h"
-#include "DisjointSet.h"
-#include "AdjacencyList.h"
-#include "MSTKruskal.h"
-#include "IndirectedMatrixGraph.h"
-#include "Timer.h"
-#include <random>
+#include "GraphFileReader.h"
 
 int main() {
 
-	GraphFileReader* reader = new GraphFileReader("data.txt");
+	/*GraphFileReader* reader = new GraphFileReader("data.txt");
 	
 	if (reader->success()) {
 		// success
@@ -42,7 +33,10 @@ int main() {
 		std::cout << "ERROR: " << reader->getErrorMessage();
 	}
 	
-	delete reader;
+	delete reader;*/
+
+	Graph* graph = GraphFileReader("data.txt").asIndirectedListGraph();
+	graph->print(std::cout);
 
 
 	int x;

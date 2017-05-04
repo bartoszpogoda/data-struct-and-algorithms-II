@@ -140,9 +140,6 @@
     <ClInclude Include="SPathDjikstra.h">
       <Filter>Header Files\model\algorithms-spath\impl</Filter>
     </ClInclude>
-    <ClInclude Include="Path.h">
-      <Filter>Header Files\model\algorithms-spath\impl</Filter>
-    </ClInclude>
     <ClInclude Include="MSTPrim.h">
       <Filter>Header Files\model\algorithms-MST\impl</Filter>
     </ClInclude>
@@ -167,19 +164,10 @@
     <ClInclude Include="Graph.h">
       <Filter>Header Files\model\structures</Filter>
     </ClInclude>
-    <ClInclude Include="ListGraph.h">
-      <Filter>Header Files\model\structures</Filter>
-    </ClInclude>
-    <ClInclude Include="MatrixGraph.h">
-      <Filter>Header Files\model\structures</Filter>
-    </ClInclude>
     <ClInclude Include="AdjacencyList.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
     <ClInclude Include="MinimumEdgeHeap.h">
-      <Filter>Header Files\model\structures\impl\other</Filter>
-    </ClInclude>
-    <ClInclude Include="Edge.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
     <ClInclude Include="DisjointSet.h">
@@ -193,6 +181,21 @@
     </ClInclude>
     <ClInclude Include="Infinity.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListGraph.h">
+      <Filter>Header Files\model\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGraph.h">
+      <Filter>Header Files\model\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="Edge.h">
+      <Filter>Header Files\model\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="MSTGraph.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

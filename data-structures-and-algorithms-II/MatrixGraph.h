@@ -7,6 +7,6 @@ class MatrixGraph : public Graph {
 protected:
 	int** adjacencyMatrix;
 public:
-	MatrixGraph(int n) : Graph(n), adjacencyMatrix(new int*[n]) {}
+	MatrixGraph(int n);
 	virtual ~MatrixGraph();
 };

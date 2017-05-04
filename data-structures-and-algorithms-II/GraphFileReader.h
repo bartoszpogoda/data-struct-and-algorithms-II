@@ -11,7 +11,7 @@
 // reads data from a file given in constructor, allocates memory
 class GraphFileReader {
 	int startVerticle, endVerticle, n, e;
-	Edge** edges;
+	Edge* edges;
 
 	bool errorFlag;
 	std::string errorMessage;

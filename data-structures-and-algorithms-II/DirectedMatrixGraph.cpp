@@ -3,41 +3,35 @@
 #include <iomanip>
 #include <string>
 
-DirectedMatrixGraph::DirectedMatrixGraph(int n) : MatrixGraph(n) {
 
-	for (size_t i = 0; i < n; i++) {
-		adjacencyMatrix[i] = new int[n];
+int DirectedMatrixGraph::degree(int verticle) {
+	int degree = 0;
 
-		for (size_t j = 0; j < n; j++) {
-			adjacencyMatrix[i][j] = INF;
-		}
-	}
+	for (size_t i = 0; i < n; i++) 
+		if (adjacencyMatrix[verticle][i] < INF)
+			degree++;
+
+	return degree;
 }
 
-DirectedMatrixGraph::~DirectedMatrixGraph() {
-	for (size_t i = 0; i < n; i++) {
-		delete[] adjacencyMatrix[i];
-	}
+void DirectedMatrixGraph::addEdge(Edge edge) {
+	adjacencyMatrix[edge.getStartV()][edge.getEndV()] = edge.getWeight();
 }
 
-void DirectedMatrixGraph::addEdge(int beginV, int endV, int weight) {
+Edge * DirectedMatrixGraph::getAdjacentEdges(int verticle) {
+	Edge * adjacentEdges = new Edge[degree(verticle)];
 
-	adjacencyMatrix[beginV][endV] = weight;
+	for (size_t i = 0, j = 0; i < n; i++)
+		if (adjacencyMatrix[verticle][i] < INF)
+			adjacentEdges[j++] = Edge(verticle, j, adjacencyMatrix[verticle][i]);
+
+	return adjacentEdges;
 }
 
-int DirectedMatrixGraph::checkEdge(int beginV, int endV) {
-
-	return adjacencyMatrix[beginV][endV];
+Edge * DirectedMatrixGraph::getAllEdges() {
+	return nullptr;
 }
 
-void DirectedMatrixGraph::removeEdge(int beginV, int endV) {
-
-	adjacencyMatrix[beginV][endV] = INF;
-}
-
-int DirectedMatrixGraph::degree() {
-	return 0;
-}
 
 void DirectedMatrixGraph::print(std::ostream &out) {
 	out << "Adjacency Matrix: " << std::endl;

@@ -1,18 +1,18 @@
 #include "DirectedListGraph.h"
 
-void DirectedListGraph::addEdge(int beginV, int endV, int weight) {
-
-	adjacencyLists[beginV]->add(endV, weight);
+int DirectedListGraph::degree(int verticle) {
+	return adjacencyLists[verticle]->getSize();
 }
 
-int DirectedListGraph::checkEdge(int beginV, int endV) {
-	return adjacencyLists[beginV]->getEdgeWeight(endV);
+void DirectedListGraph::addEdge(Edge edge) {
+	adjacencyLists[edge.getStartV()]->add(edge.getEndV(), edge.getWeight());
 }
 
-void DirectedListGraph::removeEdge(int beginV, int endV) {
-	adjacencyLists[beginV]->remove(endV);
+Edge * DirectedListGraph::getAdjacentEdges(int verticle) {
+	return adjacencyLists[verticle]->getEdges();
 }
 
-int DirectedListGraph::degree() {
-	return 0;
+Edge * DirectedListGraph::getAllEdges() {
+	//TODO: implement
+	return nullptr;
 }

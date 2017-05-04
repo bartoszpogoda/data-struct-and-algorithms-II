@@ -1,18 +1,20 @@
 #include "IndirectedListGraph.h"
-#include <algorithm>
 
-void IndirectedListGraph::addEdge(int beginV, int endV, int weight) {
-	adjacencyLists[std::min(beginV, endV)]->add(std::max(beginV, endV), weight);
+int IndirectedListGraph::degree(int verticle) {
+	return adjacencyLists[verticle]->getSize();
 }
 
-int IndirectedListGraph::checkEdge(int beginV, int endV) {
-	return adjacencyLists[std::min(beginV, endV)]->getEdgeWeight(std::max(beginV, endV));
+void IndirectedListGraph::addEdge(Edge edge) {
+	adjacencyLists[edge.getStartV()]->add(edge.getEndV(), edge.getWeight());
+	adjacencyLists[edge.getEndV()]->add(edge.getStartV(), edge.getWeight());
 }
 
-void IndirectedListGraph::removeEdge(int beginV, int endV) {
-	adjacencyLists[std::min(beginV, endV)]->remove(std::max(beginV, endV));
+// TODO:  move common implementations to ListGraph class
+Edge * IndirectedListGraph::getAdjacentEdges(int verticle) {
+	return adjacencyLists[verticle]->getEdges();
 }
 
-int IndirectedListGraph::degree() {
-	return 0;
+Edge * IndirectedListGraph::getAllEdges() {
+	//TODO: implement
+	return nullptr;
 }

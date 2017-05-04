@@ -10,6 +10,5 @@ public:
 	ListGraph(int n);
 	virtual ~ListGraph();
 
-	AdjacencyList** getAdjacencyLists() { return adjacencyLists; };
 	void print(std::ostream &out);
 };

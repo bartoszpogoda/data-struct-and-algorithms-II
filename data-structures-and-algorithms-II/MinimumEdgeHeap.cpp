@@ -4,9 +4,9 @@
 void MinimumEdgeHeap::fixUp(int nodeId) {
 	while (parent(nodeId) >= 0) {
 		// if parent has bigger weight
-		if (elements[parent(nodeId)]->getWeight() > elements[nodeId]->getWeight()) {
+		if (elements[parent(nodeId)].getWeight() > elements[nodeId].getWeight()) {
 			// swap with parent
-			Edge* dataHolder = elements[nodeId];
+			Edge dataHolder = elements[nodeId];
 			elements[nodeId] = elements[parent(nodeId)];
 			elements[parent(nodeId)] = dataHolder;
 
@@ -22,11 +22,11 @@ void MinimumEdgeHeap::fixUp(int nodeId) {
 void MinimumEdgeHeap::fixDown(int nodeId) {
 	while (leftChild(nodeId) < currentSize) {
 		// if left child has less value
-		if (elements[leftChild(nodeId)]->getWeight() < elements[nodeId]->getWeight()) {
+		if (elements[leftChild(nodeId)].getWeight() < elements[nodeId].getWeight()) {
 			// if right child exists and has less value than left
-			if (rightChild(nodeId) < currentSize && elements[rightChild(nodeId)]->getWeight() < elements[leftChild(nodeId)]->getWeight()) {
+			if (rightChild(nodeId) < currentSize && elements[rightChild(nodeId)].getWeight() < elements[leftChild(nodeId)].getWeight()) {
 				// swap with right child
-				Edge* dataHolder = elements[nodeId];
+				Edge dataHolder = elements[nodeId];
 				elements[nodeId] = elements[rightChild(nodeId)];
 				elements[rightChild(nodeId)] = dataHolder;
 
@@ -34,7 +34,7 @@ void MinimumEdgeHeap::fixDown(int nodeId) {
 				nodeId = rightChild(nodeId);
 			} else {
 				// swap with left child
-				Edge* dataHolder = elements[nodeId];
+				Edge dataHolder = elements[nodeId];
 				elements[nodeId] = elements[leftChild(nodeId)];
 				elements[leftChild(nodeId)] = dataHolder;
 
@@ -43,9 +43,9 @@ void MinimumEdgeHeap::fixDown(int nodeId) {
 			}
 
 		} // if right child exists and has less value
-		else if (rightChild(nodeId) < currentSize && elements[rightChild(nodeId)]->getWeight() < elements[nodeId]->getWeight()) {
+		else if (rightChild(nodeId) < currentSize && elements[rightChild(nodeId)].getWeight() < elements[nodeId].getWeight()) {
 			// swap with right child
-			Edge* dataHolder = elements[nodeId];
+			Edge dataHolder = elements[nodeId];
 			elements[nodeId] = elements[rightChild(nodeId)];
 			elements[rightChild(nodeId)] = dataHolder;
 
@@ -58,13 +58,9 @@ void MinimumEdgeHeap::fixDown(int nodeId) {
 	}
 }
 
-MinimumEdgeHeap::MinimumEdgeHeap(Edge ** elements, int size) {
+MinimumEdgeHeap::MinimumEdgeHeap(Edge * elements, int size) {
 	currentSize = size;
-	this->elements = new Edge*[currentSize];
-
-	for (int i = 0; i < currentSize; i++) {
-		this->elements[i] = elements[i];
-	}
+	this->elements = elements;
 
 	// fix heap - start from last parent
 	int parentIteration = parent(currentSize - 1);
@@ -74,22 +70,15 @@ MinimumEdgeHeap::MinimumEdgeHeap(Edge ** elements, int size) {
 }
 
 MinimumEdgeHeap::~MinimumEdgeHeap() {
-	if (elements == nullptr)
-		return;
-
-	for (size_t i = 0; i < currentSize; i++) {
-		delete elements[i];
-	}
-
 	delete[] elements;
 }
 
-void MinimumEdgeHeap::add(Edge* element) {
+void MinimumEdgeHeap::add(Edge element) {
 	if (elements == nullptr) {
-		elements = new Edge*[1];
+		elements = new Edge[1];
 		elements[0] = element;
 	} else {
-		Edge** newElements = new Edge*[currentSize + 1];
+		Edge* newElements = new Edge[currentSize + 1];
 
 		for (int i = 0; i < currentSize; i++) {
 			newElements[i] = elements[i];
@@ -106,11 +95,11 @@ void MinimumEdgeHeap::add(Edge* element) {
 	currentSize++;
 }
 
-Edge* MinimumEdgeHeap::getRoot() {
+Edge MinimumEdgeHeap::getRoot() {
 	if (elements == nullptr)
-		return nullptr;
+		return Edge();
 
-	Edge* edge = elements[0];
+	Edge edge = elements[0];
 
 	if (currentSize - 1 == 0) {
 		delete[] elements;
@@ -119,7 +108,7 @@ Edge* MinimumEdgeHeap::getRoot() {
 		return edge;
 	}
 
-	Edge** newElements = new Edge*[currentSize - 1];
+	Edge* newElements = new Edge[currentSize - 1];
 
 	// last node becomes root
 	newElements[0] = elements[currentSize - 1];
@@ -147,9 +136,9 @@ std::string MinimumEdgeHeap::toStringTable() {
 	}
 
 	for (int i = 0; i < currentSize; i++) {
-		result += std::to_string(elements[i]->getStartV()) + " "
-			+ std::to_string(elements[i]->getEndV()) + " "
-			+ std::to_string(elements[i]->getWeight()) + "  ";
+		result += std::to_string(elements[i].getStartV()) + " "
+			+ std::to_string(elements[i].getEndV()) + " "
+			+ std::to_string(elements[i].getWeight()) + "  ";
 	}
 
 	result.pop_back(); // deletes extra whitespace

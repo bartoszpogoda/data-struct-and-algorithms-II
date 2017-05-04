@@ -34,19 +34,6 @@ AdjacencyList::~AdjacencyList() {
 	delete iterator;
 }
 
-/* no check for duplicate implementation
-void AdjacencyList::add(int adjacent, int weight) {
-	AdjacencyListNode* newNode = new AdjacencyListNode(adjacent, weight);
-
-	if (head == nullptr) {
-		head = newNode;
-		tail = newNode;
-	} else {
-		tail->setNext(newNode);
-		newNode->setPrev(tail);
-		tail = newNode;
-	}
-}*/
 
 void AdjacencyList::add(int adjacent, int weight) {
 
@@ -67,84 +54,23 @@ void AdjacencyList::add(int adjacent, int weight) {
 		node->prev = tail;
 		tail = node;
 	}
+
+	size++;
 }
 
-void AdjacencyList::remove(int adjacent) {
+Edge * AdjacencyList::getEdges() {
+	if (size <= 0) return nullptr;
 
-	AdjacencyListNode* nodeToRemove = find(adjacent);
-	
-	if (nodeToRemove == nullptr)
-		return;
-	else if (nodeToRemove == head)
-		deleteHead();
-	else if (nodeToRemove == tail)
-		deleteTail();
-	else {
-		
-		nodeToRemove->next->prev = nodeToRemove->prev;
-		nodeToRemove->prev->next = nodeToRemove->next;
+	Edge* edges = new Edge[size];
 
-		delete nodeToRemove;
+	AdjacencyListNode* iterator = head;
+	for (size_t i = 0; i < size; i++) {
+		edges[i] = Edge(verticle, iterator->adjacent, iterator->weight);
+
+		iterator = iterator->next;
 	}
 }
 
-void AdjacencyList::deleteHead() {
-	if (head == nullptr) {
-		return;
-	}
-	if (head->next == nullptr) {
-		delete head;
-		head = nullptr;
-		tail = nullptr;
-	} else {
-		head = head->next;
-		delete head->prev;
-		head->prev = nullptr;
-	}
-}
-
-void AdjacencyList::deleteTail() {
-
-	if (head == nullptr) {
-		return;
-	}
-
-	if (tail->prev == nullptr) {
-		delete tail;
-		tail = nullptr;
-		head = nullptr;
-	} else {
-		tail = tail->prev;
-		delete tail->next;
-		tail->next = nullptr;
-	}
-}
-
-int AdjacencyList::getEdgeWeight(int adjacent) {
-	AdjacencyListNode* node = find(adjacent);
-
-	if (node == nullptr)
-		return INF;
-	else
-		return node->weight;
-
-}
-
-bool AdjacencyList::iterHasNext() {
-	return iterator != nullptr && iterator->next != nullptr;
-}
-
-void AdjacencyList::iterNext() {
-	iterator = iterator->next;
-}
-
-int AdjacencyList::iterGetAdjacent() {
-	return iterator->adjacent;
-}
-
-int AdjacencyList::iterGetWeight() {
-	return iterator->weight;
-}
 
 /**
 format: [adj1 weigh1 adj2 weigh2 ...]

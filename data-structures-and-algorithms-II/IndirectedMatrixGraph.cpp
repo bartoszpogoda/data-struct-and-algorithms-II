@@ -3,43 +3,37 @@
 
 #include <iomanip>
 #include <string>
-#include <algorithm>
 
-IndirectedMatrixGraph::IndirectedMatrixGraph(int n) : MatrixGraph(n) {
 
-	for (size_t i = 0; i < n; i++) {
-		adjacencyMatrix[i] = new int[n - i];
+int IndirectedMatrixGraph::degree(int verticle) {
+	int degree = 0;
 
-		for (size_t j = 0; j < n - i; j++) {
-			adjacencyMatrix[i][j] = INF;
-		}
-	}
+	for (size_t i = 0; i < n; i++)
+		if (adjacencyMatrix[verticle][i] < INF)
+			degree++;
+
+	return degree;
 }
 
-IndirectedMatrixGraph::~IndirectedMatrixGraph() {
-	for (size_t i = 0; i < n; i++) {
-		delete[] adjacencyMatrix[i];
-	}
+void IndirectedMatrixGraph::addEdge(Edge edge) {
+	adjacencyMatrix[edge.getStartV()][edge.getEndV()] = edge.getWeight();
+	adjacencyMatrix[edge.getEndV()][edge.getStartV()] = edge.getWeight();
 }
 
-void IndirectedMatrixGraph::addEdge(int beginV, int endV, int weight) {
+Edge * IndirectedMatrixGraph::getAdjacentEdges(int verticle) {
+	Edge * adjacentEdges = new Edge[degree(verticle)];
 
-	adjacencyMatrix[std::min(beginV, endV)][std::max(beginV, endV) - std::min(beginV, endV)] = weight;
+	for (size_t i = 0, j = 0; i < n; i++)
+		if (adjacencyMatrix[verticle][i] < INF)
+			adjacentEdges[j++] = Edge(verticle, j, adjacencyMatrix[verticle][i]);
+	
+	return adjacentEdges;
 }
 
-int IndirectedMatrixGraph::checkEdge(int beginV, int endV) {
-
-	return adjacencyMatrix[std::min(beginV, endV)][std::max(beginV, endV) - std::min(beginV, endV)];
+Edge * IndirectedMatrixGraph::getAllEdges() {
+	return nullptr;
 }
 
-void IndirectedMatrixGraph::removeEdge(int beginV, int endV) {
-
-	adjacencyMatrix[std::min(beginV, endV)][std::max(beginV, endV) - std::min(beginV, endV)] = INF;
-}
-
-int IndirectedMatrixGraph::degree() {
-	return 0;
-}
 /*
    |  0|  1|  2|  3|  4|  5|
 ---+---+---+---+---+---+---|

@@ -5,13 +5,13 @@
 
 class DirectedMatrixGraph : public MatrixGraph {
 public:
-	DirectedMatrixGraph(int n);
-	virtual ~DirectedMatrixGraph();
+	DirectedMatrixGraph(int n) : MatrixGraph(n) {};
 
-	void addEdge(int beginV, int endV, int weight);
-	int checkEdge(int beginV, int endV);
-	void removeEdge(int beginV, int endV);
-	int degree();
+	int degree(int verticle);
+
+	void addEdge(Edge edge);
+	Edge* getAdjacentEdges(int verticle);
+	Edge* getAllEdges();
 
 	void print(std::ostream &out);
 };
