@@ -3,9 +3,9 @@
 
 #include <ostream>
 
-class DirectedMatrixGraph : public MatrixGraph {
+class UndirectedMatrixGraph : public MatrixGraph {
 public:
-	DirectedMatrixGraph(int n) : MatrixGraph(n) {};
+	UndirectedMatrixGraph(int n) : MatrixGraph(n) {};
 
 	void addEdge(Edge edge);
 	Edge* getAllEdges();

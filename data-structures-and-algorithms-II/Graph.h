@@ -1,13 +1,14 @@
 #pragma once
-#include <ostream>
 #include "Edge.h"
+
+#include <ostream>
 
 class Graph {
 protected:
 	int n;			// number of verticles
 	int e;			// number of edges
 public:
-	Graph(int n) : n(n) {}
+	Graph(int n) : n(n), e(0) {}
 	virtual ~Graph() {};
 
 	int getSize() { return n; }
@@ -19,4 +20,5 @@ public:
 	virtual Edge* getAllEdges() = 0;
 
 	virtual void print(std::ostream &out) = 0;
+
 };

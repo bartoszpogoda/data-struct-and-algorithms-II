@@ -1,10 +1,9 @@
 #pragma once
 #include "Edge.h"
+
 #include <string>
 
 class MinimumEdgeHeap {
-
-private:
 	Edge* elements;
 	int currentSize;
 

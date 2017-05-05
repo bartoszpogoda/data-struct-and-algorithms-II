@@ -1,11 +1,11 @@
 #pragma once
-#include "MatrixGraph.h"
+#include "ListGraph.h"
 
 #include <ostream>
 
-class DirectedMatrixGraph : public MatrixGraph {
+class UndirectedListGraph : public ListGraph {
 public:
-	DirectedMatrixGraph(int n) : MatrixGraph(n) {};
+	UndirectedListGraph(int n) : ListGraph(n) {};
 
 	void addEdge(Edge edge);
 	Edge* getAllEdges();

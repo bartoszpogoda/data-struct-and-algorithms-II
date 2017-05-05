@@ -1,13 +1,8 @@
 #include "MST.h"
 
-Graph * MST::getResultMST() {
-	Graph* resultMST = this->resultMST;
-	this->resultMST = nullptr;
-	return resultMST;
+MSTGraph * MST::getResult() {
+	MSTGraph* result = this->result;
+	this->result = nullptr;
+	return result;
 }
 
-int MST::getResultWeight() {
-	int resultWeight = this->resultWeight;
-	this->resultWeight = INF;
-	return resultWeight;
-}

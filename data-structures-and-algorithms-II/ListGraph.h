@@ -10,5 +10,6 @@ public:
 	ListGraph(int n);
 	virtual ~ListGraph();
 
-	void print(std::ostream &out);
+	int degree(int verticle);
+	Edge* getAdjacentEdges(int verticle);
 };

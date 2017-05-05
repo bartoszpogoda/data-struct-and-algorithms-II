@@ -1,9 +1,5 @@
 #include "MSTPrim.h"
 
-Graph * MSTPrim::execute(MatrixGraph * graph) {
-	return nullptr;
-}
+void MSTPrim::execute(Graph * graph) {
 
-Graph * MSTPrim::execute(ListGraph * graph) {
-	return nullptr;
 }

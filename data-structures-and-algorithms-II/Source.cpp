@@ -1,29 +1,30 @@
 #include <iostream>
 #include <string>
 #include "DirectedListGraph.h"
-#include "IndirectedListGraph.h"
-#include "IndirectedMatrixGraph.h"
+#include "UndirectedListGraph.h"
+#include "UndirectedMatrixGraph.h"
 #include "DirectedMatrixGraph.h"
 #include "GraphFileReader.h"
+#include "MST.h"
+#include "MSTKruskal.h"
 
 int main() {
 
-	/*GraphFileReader* reader = new GraphFileReader("data.txt");
+	GraphFileReader* reader = new GraphFileReader("data.txt");
 	
 	if (reader->success()) {
 		// success
 
-		IndirectedListGraph* graph = reader->asIndirectedListGraph();
+		Graph* graph = reader->asUndirectedMatrixGraph();
 		int firstVerticle = reader->getFirstVerticle();
 
 		graph->print(std::cout);
-		std::cout << "FV: " << firstVerticle;
 
 		MST* kruskal = new MSTKruskal();
 		kruskal->execute(graph);
-		Graph* result = kruskal->getResultMST();
+
+		Graph* result = kruskal->getResult();
 		result->print(std::cout);
-		std::cout << "Weight sum: " << kruskal->getResultWeight();
 
 		delete result;
 		delete kruskal;
@@ -32,12 +33,8 @@ int main() {
 	} else { // failure
 		std::cout << "ERROR: " << reader->getErrorMessage();
 	}
-	
-	delete reader;*/
 
-	Graph* graph = GraphFileReader("data.txt").asIndirectedListGraph();
-	graph->print(std::cout);
-
+	delete reader;
 
 	int x;
 	std::cin >> x;

@@ -1,4 +1,5 @@
 #include "MinimumEdgeHeap.h"
+
 #include <string>
 
 void MinimumEdgeHeap::fixUp(int nodeId) {

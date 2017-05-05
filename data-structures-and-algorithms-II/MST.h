@@ -1,20 +1,24 @@
 #pragma once
-#include "IndirectedListGraph.h"
-#include "IndirectedMatrixGraph.h"
-#include "Infinity.h"
+#include "UndirectedMatrixGraph.h"
+#include "UndirectedListGraph.h"
+#include "MSTGraph.h"
 
+/*
+	MST executes an algorithms and keeps the result's reference
+	The reference is forgoten on getResult() call so the MSTGraph
+	must be dealocated outside
+
+	MST dealocates result (if wasn't accessed) on obj destruction
+*/
 class MST {
 protected:
-	Graph* resultMST;
-	int resultWeight;
+	MSTGraph* result;
 public:
-	MST() : resultMST(nullptr), resultWeight(INF) {}
-	virtual ~MST() { delete resultMST; }
+	MST() : result(nullptr) {}
+	~MST() { delete result; }
 	
-	Graph* getResultMST();
-	int getResultWeight();
+	MSTGraph* getResult();
 
 	/* Finds Minimum Spanning Tree of the graph */
-	virtual void execute(IndirectedMatrixGraph* graph) = 0;
-	virtual void execute(IndirectedListGraph* graph) = 0;
+	virtual void execute(Graph* graph) = 0;
 };

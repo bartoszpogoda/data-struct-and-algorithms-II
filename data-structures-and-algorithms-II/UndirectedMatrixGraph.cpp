@@ -1,22 +1,23 @@
-#include "DirectedMatrixGraph.h"
+#include "UndirectedMatrixGraph.h"
 #include "Infinity.h"
 
 #include <iomanip>
 #include <string>
 
-void DirectedMatrixGraph::addEdge(Edge edge) {
+void UndirectedMatrixGraph::addEdge(Edge edge) {
 	if (adjacencyMatrix[edge.getStartV()][edge.getEndV()] == INF)
 		e++;
 
 	adjacencyMatrix[edge.getStartV()][edge.getEndV()] = edge.getWeight();
+	adjacencyMatrix[edge.getEndV()][edge.getStartV()] = edge.getWeight();
 }
 
-Edge * DirectedMatrixGraph::getAllEdges() {
+Edge * UndirectedMatrixGraph::getAllEdges() {
 	Edge* edges = new Edge[e];
 
 	int foundEdges = 0;
 	for (size_t i = 0; i < n; i++) {
-		for (size_t j = 0; j < n; j++) {
+		for (size_t j = i; j < n; j++) {
 			if (adjacencyMatrix[i][j] < INF) {
 				edges[foundEdges++] = Edge(i, j, adjacencyMatrix[i][j]);
 			}
@@ -26,9 +27,8 @@ Edge * DirectedMatrixGraph::getAllEdges() {
 	return edges;
 }
 
-void DirectedMatrixGraph::print(std::ostream &out) {
-
-	out << "Type: Directed Graph" << std::endl << "Representation: Adjacency Matrix" << std::endl << std::endl;
+void UndirectedMatrixGraph::print(std::ostream &out) {
+	out << "Type: Undirected Graph" << std::endl << "Representation: Adjacency Matrix" << std::endl << std::endl;
 
 	int argWidth = 4;
 
@@ -47,7 +47,10 @@ void DirectedMatrixGraph::print(std::ostream &out) {
 	for (size_t i = 0; i < n; i++) {
 		out << std::setw(argWidth) << std::setfill(' ') << i << "|";
 
-		for (size_t j = 0; j < n; j++)
+		for (size_t j = 0; j < i; j++)
+			out << std::setw(argWidth) << " " << " ";
+
+		for (size_t j = i; j < n; j++)
 			out << std::setw(argWidth) << (adjacencyMatrix[i][j] == INF ? INF_STRING : std::to_string(adjacencyMatrix[i][j])) << " ";
 
 		out << std::endl;

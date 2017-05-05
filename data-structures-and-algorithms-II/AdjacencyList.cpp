@@ -1,10 +1,10 @@
 #include "AdjacencyList.h"
+#include "Infinity.h"
+
 #include <time.h>      
 #include <string>
 #include <sstream>   
 #include <iomanip>   
-#include "Infinity.h"
-
 
 AdjacencyList::AdjacencyListNode * AdjacencyList::find(int adjacent) {
 	if (head == nullptr)
@@ -35,13 +35,13 @@ AdjacencyList::~AdjacencyList() {
 }
 
 
-void AdjacencyList::add(int adjacent, int weight) {
+bool AdjacencyList::add(int adjacent, int weight) {
 
 	AdjacencyListNode* node = find(adjacent);
 
 	if (node != nullptr) {
 		node->weight = weight;
-		return;
+		return false;
 	}
 
 	node = new AdjacencyListNode(adjacent, weight);
@@ -56,6 +56,7 @@ void AdjacencyList::add(int adjacent, int weight) {
 	}
 
 	size++;
+	return true;
 }
 
 Edge * AdjacencyList::getEdges() {
@@ -69,30 +70,6 @@ Edge * AdjacencyList::getEdges() {
 
 		iterator = iterator->next;
 	}
-}
 
-
-/**
-format: [adj1 weigh1 adj2 weigh2 ...]
-*/
-std::string AdjacencyList::toString(int width) {
-	std::stringstream result;
-	result << "";
-
-	if (head == nullptr) {
-		return result.str();
-	} else {
-		result << "(" << std::setw(width-1) << std::setfill(' ') << head->adjacent << "v;"
-			<< std::setw(width-1) << std::setfill(' ') << head->weight << "w) ";
-	}
-
-	AdjacencyListNode* iterator = head;
-
-	while (iterator->next != nullptr) {
-		iterator = iterator->next;
-		result << "(" << std::setw(width-1) << std::setfill(' ') << iterator->adjacent << "v;"
-			<< std::setw(width-1) << std::setfill(' ') << iterator->weight << "w) ";
-	}
-
-	return result.str();
+	return edges;
 }

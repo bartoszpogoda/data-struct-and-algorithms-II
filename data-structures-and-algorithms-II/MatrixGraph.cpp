@@ -20,3 +20,23 @@ MatrixGraph::~MatrixGraph() {
 	delete[] adjacencyMatrix;
 	adjacencyMatrix = nullptr;
 }
+
+int MatrixGraph::degree(int verticle) {
+	int degree = 0;
+
+	for (size_t i = 0; i < n; i++)
+		if (adjacencyMatrix[verticle][i] < INF)
+			degree++;
+
+	return degree;
+}
+
+Edge* MatrixGraph::getAdjacentEdges(int verticle) {
+	Edge * adjacentEdges = new Edge[degree(verticle)];
+
+	for (size_t i = 0, j = 0; i < n; i++)
+		if (adjacencyMatrix[verticle][i] < INF)
+			adjacentEdges[j++] = Edge(verticle, j, adjacencyMatrix[verticle][i]);
+
+	return adjacentEdges;
+}

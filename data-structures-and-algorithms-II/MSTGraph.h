@@ -1,13 +1,12 @@
 #pragma once
+#include "UndirectedListGraph.h"
 
-#include "IndirectedListGraph.h"
-
-class MSTGraph : public IndirectedListGraph {
+class MSTGraph : public UndirectedListGraph {
 	int weight;
 public:
-	MSTGraph(int n) : IndirectedListGraph(n), weight(0) {};
+	MSTGraph(int n) : UndirectedListGraph(n), weight(0) {};
 
-	void addEdge(Edge e) { IndirectedListGraph::addEdge(e); this->weight += e.getWeight(); }
+	void addEdge(Edge e) { UndirectedListGraph::addEdge(e); this->weight += e.getWeight(); }
 
-	void print(std::ostream &out) { out << "To override;" << std::endl; }
+	void print(std::ostream &out) { UndirectedListGraph::print(out); out << "To override; weight: " << weight << std::endl; }
 };

@@ -4,9 +4,9 @@
 #include "ListGraph.h"
 #include "MatrixGraph.h"
 #include "DirectedMatrixGraph.h"
-#include "IndirectedMatrixGraph.h"
+#include "UndirectedMatrixGraph.h"
 #include "DirectedListGraph.h"
-#include "IndirectedListGraph.h"
+#include "UndirectedListGraph.h"
 #include <fstream>
 
 void GraphFileReader::insertLoadedEdges(Graph * graph) {
@@ -80,7 +80,6 @@ void GraphFileReader::read(std::string filename) {
 				errorMessage = "File read error : edges data";
 
 				delete[] edges;
-
 				return;
 			} else
 				edges[i] = Edge(begin, end, weight);
@@ -101,10 +100,10 @@ DirectedMatrixGraph * GraphFileReader::asDirectedMatrixGraph() {
 	return result;
 }
 
-IndirectedMatrixGraph * GraphFileReader::asIndirectedMatrixGraph() {
+UndirectedMatrixGraph * GraphFileReader::asUndirectedMatrixGraph() {
 	if (errorFlag) return nullptr;
 
-	IndirectedMatrixGraph* result = new IndirectedMatrixGraph(n);
+	UndirectedMatrixGraph* result = new UndirectedMatrixGraph(n);
 	insertLoadedEdges(result);
 	return result;
 }
@@ -117,10 +116,10 @@ DirectedListGraph * GraphFileReader::asDirectedListGraph() {
 	return result;
 }
 
-IndirectedListGraph * GraphFileReader::asIndirectedListGraph() {
+UndirectedListGraph * GraphFileReader::asUndirectedListGraph() {
 	if (errorFlag) return nullptr;
 
-	IndirectedListGraph* result = new IndirectedListGraph(n);
+	UndirectedListGraph* result = new UndirectedListGraph(n);
 	insertLoadedEdges(result);
 	return result;
 }

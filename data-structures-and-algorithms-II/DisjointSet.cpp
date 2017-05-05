@@ -1,6 +1,5 @@
 #include "DisjointSet.h"
 
-
 DisjointSet::Node* DisjointSet::find(int elem) {
 	Node *iterator = nodes[elem];
 

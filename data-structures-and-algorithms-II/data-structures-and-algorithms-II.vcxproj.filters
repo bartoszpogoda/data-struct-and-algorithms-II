@@ -58,12 +58,6 @@
     <Filter Include="Header Files\model\structures\impl">
       <UniqueIdentifier>{f406abc0-2b57-4425-a7cc-805c22e121de}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\model\structures\impl\list-graph">
-      <UniqueIdentifier>{e943264a-4233-4bb6-ab26-b08b61e05979}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\model\structures\impl\matrix-graph">
-      <UniqueIdentifier>{4e436c4e-6da0-4945-b4d4-309896809be7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\model\algorithms-MST">
       <UniqueIdentifier>{02332cd3-e244-47ff-8477-575847228224}</UniqueIdentifier>
     </Filter>
@@ -72,6 +66,12 @@
     </Filter>
     <Filter Include="Source Files\model\structures\other">
       <UniqueIdentifier>{07bf119a-aa3a-4f70-ac8d-28c72443ddb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model\structures\impl\list-graph">
+      <UniqueIdentifier>{e943264a-4233-4bb6-ab26-b08b61e05979}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model\structures\impl\matrix-graph">
+      <UniqueIdentifier>{4e436c4e-6da0-4945-b4d4-309896809be7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -84,13 +84,7 @@
     <ClCompile Include="DirectedMatrixGraph.cpp">
       <Filter>Source Files\model\structures\matrix-graph</Filter>
     </ClCompile>
-    <ClCompile Include="IndirectedMatrixGraph.cpp">
-      <Filter>Source Files\model\structures\matrix-graph</Filter>
-    </ClCompile>
     <ClCompile Include="DirectedListGraph.cpp">
-      <Filter>Source Files\model\structures\list-graph</Filter>
-    </ClCompile>
-    <ClCompile Include="IndirectedListGraph.cpp">
       <Filter>Source Files\model\structures\list-graph</Filter>
     </ClCompile>
     <ClCompile Include="ListGraph.cpp">
@@ -98,9 +92,6 @@
     </ClCompile>
     <ClCompile Include="MSTKruskal.cpp">
       <Filter>Source Files\model\algorithms-MST</Filter>
-    </ClCompile>
-    <ClCompile Include="AdjacencyList.cpp">
-      <Filter>Source Files\model\structures\other</Filter>
     </ClCompile>
     <ClCompile Include="MinimumEdgeHeap.cpp">
       <Filter>Source Files\model\structures\other</Filter>
@@ -122,6 +113,15 @@
     </ClCompile>
     <ClCompile Include="MST.cpp">
       <Filter>Source Files\model\algorithms-MST</Filter>
+    </ClCompile>
+    <ClCompile Include="UndirectedListGraph.cpp">
+      <Filter>Source Files\model\structures\list-graph</Filter>
+    </ClCompile>
+    <ClCompile Include="UndirectedMatrixGraph.cpp">
+      <Filter>Source Files\model\structures\matrix-graph</Filter>
+    </ClCompile>
+    <ClCompile Include="AdjacencyList.cpp">
+      <Filter>Source Files\model\structures\list-graph</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -149,23 +149,14 @@
     <ClInclude Include="CLInterface.h">
       <Filter>Header Files\interface</Filter>
     </ClInclude>
-    <ClInclude Include="IndirectedListGraph.h">
-      <Filter>Header Files\model\structures\impl\list-graph</Filter>
-    </ClInclude>
     <ClInclude Include="DirectedListGraph.h">
       <Filter>Header Files\model\structures\impl\list-graph</Filter>
     </ClInclude>
     <ClInclude Include="DirectedMatrixGraph.h">
       <Filter>Header Files\model\structures\impl\matrix-graph</Filter>
     </ClInclude>
-    <ClInclude Include="IndirectedMatrixGraph.h">
-      <Filter>Header Files\model\structures\impl\matrix-graph</Filter>
-    </ClInclude>
     <ClInclude Include="Graph.h">
       <Filter>Header Files\model\structures</Filter>
-    </ClInclude>
-    <ClInclude Include="AdjacencyList.h">
-      <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
     <ClInclude Include="MinimumEdgeHeap.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
@@ -182,20 +173,29 @@
     <ClInclude Include="Infinity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ListGraph.h">
-      <Filter>Header Files\model\structures</Filter>
-    </ClInclude>
-    <ClInclude Include="MatrixGraph.h">
-      <Filter>Header Files\model\structures</Filter>
-    </ClInclude>
     <ClInclude Include="Path.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
-    <ClInclude Include="Edge.h">
-      <Filter>Header Files\model\structures</Filter>
-    </ClInclude>
     <ClInclude Include="MSTGraph.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="UndirectedListGraph.h">
+      <Filter>Header Files\model\structures\impl\list-graph</Filter>
+    </ClInclude>
+    <ClInclude Include="UndirectedMatrixGraph.h">
+      <Filter>Header Files\model\structures\impl\matrix-graph</Filter>
+    </ClInclude>
+    <ClInclude Include="ListGraph.h">
+      <Filter>Header Files\model\structures\impl\list-graph</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGraph.h">
+      <Filter>Header Files\model\structures\impl\matrix-graph</Filter>
+    </ClInclude>
+    <ClInclude Include="AdjacencyList.h">
+      <Filter>Header Files\model\structures\impl\list-graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Edge.h">
+      <Filter>Header Files\model\structures\impl</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
