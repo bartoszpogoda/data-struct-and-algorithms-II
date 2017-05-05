@@ -93,9 +93,6 @@
     <ClCompile Include="MSTKruskal.cpp">
       <Filter>Source Files\model\algorithms-MST</Filter>
     </ClCompile>
-    <ClCompile Include="MinimumEdgeHeap.cpp">
-      <Filter>Source Files\model\structures\other</Filter>
-    </ClCompile>
     <ClCompile Include="MSTPrim.cpp">
       <Filter>Source Files\model\algorithms-MST</Filter>
     </ClCompile>
@@ -122,6 +119,9 @@
     </ClCompile>
     <ClCompile Include="AdjacencyList.cpp">
       <Filter>Source Files\model\structures\list-graph</Filter>
+    </ClCompile>
+    <ClCompile Include="MinimumHeap.cpp">
+      <Filter>Source Files\model\structures\other</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +198,9 @@
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
     <ClInclude Include="MinimumHeap.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="DistanceNode.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
   </ItemGroup>

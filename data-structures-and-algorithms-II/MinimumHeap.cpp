@@ -1,4 +1,6 @@
 #include "MinimumHeap.h"
+#include "DistanceNode.h"
+#include "Edge.h"
 
 #include <string>
 
@@ -6,7 +8,7 @@ template<class Type>
 void MinimumHeap<Type>::fixUp(int nodeId) {
 	while (parent(nodeId) >= 0) {
 		// if parent has bigger weight
-		if (elements[parent(nodeId)].getWeight() > elements[nodeId].getWeight()) {
+		if (elements[parent(nodeId)].getKey() > elements[nodeId].getKey()) {
 			// swap with parent
 			Type dataHolder = elements[nodeId];
 			elements[nodeId] = elements[parent(nodeId)];
@@ -62,6 +64,35 @@ void MinimumHeap<Type>::fixDown(int nodeId) {
 }
 
 template<class Type>
+int MinimumHeap<Type>::find(int id) {
+	// for 0, 2, 6, 14, ... iteration (last indexes on heap levels)
+	int currentValue = 0;
+	int multiplier = 2;
+
+	bool wasLess = false;
+
+	for (int i = 0; i < currentSize; i++) {
+
+		if (elements[i].getID() == id)
+			return i;
+		else if (elements[i].getID() < id)
+			wasLess = true;
+
+		if (i == currentValue) {
+			if (!wasLess)
+				return -1;
+			else {
+				currentValue += multiplier;
+				multiplier *= 2;
+				wasLess = false;
+			}
+		}
+	}
+
+	return -1;
+}
+
+template<class Type>
 MinimumHeap<Type>::MinimumHeap(Type * elements, int size) {
 	currentSize = size;
 	this->elements = elements;
@@ -102,6 +133,23 @@ void MinimumHeap<Type>::add(Type element) {
 }
 
 template<class Type>
+void MinimumHeap<Type>::update(int id, Type newElement) {
+	int nodeId = find(id);
+
+	if (nodeId == -1)
+		return;
+
+	if (newElement.getKey() > elements[nodeId].getKey()) {
+		elements[nodeId] = newElement;
+		fixDown(nodeId);
+	} else {
+		elements[nodeId] = newElement;
+		fixUp(nodeId);
+	}
+
+}
+
+template<class Type>
 Type MinimumHeap<Type>::getRoot() {
 	if (elements == nullptr)
 		return Type();
@@ -112,7 +160,7 @@ Type MinimumHeap<Type>::getRoot() {
 		delete[] elements;
 		elements = nullptr;
 		currentSize = 0;
-		return Type();
+		return edge;
 	}
 
 	Type* newElements = new Type[currentSize - 1];
@@ -135,5 +183,6 @@ Type MinimumHeap<Type>::getRoot() {
 }
 
 
+// explicit instantiations
 template class MinimumHeap<Edge>;
-//template class MinimumHeap<float>;
+template class MinimumHeap<DistanceNode>;

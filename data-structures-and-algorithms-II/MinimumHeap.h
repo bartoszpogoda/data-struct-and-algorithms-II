@@ -1,7 +1,5 @@
 #pragma once
-#include "Edge.h"
 
-#include <string>
 template <class Type>
 class MinimumHeap {
 	Type* elements;
@@ -14,6 +12,8 @@ class MinimumHeap {
 	int leftChild(int nodeId) { return 2 * nodeId + 1; }
 	int rightChild(int nodeId) { return 2 * nodeId + 2; }
 
+	int find(int id);
+
 public:
 	MinimumHeap() : elements(nullptr), currentSize(0) {};
 	MinimumHeap(Type* elements, int size);
@@ -23,6 +23,8 @@ public:
 	bool isEmpty() { return currentSize == 0; }
 
 	void add(Type element);
+	void update(int id, Type newElement);
+
 	Type getRoot();
 
 };

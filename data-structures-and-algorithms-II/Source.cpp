@@ -7,34 +7,26 @@
 #include "GraphFileReader.h"
 #include "MST.h"
 #include "MSTKruskal.h"
+#include "MinimumHeap.h"
+#include "DistanceNode.h"
 
 int main() {
 
-	GraphFileReader* reader = new GraphFileReader("data3.txt");
-	
-	if (reader->success()) {
-		// success
+	MinimumHeap<DistanceNode>* heap = new MinimumHeap<DistanceNode>();
 
-		Graph* graph = reader->asUndirectedMatrixGraph();
-		int firstVerticle = reader->getFirstVerticle();
+	heap->add(DistanceNode(0, 5, 2));
+	heap->add(DistanceNode(1, 35, 3));
+	heap->add(DistanceNode(2, 66, 2));
+	heap->add(DistanceNode(3, 12, 1));
+	heap->add(DistanceNode(4, 33, 0));
 
-		graph->print(std::cout);
+	heap->update(3, DistanceNode(3,1,2));
 
-		MST* kruskal = new MSTKruskal();
-		kruskal->execute(graph);
-
-		Graph* result = kruskal->getResult();
-		result->print(std::cout);
-
-		delete result;
-		delete kruskal;
-		delete graph;
-
-	} else { // failure
-		std::cout << "ERROR: " << reader->getErrorMessage();
+	while (!heap->isEmpty()) {
+		std::cout << " " << heap->getRoot().getDistance();
 	}
 
-	delete reader;
+	delete heap;
 
 	int x;
 	std::cin >> x;

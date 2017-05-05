@@ -152,7 +152,7 @@
     <ClCompile Include="UndirectedMatrixGraph.cpp" />
     <ClCompile Include="ListGraph.cpp" />
     <ClCompile Include="MatrixGraph.cpp" />
-    <ClCompile Include="MinimumEdgeHeap.cpp" />
+    <ClCompile Include="MinimumHeap.cpp" />
     <ClCompile Include="MST.cpp" />
     <ClCompile Include="MSTKruskal.cpp" />
     <ClCompile Include="MSTPrim.cpp" />
@@ -163,6 +163,7 @@
     <ClInclude Include="AdjacencyList.h" />
     <ClInclude Include="DirectedMatrixGraph.h" />
     <ClInclude Include="DisjointSet.h" />
+    <ClInclude Include="DistanceNode.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="GraphFileReader.h" />
     <ClInclude Include="Graph.h" />
