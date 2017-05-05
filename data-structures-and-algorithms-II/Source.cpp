@@ -7,6 +7,7 @@
 #include "GraphFileReader.h"
 #include "MST.h"
 #include "MSTKruskal.h"
+#include "MSTPrim.h"
 
 int main() {
 
@@ -20,14 +21,14 @@ int main() {
 
 		graph->print(std::cout);
 
-		MST* kruskal = new MSTKruskal();
-		kruskal->execute(graph);
+		MST* prim = new MSTPrim();
+		prim->execute(graph);
 
-		Graph* result = kruskal->getResult();
+		Graph* result = prim->getResult();
 		result->print(std::cout);
 
 		delete result;
-		delete kruskal;
+		delete prim;
 		delete graph;
 
 	} else { // failure

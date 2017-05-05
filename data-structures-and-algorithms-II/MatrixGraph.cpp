@@ -36,7 +36,7 @@ Edge* MatrixGraph::getAdjacentEdges(int verticle) {
 
 	for (size_t i = 0, j = 0; i < n; i++)
 		if (adjacencyMatrix[verticle][i] < INF)
-			adjacentEdges[j++] = Edge(verticle, j, adjacencyMatrix[verticle][i]);
+			adjacentEdges[j++] = Edge(verticle, i, adjacencyMatrix[verticle][i]);
 
 	return adjacentEdges;
 }
