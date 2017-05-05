@@ -10,7 +10,7 @@
 
 int main() {
 
-	GraphFileReader* reader = new GraphFileReader("data.txt");
+	GraphFileReader* reader = new GraphFileReader("data3.txt");
 	
 	if (reader->success()) {
 		// success

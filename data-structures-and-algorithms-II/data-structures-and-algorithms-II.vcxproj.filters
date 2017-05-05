@@ -158,9 +158,6 @@
     <ClInclude Include="Graph.h">
       <Filter>Header Files\model\structures</Filter>
     </ClInclude>
-    <ClInclude Include="MinimumEdgeHeap.h">
-      <Filter>Header Files\model\structures\impl\other</Filter>
-    </ClInclude>
     <ClInclude Include="DisjointSet.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
@@ -196,6 +193,12 @@
     </ClInclude>
     <ClInclude Include="Edge.h">
       <Filter>Header Files\model\structures\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="HeapElement.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="MinimumHeap.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

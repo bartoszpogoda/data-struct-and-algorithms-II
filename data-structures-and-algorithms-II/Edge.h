@@ -10,4 +10,6 @@ public:
 	int getStartV() { return startV; }
 	int getEndV() { return endV; }
 	int getWeight() { return weight; }
+
+	int getKey() { return 0; }
 };

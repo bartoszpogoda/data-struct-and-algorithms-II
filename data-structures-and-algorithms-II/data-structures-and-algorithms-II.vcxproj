@@ -167,11 +167,12 @@
     <ClInclude Include="GraphFileReader.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="CLInterface.h" />
+    <ClInclude Include="HeapElement.h" />
     <ClInclude Include="UndirectedListGraph.h" />
     <ClInclude Include="UndirectedMatrixGraph.h" />
     <ClInclude Include="Infinity.h" />
     <ClInclude Include="DirectedListGraph.h" />
-    <ClInclude Include="MinimumEdgeHeap.h" />
+    <ClInclude Include="MinimumHeap.h" />
     <ClInclude Include="MSTGraph.h" />
     <ClInclude Include="MSTPrim.h" />
     <ClInclude Include="ListGraph.h" />

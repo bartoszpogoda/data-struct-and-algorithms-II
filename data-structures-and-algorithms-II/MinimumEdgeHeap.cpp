@@ -1,13 +1,14 @@
-#include "MinimumEdgeHeap.h"
+#include "MinimumHeap.h"
 
 #include <string>
 
-void MinimumEdgeHeap::fixUp(int nodeId) {
+template<class Type>
+void MinimumHeap<Type>::fixUp(int nodeId) {
 	while (parent(nodeId) >= 0) {
 		// if parent has bigger weight
 		if (elements[parent(nodeId)].getWeight() > elements[nodeId].getWeight()) {
 			// swap with parent
-			Edge dataHolder = elements[nodeId];
+			Type dataHolder = elements[nodeId];
 			elements[nodeId] = elements[parent(nodeId)];
 			elements[parent(nodeId)] = dataHolder;
 
@@ -20,14 +21,15 @@ void MinimumEdgeHeap::fixUp(int nodeId) {
 	}
 }
 
-void MinimumEdgeHeap::fixDown(int nodeId) {
+template<class Type>
+void MinimumHeap<Type>::fixDown(int nodeId) {
 	while (leftChild(nodeId) < currentSize) {
 		// if left child has less value
-		if (elements[leftChild(nodeId)].getWeight() < elements[nodeId].getWeight()) {
+		if (elements[leftChild(nodeId)].getKey() < elements[nodeId].getKey()) {
 			// if right child exists and has less value than left
-			if (rightChild(nodeId) < currentSize && elements[rightChild(nodeId)].getWeight() < elements[leftChild(nodeId)].getWeight()) {
+			if (rightChild(nodeId) < currentSize && elements[rightChild(nodeId)].getKey() < elements[leftChild(nodeId)].getKey()) {
 				// swap with right child
-				Edge dataHolder = elements[nodeId];
+				Type dataHolder = elements[nodeId];
 				elements[nodeId] = elements[rightChild(nodeId)];
 				elements[rightChild(nodeId)] = dataHolder;
 
@@ -35,7 +37,7 @@ void MinimumEdgeHeap::fixDown(int nodeId) {
 				nodeId = rightChild(nodeId);
 			} else {
 				// swap with left child
-				Edge dataHolder = elements[nodeId];
+				Type dataHolder = elements[nodeId];
 				elements[nodeId] = elements[leftChild(nodeId)];
 				elements[leftChild(nodeId)] = dataHolder;
 
@@ -44,9 +46,9 @@ void MinimumEdgeHeap::fixDown(int nodeId) {
 			}
 
 		} // if right child exists and has less value
-		else if (rightChild(nodeId) < currentSize && elements[rightChild(nodeId)].getWeight() < elements[nodeId].getWeight()) {
+		else if (rightChild(nodeId) < currentSize && elements[rightChild(nodeId)].getKey() < elements[nodeId].getKey()) {
 			// swap with right child
-			Edge dataHolder = elements[nodeId];
+			Type dataHolder = elements[nodeId];
 			elements[nodeId] = elements[rightChild(nodeId)];
 			elements[rightChild(nodeId)] = dataHolder;
 
@@ -59,7 +61,8 @@ void MinimumEdgeHeap::fixDown(int nodeId) {
 	}
 }
 
-MinimumEdgeHeap::MinimumEdgeHeap(Edge * elements, int size) {
+template<class Type>
+MinimumHeap<Type>::MinimumHeap(Type * elements, int size) {
 	currentSize = size;
 	this->elements = elements;
 
@@ -70,16 +73,18 @@ MinimumEdgeHeap::MinimumEdgeHeap(Edge * elements, int size) {
 	} while (--parentIteration >= 0);
 }
 
-MinimumEdgeHeap::~MinimumEdgeHeap() {
+template<class Type>
+MinimumHeap<Type>::~MinimumHeap() {
 	delete[] elements;
 }
 
-void MinimumEdgeHeap::add(Edge element) {
+template<class Type>
+void MinimumHeap<Type>::add(Type element) {
 	if (elements == nullptr) {
-		elements = new Edge[1];
+		elements = new Type[1];
 		elements[0] = element;
 	} else {
-		Edge* newElements = new Edge[currentSize + 1];
+		Type* newElements = new Type[currentSize + 1];
 
 		for (int i = 0; i < currentSize; i++) {
 			newElements[i] = elements[i];
@@ -96,20 +101,21 @@ void MinimumEdgeHeap::add(Edge element) {
 	currentSize++;
 }
 
-Edge MinimumEdgeHeap::getRoot() {
+template<class Type>
+Type MinimumHeap<Type>::getRoot() {
 	if (elements == nullptr)
-		return Edge();
+		return Type();
 
-	Edge edge = elements[0];
+	Type edge = elements[0];
 
 	if (currentSize - 1 == 0) {
 		delete[] elements;
 		elements = nullptr;
 		currentSize = 0;
-		return edge;
+		return Type();
 	}
 
-	Edge* newElements = new Edge[currentSize - 1];
+	Type* newElements = new Type[currentSize - 1];
 
 	// last node becomes root
 	newElements[0] = elements[currentSize - 1];
@@ -128,22 +134,6 @@ Edge MinimumEdgeHeap::getRoot() {
 	return edge;
 }
 
-std::string MinimumEdgeHeap::toStringTable() {
-	std::string result = "[";
 
-	if (currentSize == 0) {
-		result += "empty]";
-		return result;
-	}
-
-	for (int i = 0; i < currentSize; i++) {
-		result += std::to_string(elements[i].getStartV()) + " "
-			+ std::to_string(elements[i].getEndV()) + " "
-			+ std::to_string(elements[i].getWeight()) + "  ";
-	}
-
-	result.pop_back(); // deletes extra whitespace
-	result += "]";
-
-	return result;
-}
+template class MinimumHeap<Edge>;
+//template class MinimumHeap<float>;
