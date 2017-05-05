@@ -3,6 +3,7 @@
 #include "Edge.h"
 
 #include <string>
+#include <iostream>
 
 template<class Type>
 void MinimumHeap<Type>::fixUp(int nodeId) {
@@ -65,28 +66,10 @@ void MinimumHeap<Type>::fixDown(int nodeId) {
 
 template<class Type>
 int MinimumHeap<Type>::find(int id) {
-	// for 0, 2, 6, 14, ... iteration (last indexes on heap levels)
-	int currentValue = 0;
-	int multiplier = 2;
-
-	bool wasLess = false;
 
 	for (int i = 0; i < currentSize; i++) {
-
 		if (elements[i].getID() == id)
 			return i;
-		else if (elements[i].getID() < id)
-			wasLess = true;
-
-		if (i == currentValue) {
-			if (!wasLess)
-				return -1;
-			else {
-				currentValue += multiplier;
-				multiplier *= 2;
-				wasLess = false;
-			}
-		}
 	}
 
 	return -1;
@@ -150,7 +133,17 @@ void MinimumHeap<Type>::update(int id, Type newElement) {
 }
 
 template<class Type>
-Type MinimumHeap<Type>::getRoot() {
+Type MinimumHeap<Type>::get(int id) {
+	int nodeId = find(id);
+
+	if (nodeId == -1)
+		return Type();
+
+	return elements[nodeId];
+}
+
+template<class Type>
+Type MinimumHeap<Type>::popRoot() {
 	if (elements == nullptr)
 		return Type();
 
@@ -180,6 +173,26 @@ Type MinimumHeap<Type>::getRoot() {
 	fixDown(0);
 
 	return edge;
+}
+
+template<class Type>
+std::string MinimumHeap<Type>::toStringTable() {
+	std::string result = "[";
+
+	if (currentSize == 0) {
+		result += "empty]";
+		return result;
+	}
+
+	for (int i = 0; i < currentSize; i++) {
+		result += std::to_string(elements[i].getID()) + " "
+			+ std::to_string(elements[i].getKey()) + " ";
+	}
+
+	result.pop_back(); // deletes extra whitespace
+	result += "]";
+
+	return result;
 }
 
 

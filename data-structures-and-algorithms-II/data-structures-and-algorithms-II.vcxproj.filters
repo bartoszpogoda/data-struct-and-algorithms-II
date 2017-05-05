@@ -73,6 +73,9 @@
     <Filter Include="Header Files\model\structures\impl\matrix-graph">
       <UniqueIdentifier>{4e436c4e-6da0-4945-b4d4-309896809be7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\model\algorithms-SPath">
+      <UniqueIdentifier>{d146e0ff-d702-4781-89ee-395b81c3c21f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -123,6 +126,9 @@
     <ClCompile Include="MinimumHeap.cpp">
       <Filter>Source Files\model\structures\other</Filter>
     </ClCompile>
+    <ClCompile Include="SPathDijkstra.cpp">
+      <Filter>Source Files\model\algorithms-SPath</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">
@@ -135,9 +141,6 @@
       <Filter>Header Files\model\algorithms-spath</Filter>
     </ClInclude>
     <ClInclude Include="SPathBellmanFord.h">
-      <Filter>Header Files\model\algorithms-spath\impl</Filter>
-    </ClInclude>
-    <ClInclude Include="SPathDjikstra.h">
       <Filter>Header Files\model\algorithms-spath\impl</Filter>
     </ClInclude>
     <ClInclude Include="MSTPrim.h">
@@ -202,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="DistanceNode.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="SPathDijkstra.h">
+      <Filter>Header Files\model\algorithms-spath\impl</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

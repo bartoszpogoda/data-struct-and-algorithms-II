@@ -148,6 +148,7 @@
     <ClCompile Include="DirectedMatrixGraph.cpp" />
     <ClCompile Include="DisjointSet.cpp" />
     <ClCompile Include="GraphFileReader.cpp" />
+    <ClCompile Include="SPathDijkstra.cpp" />
     <ClCompile Include="UndirectedListGraph.cpp" />
     <ClCompile Include="UndirectedMatrixGraph.cpp" />
     <ClCompile Include="ListGraph.cpp" />
@@ -184,7 +185,7 @@
     <ClInclude Include="PerformanceTestingUtil.h" />
     <ClInclude Include="SPath.h" />
     <ClInclude Include="SPathBellmanFord.h" />
-    <ClInclude Include="SPathDjikstra.h" />
+    <ClInclude Include="SPathDijkstra.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

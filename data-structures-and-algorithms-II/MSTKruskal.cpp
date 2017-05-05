@@ -14,7 +14,7 @@ void MSTKruskal::execute(Graph * graph) {
 	// end after n-1 edges are added or when run out of edges
 	size_t addedEdges = 0;
 	while (addedEdges < graph->getSize() - 1 && !edgeHeap->isEmpty()) {
-		Edge edge = edgeHeap->getRoot();
+		Edge edge = edgeHeap->popRoot();
 
 		if (disjointSet->makeUnion(edge.getStartV(), edge.getEndV())) {
 			result->addEdge(edge);

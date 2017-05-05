@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream> // temp
+
 template <class Type>
 class MinimumHeap {
 	Type* elements;
@@ -24,7 +26,9 @@ public:
 
 	void add(Type element);
 	void update(int id, Type newElement);
+	Type get(int id);
 
-	Type getRoot();
+	Type popRoot();
 
+	std::string toStringTable();
 };
