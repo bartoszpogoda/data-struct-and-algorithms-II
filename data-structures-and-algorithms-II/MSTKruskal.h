@@ -3,6 +3,5 @@
 
 class MSTKruskal : public MST {
 public:
-	void execute(IndirectedMatrixGraph* graph);
-	void execute(IndirectedListGraph* graph);
+	void execute(Graph* graph);
 };

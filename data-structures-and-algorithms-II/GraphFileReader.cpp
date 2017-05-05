@@ -4,14 +4,14 @@
 #include "ListGraph.h"
 #include "MatrixGraph.h"
 #include "DirectedMatrixGraph.h"
-#include "IndirectedMatrixGraph.h"
+#include "UndirectedMatrixGraph.h"
 #include "DirectedListGraph.h"
-#include "IndirectedListGraph.h"
+#include "UndirectedListGraph.h"
 #include <fstream>
 
 void GraphFileReader::insertLoadedEdges(Graph * graph) {
 	for (size_t i = 0; i < e; i++) {
-		graph->addEdge(edges[i]->getStartV(), edges[i]->getEndV(), edges[i]->getWeight());
+		graph->addEdge(edges[i]);
 	}
 }
 
@@ -21,13 +21,9 @@ GraphFileReader::GraphFileReader(std::string filename) : startVerticle(-1), endV
 }
 
 GraphFileReader::~GraphFileReader() {
-	if (edges != nullptr) {
-		for (size_t i = 0; i < e; i++) {
-			delete edges[i];
-		}
-		delete[] edges;
-		edges = nullptr;
-	}
+	
+	delete[] edges;
+	edges = nullptr;
 }
 
 void GraphFileReader::read(std::string filename) {
@@ -73,7 +69,7 @@ void GraphFileReader::read(std::string filename) {
 			return;
 		}
 
-		edges = new Edge*[e];
+		edges = new Edge[e];
 
 		int begin, end, weight;
 		for (int i = 0; i < e; i++) {
@@ -83,13 +79,10 @@ void GraphFileReader::read(std::string filename) {
 				errorFlag = true;
 				errorMessage = "File read error : edges data";
 
-				for (int j = 0; j < i; j++)
-					delete edges[j];
 				delete[] edges;
-
 				return;
 			} else
-				edges[i] = new Edge(begin, end, weight);
+				edges[i] = Edge(begin, end, weight);
 		}
 
 		file.close();
@@ -107,10 +100,10 @@ DirectedMatrixGraph * GraphFileReader::asDirectedMatrixGraph() {
 	return result;
 }
 
-IndirectedMatrixGraph * GraphFileReader::asIndirectedMatrixGraph() {
+UndirectedMatrixGraph * GraphFileReader::asUndirectedMatrixGraph() {
 	if (errorFlag) return nullptr;
 
-	IndirectedMatrixGraph* result = new IndirectedMatrixGraph(n);
+	UndirectedMatrixGraph* result = new UndirectedMatrixGraph(n);
 	insertLoadedEdges(result);
 	return result;
 }
@@ -123,10 +116,10 @@ DirectedListGraph * GraphFileReader::asDirectedListGraph() {
 	return result;
 }
 
-IndirectedListGraph * GraphFileReader::asIndirectedListGraph() {
+UndirectedListGraph * GraphFileReader::asUndirectedListGraph() {
 	if (errorFlag) return nullptr;
 
-	IndirectedListGraph* result = new IndirectedListGraph(n);
+	UndirectedListGraph* result = new UndirectedListGraph(n);
 	insertLoadedEdges(result);
 	return result;
 }

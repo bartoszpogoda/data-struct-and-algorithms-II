@@ -1,7 +1,8 @@
 #pragma 
-#include <iostream>
 #include "GraphFileReader.h"
 #include "Graph.h"
+
+#include <iostream>
 
 #define KEY_UP 72
 #define KEY_DOWN 80

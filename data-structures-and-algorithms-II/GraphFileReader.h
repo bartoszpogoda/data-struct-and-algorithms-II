@@ -1,17 +1,23 @@
 #pragma once
-
-#include <iostream>
 #include "Edge.h"
 #include "Graph.h"
 #include "DirectedMatrixGraph.h"
-#include "IndirectedMatrixGraph.h"
+#include "UndirectedMatrixGraph.h"
 #include "DirectedListGraph.h"
-#include "IndirectedListGraph.h"
+#include "UndirectedListGraph.h"
 
-// reads data from a file given in constructor, allocates memory
+#include <iostream>
+
+/*
+	GraphFileReader reads data from file (filename) given in constructor.
+	Graphs are accessible in various representations through
+		asDirectedMatrixGraph().. etc functions
+	Data is preserved through any as.......Graph() calls
+	and is dealocated on object destruction.
+*/
 class GraphFileReader {
 	int startVerticle, endVerticle, n, e;
-	Edge** edges;
+	Edge* edges;
 
 	bool errorFlag;
 	std::string errorMessage;
@@ -23,15 +29,15 @@ public:
 	GraphFileReader(std::string filename);
 	~GraphFileReader();
 
-	// assert success
+	// read status
 	bool success() { return !errorFlag; }
+	std::string getErrorMessage() { return errorMessage; }
 
-	// get data
+	// data accessors
 	DirectedMatrixGraph* asDirectedMatrixGraph();
-	IndirectedMatrixGraph* asIndirectedMatrixGraph();
+	UndirectedMatrixGraph* asUndirectedMatrixGraph();
 	DirectedListGraph* asDirectedListGraph();
-	IndirectedListGraph* asIndirectedListGraph();
+	UndirectedListGraph* asUndirectedListGraph();
 	int getFirstVerticle() { return startVerticle; }
 	int getEndVerticle() { return endVerticle; }
-	std::string getErrorMessage() { return errorMessage; }
 };

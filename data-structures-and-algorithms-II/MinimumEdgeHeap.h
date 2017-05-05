@@ -1,11 +1,10 @@
 #pragma once
 #include "Edge.h"
+
 #include <string>
 
 class MinimumEdgeHeap {
-
-private:
-	Edge** elements;
+	Edge* elements;
 	int currentSize;
 
 	void fixUp(int nodeId);
@@ -17,14 +16,14 @@ private:
 
 public:
 	MinimumEdgeHeap() : elements(nullptr), currentSize(0) {};
-	MinimumEdgeHeap(Edge** elements, int size);
+	MinimumEdgeHeap(Edge* elements, int size);
 	~MinimumEdgeHeap();
 
 	int size() { return currentSize; }
+	bool isEmpty() { return currentSize == 0; }
 
-	void add(Edge* element);
-	Edge* getRoot();
-
+	void add(Edge element);
+	Edge getRoot();
 
 	std::string toStringTable();
 };

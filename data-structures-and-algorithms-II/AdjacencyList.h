@@ -1,4 +1,6 @@
 #pragma once
+#include "Edge.h"
+
 #include <iostream>
 
 class AdjacencyList {
@@ -6,27 +8,17 @@ class AdjacencyList {
 
 	AdjacencyListNode* head;
 	AdjacencyListNode* tail;
-	AdjacencyListNode* iterator;
+	int verticle;				// a verticle that adjacents the list describes
+	int size;					// verticle's degree
 
 	AdjacencyListNode* find(int adjacent);
-	void AdjacencyList::deleteHead();
-	void AdjacencyList::deleteTail();
-
 public:
-	AdjacencyList() : head(nullptr), tail(nullptr) {}
+	AdjacencyList(int verticle) : head(nullptr), tail(nullptr), size(0), verticle(verticle) {}
 	~AdjacencyList();
 
-	void add(int adjacent, int weight);
-	void remove(int adjacent);
-	int getEdgeWeight(int adjacent);
-
-	bool iterReset() { return (iterator = head) != nullptr; }
-	bool iterHasNext();
-	void iterNext();
-	int iterGetAdjacent(); 
-	int iterGetWeight();
-
-	std::string toString(int width);
+	int getSize() { return size; }
+	bool add(int adjacent, int weight);	// true if added, false if modified
+	Edge* getEdges();
 };
 
 

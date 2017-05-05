@@ -1,18 +1,23 @@
 #pragma once
+#include "Edge.h"
+
 #include <ostream>
 
 class Graph {
 protected:
 	int n;			// number of verticles
+	int e;			// number of edges
 public:
-	Graph(int n) : n(n) {}
+	Graph(int n) : n(n), e(0) {}
 	virtual ~Graph() {};
 
-	virtual void addEdge(int beginV, int endV, int weight) = 0;	
-	virtual int checkEdge(int beginV, int endV) = 0;
-	virtual void removeEdge(int beginV, int endV) = 0;
-	virtual int degree() = 0;
 	int getSize() { return n; }
+	int getEdgeCount() { return e; }
+	virtual int degree(int verticle) = 0;
+
+	virtual void addEdge(Edge edge) = 0;
+	virtual Edge* getAdjacentEdges(int verticle) = 0;	// degree is number of adjacent edges
+	virtual Edge* getAllEdges() = 0;
 
 	virtual void print(std::ostream &out) = 0;
 
