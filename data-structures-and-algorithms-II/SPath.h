@@ -15,7 +15,7 @@ protected:
 
 public:
 	SPath() : result(nullptr) {}
-	~SPath() { delete result; }
+	~SPath() { delete result; result = nullptr; }
 
 	Path* getResult();
 
