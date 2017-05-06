@@ -144,6 +144,9 @@
     <ClCompile Include="Path.cpp">
       <Filter>Source Files\model\structures\other</Filter>
     </ClCompile>
+    <ClCompile Include="SPathBellmanFord.cpp">
+      <Filter>Source Files\model\algorithms-SPath</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">

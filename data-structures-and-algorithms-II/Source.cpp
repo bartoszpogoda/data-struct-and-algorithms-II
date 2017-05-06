@@ -9,9 +9,10 @@
 #include "MSTKruskal.h"
 #include "MinimumHeap.h"
 #include "SPathDijkstra.h"
+#include "SPathBellmanFord.h"
 
 int main() {
-	GraphFileReader* gfr = new GraphFileReader("data.txt");
+	GraphFileReader* gfr = new GraphFileReader("data5.txt");
 	Graph* graph = gfr->asDirectedListGraph();
 
 	SPath* spath = new SPathDijkstra();
@@ -20,16 +21,22 @@ int main() {
 	Path* path = spath->getResult();
 	std::cout << "Path toString:" << std::endl << path->toString();
 	delete path;
-
-	path = spath->getResult();
-
-	if (path == nullptr)
-		std::cout << "nptr";
-
-	delete gfr;
-	delete graph;
 	delete spath;
 
+	SPathBellmanFord* spath2 = new SPathBellmanFord();
+	spath2->execute(graph, gfr->getFirstVerticle());
+	path = spath2->getResult();
+
+	if (spath2->wasGood()) {
+		std::cout << "Path toString:" << std::endl << path->toString();
+	} else {
+		std::cout << "Found negative cycles";
+	}
+
+	delete graph;
+	delete gfr;
+	delete path;
+	delete spath2;
 
 
 	int x;
