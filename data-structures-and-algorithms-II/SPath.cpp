@@ -1,7 +1,7 @@
 #include "SPath.h"
 
 #include <iomanip>
-#include <string>
+#include <sstream>
 
 /* may cause stackoverflow
 	void SPath::printPath(DistanceNode * node, std::ostream & out) {
@@ -19,11 +19,13 @@ DistanceNode * SPath::getResult() {
 	return result;
 }
 
-void SPath::printResult(std::ostream & out) {
-	printResult(out, result, resultSize);
+std::string SPath::resultToString() {
+	return resultToString(result, resultSize);
 }
 
-void SPath::printResult(std::ostream & out, DistanceNode * result, int resultSize) {
+std::string SPath::resultToString(DistanceNode * result, int resultSize) {
+	std::stringstream out;
+
 	out << "Start = " << startVerticle << std::endl;
 	int argWidth = 4;
 
@@ -43,6 +45,7 @@ void SPath::printResult(std::ostream & out, DistanceNode * result, int resultSiz
 		}
 
 		out << path << std::endl;
-
 	}
+
+	return out.str();
 }

@@ -2,7 +2,7 @@
 #include "Infinity.h"
 
 #include <iomanip>
-#include <string>
+#include <sstream>
 
 void DirectedMatrixGraph::addEdge(Edge edge) {
 	if (adjacencyMatrix[edge.getStartV()][edge.getEndV()] == INF)
@@ -26,8 +26,8 @@ Edge * DirectedMatrixGraph::getAllEdges() {
 	return edges;
 }
 
-void DirectedMatrixGraph::print(std::ostream &out) {
-
+std::string DirectedMatrixGraph::toString() {
+	std::stringstream out;
 	out << "Type: Directed Graph" << std::endl << "Representation: Adjacency Matrix" << std::endl << std::endl;
 
 	int argWidth = 4;
@@ -54,4 +54,5 @@ void DirectedMatrixGraph::print(std::ostream &out) {
 	}
 
 	out << std::endl;
+	return out.str();
 }

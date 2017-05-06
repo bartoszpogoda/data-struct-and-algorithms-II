@@ -2,6 +2,7 @@
 #include "Edge.h"
 
 #include <ostream>
+#include <string>
 
 class Graph {
 protected:
@@ -19,6 +20,6 @@ public:
 	virtual Edge* getAdjacentEdges(int verticle) = 0;	// degree is number of adjacent edges
 	virtual Edge* getAllEdges() = 0;
 
-	virtual void print(std::ostream &out) = 0;
+	virtual std::string toString() = 0;
 
 };

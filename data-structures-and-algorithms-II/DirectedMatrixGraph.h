@@ -10,5 +10,5 @@ public:
 	void addEdge(Edge edge);
 	Edge* getAllEdges();
 
-	void print(std::ostream &out);
+	std::string toString();
 };

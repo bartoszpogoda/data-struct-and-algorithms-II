@@ -17,8 +17,8 @@ public:
 	int getResultSize() { return resultSize; }
 	int getStartVerticle() { return startVerticle; }
 
-	void printResult(std::ostream& out);
-	void printResult(std::ostream& out, DistanceNode* result, int resultSize);
+	std::string resultToString();
+	std::string resultToString(DistanceNode* result, int resultSize);
 
 	/* Returns Shortest Path in the graph */
 	virtual void execute(Graph* graph, int startVerticle) = 0;

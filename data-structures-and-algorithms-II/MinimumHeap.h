@@ -30,5 +30,5 @@ public:
 
 	Type popRoot();
 
-	std::string toStringTable();
+	std::string toString();
 };

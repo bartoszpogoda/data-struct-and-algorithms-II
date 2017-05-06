@@ -176,7 +176,7 @@ Type MinimumHeap<Type>::popRoot() {
 }
 
 template<class Type>
-std::string MinimumHeap<Type>::toStringTable() {
+std::string MinimumHeap<Type>::toString() {
 	std::string result = "[";
 
 	if (currentSize == 0) {

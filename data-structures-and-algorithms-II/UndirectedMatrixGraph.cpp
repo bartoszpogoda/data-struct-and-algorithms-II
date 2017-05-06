@@ -2,7 +2,7 @@
 #include "Infinity.h"
 
 #include <iomanip>
-#include <string>
+#include <sstream>
 
 void UndirectedMatrixGraph::addEdge(Edge edge) {
 	if (adjacencyMatrix[edge.getStartV()][edge.getEndV()] == INF)
@@ -27,7 +27,8 @@ Edge * UndirectedMatrixGraph::getAllEdges() {
 	return edges;
 }
 
-void UndirectedMatrixGraph::print(std::ostream &out) {
+std::string UndirectedMatrixGraph::toString() {
+	std::stringstream out;
 	out << "Type: Undirected Graph" << std::endl << "Representation: Adjacency Matrix" << std::endl << std::endl;
 
 	int argWidth = 4;
@@ -57,4 +58,5 @@ void UndirectedMatrixGraph::print(std::ostream &out) {
 	}
 
 	out << std::endl;
+	return out.str();
 }

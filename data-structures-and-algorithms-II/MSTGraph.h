@@ -8,5 +8,5 @@ public:
 
 	void addEdge(Edge e) { UndirectedListGraph::addEdge(e); this->weight += e.getWeight(); }
 
-	void print(std::ostream &out) { UndirectedListGraph::print(out); out << "To override; weight: " << weight << std::endl; }
+	std::string toString();
 };
