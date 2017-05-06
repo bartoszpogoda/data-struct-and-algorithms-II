@@ -1,6 +1,7 @@
 #include "DirectedListGraph.h"
 
 #include <iomanip>
+#include <sstream>
 
 void DirectedListGraph::addEdge(Edge edge) {
 	if(adjacencyLists[edge.getStartV()]->add(edge.getEndV(), edge.getWeight()))
@@ -24,8 +25,8 @@ Edge * DirectedListGraph::getAllEdges() {
 	return edges;
 }
 
-void DirectedListGraph::print(std::ostream & out) {
-
+std::string DirectedListGraph::toString() {
+	std::stringstream out;
 	out << "Type: Directed Graph" << std::endl << "Representation: Adjacency Lists" << std::endl << std::endl;
 
 	int argWidth = 3;
@@ -33,7 +34,7 @@ void DirectedListGraph::print(std::ostream & out) {
 	// main data loop
 	for (size_t i = 0; i < n; i++) {
 		out << std::setw(argWidth + 3) << std::setfill(' ') << i << " | ";
-		
+
 		// adjacents data loop
 		Edge* adjacentEdges = adjacencyLists[i]->getEdges();
 		for (size_t j = 0; j < adjacencyLists[i]->getSize(); j++) {
@@ -44,5 +45,7 @@ void DirectedListGraph::print(std::ostream & out) {
 		delete[] adjacentEdges;
 		out << std::endl;
 	}
+
 	out << std::endl;
+	return out.str();
 }

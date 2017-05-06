@@ -7,38 +7,41 @@
 #include "GraphFileReader.h"
 #include "MST.h"
 #include "MSTKruskal.h"
-#include "MSTPrim.h"
+#include "MinimumHeap.h"
+#include "SPathDijkstra.h"
+#include "SPathBellmanFord.h"
 
 int main() {
+	GraphFileReader* gfr = new GraphFileReader("data5.txt");
+	Graph* graph = gfr->asDirectedListGraph();
 
-	GraphFileReader* reader = new GraphFileReader("data.txt");
-	
-	if (reader->success()) {
-		// success
+	SPath* spath = new SPathDijkstra();
+	std::cout << graph->toString();
+	spath->execute(graph, gfr->getFirstVerticle());
+	Path* path = spath->getResult();
+	std::cout << "Path toString:" << std::endl << path->toString();
+	delete path;
+	delete spath;
 
-		Graph* graph = reader->asUndirectedMatrixGraph();
-		int firstVerticle = reader->getFirstVerticle();
+	SPathBellmanFord* spath2 = new SPathBellmanFord();
+	spath2->execute(graph, gfr->getFirstVerticle());
+	path = spath2->getResult();
 
-		graph->print(std::cout);
-
-		MST* prim = new MSTPrim();
-		prim->execute(graph);
-
-		Graph* result = prim->getResult();
-		result->print(std::cout);
-
-		delete result;
-		delete prim;
-		delete graph;
-
-	} else { // failure
-		std::cout << "ERROR: " << reader->getErrorMessage();
+	if (spath2->wasGood()) {
+		std::cout << "Path toString:" << std::endl << path->toString();
+	} else {
+		std::cout << "Found negative cycles";
 	}
 
-	delete reader;
+	delete graph;
+	delete gfr;
+	delete path;
+	delete spath2;
+
 
 	int x;
 	std::cin >> x;
+
 
 	// CLInterface::enter();
 }

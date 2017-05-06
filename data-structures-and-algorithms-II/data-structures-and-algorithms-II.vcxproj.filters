@@ -73,6 +73,15 @@
     <Filter Include="Header Files\model\structures\impl\matrix-graph">
       <UniqueIdentifier>{4e436c4e-6da0-4945-b4d4-309896809be7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\model\algorithms-SPath">
+      <UniqueIdentifier>{d146e0ff-d702-4781-89ee-395b81c3c21f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model\structures\impl\heap">
+      <UniqueIdentifier>{fee9146f-c7eb-4cf6-a14c-543e4976f03d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model\structures\impl\heap\heap-elements">
+      <UniqueIdentifier>{8857a59f-a43b-4fc1-b3e0-ad5e12eb5bb9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -92,9 +101,6 @@
     </ClCompile>
     <ClCompile Include="MSTKruskal.cpp">
       <Filter>Source Files\model\algorithms-MST</Filter>
-    </ClCompile>
-    <ClCompile Include="MinimumEdgeHeap.cpp">
-      <Filter>Source Files\model\structures\other</Filter>
     </ClCompile>
     <ClCompile Include="MSTPrim.cpp">
       <Filter>Source Files\model\algorithms-MST</Filter>
@@ -123,6 +129,24 @@
     <ClCompile Include="AdjacencyList.cpp">
       <Filter>Source Files\model\structures\list-graph</Filter>
     </ClCompile>
+    <ClCompile Include="MinimumHeap.cpp">
+      <Filter>Source Files\model\structures\other</Filter>
+    </ClCompile>
+    <ClCompile Include="SPathDijkstra.cpp">
+      <Filter>Source Files\model\algorithms-SPath</Filter>
+    </ClCompile>
+    <ClCompile Include="SPath.cpp">
+      <Filter>Source Files\model\algorithms-SPath</Filter>
+    </ClCompile>
+    <ClCompile Include="MSTGraph.cpp">
+      <Filter>Source Files\model\structures\other</Filter>
+    </ClCompile>
+    <ClCompile Include="Path.cpp">
+      <Filter>Source Files\model\structures\other</Filter>
+    </ClCompile>
+    <ClCompile Include="SPathBellmanFord.cpp">
+      <Filter>Source Files\model\algorithms-SPath</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">
@@ -135,9 +159,6 @@
       <Filter>Header Files\model\algorithms-spath</Filter>
     </ClInclude>
     <ClInclude Include="SPathBellmanFord.h">
-      <Filter>Header Files\model\algorithms-spath\impl</Filter>
-    </ClInclude>
-    <ClInclude Include="SPathDjikstra.h">
       <Filter>Header Files\model\algorithms-spath\impl</Filter>
     </ClInclude>
     <ClInclude Include="MSTPrim.h">
@@ -158,9 +179,6 @@
     <ClInclude Include="Graph.h">
       <Filter>Header Files\model\structures</Filter>
     </ClInclude>
-    <ClInclude Include="MinimumEdgeHeap.h">
-      <Filter>Header Files\model\structures\impl\other</Filter>
-    </ClInclude>
     <ClInclude Include="DisjointSet.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
@@ -172,12 +190,6 @@
     </ClInclude>
     <ClInclude Include="Infinity.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Path.h">
-      <Filter>Header Files\model\structures\impl\other</Filter>
-    </ClInclude>
-    <ClInclude Include="MSTGraph.h">
-      <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
     <ClInclude Include="UndirectedListGraph.h">
       <Filter>Header Files\model\structures\impl\list-graph</Filter>
@@ -194,8 +206,26 @@
     <ClInclude Include="AdjacencyList.h">
       <Filter>Header Files\model\structures\impl\list-graph</Filter>
     </ClInclude>
+    <ClInclude Include="SPathDijkstra.h">
+      <Filter>Header Files\model\algorithms-spath\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="HeapElement.h">
+      <Filter>Header Files\model\structures\impl\heap</Filter>
+    </ClInclude>
+    <ClInclude Include="MinimumHeap.h">
+      <Filter>Header Files\model\structures\impl\heap</Filter>
+    </ClInclude>
     <ClInclude Include="Edge.h">
-      <Filter>Header Files\model\structures\impl</Filter>
+      <Filter>Header Files\model\structures\impl\heap\heap-elements</Filter>
+    </ClInclude>
+    <ClInclude Include="PathNode.h">
+      <Filter>Header Files\model\structures\impl\heap\heap-elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="MSTGraph.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

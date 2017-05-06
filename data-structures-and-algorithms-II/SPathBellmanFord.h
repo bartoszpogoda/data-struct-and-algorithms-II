@@ -1,8 +1,11 @@
 #pragma once
 #include "SPath.h"
 
-/* NOT YET IMPLEMENTED */
 class SPathBellmanFord : public SPath {
+	bool negativeCycleFlag;
 public:
-	Path* execute(Graph* graph);
+	SPathBellmanFord() : negativeCycleFlag(false), SPath() {}
+	bool wasGood() { return !negativeCycleFlag; }
+
+	void execute(Graph* graph, int startVerticle);
 };

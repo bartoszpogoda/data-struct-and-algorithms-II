@@ -1,7 +1,7 @@
 #pragma once
 #include "Edge.h"
 
-#include <iostream>
+#include <string>
 
 class AdjacencyList {
 	class AdjacencyListNode;

@@ -1,8 +1,6 @@
 #pragma once
 #include "Graph.h"
 
-#include <ostream>
-
 class MatrixGraph : public Graph {
 protected:
 	int** adjacencyMatrix;

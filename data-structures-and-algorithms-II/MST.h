@@ -19,6 +19,6 @@ public:
 	
 	MSTGraph* getResult();
 
-	/* Finds Minimum Spanning Tree of the graph */
+	/* Finds the Minimum Spanning Tree of the graph */
 	virtual void execute(Graph* graph) = 0;
 };

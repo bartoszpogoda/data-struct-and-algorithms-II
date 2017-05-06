@@ -1,6 +1,7 @@
 #include "UndirectedListGraph.h"
 
 #include <iomanip>
+#include <sstream>
 
 void UndirectedListGraph::addEdge(Edge edge) {
 	if (adjacencyLists[edge.getStartV()]->add(edge.getEndV(), edge.getWeight()))
@@ -27,8 +28,8 @@ Edge * UndirectedListGraph::getAllEdges() {
 	return edges;
 }
 
-void UndirectedListGraph::print(std::ostream & out) {
-
+std::string UndirectedListGraph::toString() {
+	std::stringstream out;
 	out << "Type: Undirected Graph" << std::endl << "Representation: Adjacency Lists" << std::endl << std::endl;
 
 	int argWidth = 3;
@@ -50,4 +51,5 @@ void UndirectedListGraph::print(std::ostream & out) {
 		out << std::endl;
 	}
 	out << std::endl;
+	return out.str();
 }

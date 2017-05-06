@@ -1,7 +1,7 @@
 #pragma once
 #include "MatrixGraph.h"
 
-#include <ostream>
+#include <string>
 
 class DirectedMatrixGraph : public MatrixGraph {
 public:
@@ -10,5 +10,5 @@ public:
 	void addEdge(Edge edge);
 	Edge* getAllEdges();
 
-	void print(std::ostream &out);
+	std::string toString();
 };
