@@ -11,9 +11,7 @@
 #include "SPathDijkstra.h"
 
 int main() {
-	// new class Path containg results of SPath algorithm along with print methods? would be better!
-
-	GraphFileReader* gfr = new GraphFileReader("data4.txt");
+	GraphFileReader* gfr = new GraphFileReader("data.txt");
 	Graph* graph = gfr->asDirectedListGraph();
 
 	SPath* spath = new SPathDijkstra();

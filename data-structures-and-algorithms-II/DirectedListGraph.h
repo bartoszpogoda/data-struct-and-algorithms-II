@@ -1,7 +1,7 @@
 #pragma once
 #include "ListGraph.h"
 
-#include <ostream>
+#include <string>
 
 class DirectedListGraph : public ListGraph {
 public:

@@ -1,4 +1,5 @@
 #include "Path.h"
+#include "Infinity.h"
 
 #include <sstream>
 #include <iomanip>
@@ -16,7 +17,7 @@ std::string Path::toString() {
 
 	for (size_t i = 0; i < numberOfVerticles; i++) {
 		out << std::setw(argWidth) << std::setfill(' ') << verticles[i].getVerticle() << " | ";
-		out << std::setw(argWidth) << std::setfill(' ') << verticles[i].getDistance() << " | ";
+		out << std::setw(argWidth) << std::setfill(' ') << ((verticles[i].getDistance() < INF) ? std::to_string(verticles[i].getDistance()) : INF_STRING) << " | ";
 
 		std::string path = std::to_string(verticles[i].getVerticle());
 

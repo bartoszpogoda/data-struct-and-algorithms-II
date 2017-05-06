@@ -1,7 +1,7 @@
 #pragma once
 #include "MatrixGraph.h"
 
-#include <ostream>
+#include <string>
 
 class UndirectedMatrixGraph : public MatrixGraph {
 public:

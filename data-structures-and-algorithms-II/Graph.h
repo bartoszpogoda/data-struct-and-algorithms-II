@@ -1,7 +1,6 @@
 #pragma once
 #include "Edge.h"
 
-#include <ostream>
 #include <string>
 
 class Graph {
