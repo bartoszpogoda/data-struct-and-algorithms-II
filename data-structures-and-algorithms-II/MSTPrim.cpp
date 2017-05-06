@@ -2,7 +2,7 @@
 #include "UndirectedListGraph.h"
 #include "Infinity.h"
 #include "DisjointSet.h"
-#include "MinimumEdgeHeap.h"
+#include "MinimumHeap.h"
 
 void MSTPrim::execute(Graph * graph) {
 
@@ -14,7 +14,7 @@ void MSTPrim::execute(Graph * graph) {
 	for (size_t i = 1; i < graph->getSize(); i++)
 		unvisited[i] = true;
 
-	MinimumEdgeHeap* edgeHeap = new MinimumEdgeHeap();
+	MinimumHeap<Edge>* edgeHeap = new MinimumHeap<Edge>();
 	Edge* edges = graph->getAdjacentEdges(0);
 
 	for (size_t i = 0; i < graph->degree(0); i++) {
@@ -30,7 +30,7 @@ void MSTPrim::execute(Graph * graph) {
 	size_t addedEdges = 0;
 	while (addedEdges < graph->getSize() - 1 && !edgeHeap->isEmpty()) {
 
-		Edge edge = edgeHeap->getRoot();
+		Edge edge = edgeHeap->popRoot();
 
 		if (unvisited[edge.getEndV()]) {
 			// unvisited case - add edge to the tree 

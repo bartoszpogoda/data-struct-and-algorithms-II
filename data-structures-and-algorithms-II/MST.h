@@ -15,7 +15,7 @@ protected:
 	MSTGraph* result;
 public:
 	MST() : result(nullptr) {}
-	~MST() { delete result; }
+	virtual ~MST() { delete result; }
 	
 	MSTGraph* getResult();
 

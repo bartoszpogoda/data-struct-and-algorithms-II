@@ -15,7 +15,7 @@ protected:
 
 public:
 	SPath() : result(nullptr) {}
-	~SPath() { delete result; result = nullptr; }
+	virtual ~SPath() { delete result; result = nullptr; }
 
 	Path* getResult();
 

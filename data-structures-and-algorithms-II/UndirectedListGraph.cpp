@@ -23,6 +23,8 @@ Edge * UndirectedListGraph::getAllEdges() {
 			if(adjacentEdges[j].getStartV() <= adjacentEdges[j].getEndV())
 				edges[foundEdges++] = adjacentEdges[j];
 		}
+
+		delete[] adjacentEdges;
 	}
 
 	return edges;
