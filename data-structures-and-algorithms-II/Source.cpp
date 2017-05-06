@@ -7,37 +7,34 @@
 #include "GraphFileReader.h"
 #include "MST.h"
 #include "MSTKruskal.h"
+#include "MinimumHeap.h"
+#include "SPathDijkstra.h"
 
 int main() {
+	GraphFileReader* gfr = new GraphFileReader("data.txt");
+	Graph* graph = gfr->asDirectedListGraph();
 
-	GraphFileReader* reader = new GraphFileReader("data.txt");
-	
-	if (reader->success()) {
-		// success
+	SPath* spath = new SPathDijkstra();
+	std::cout << graph->toString();
+	spath->execute(graph, gfr->getFirstVerticle());
+	Path* path = spath->getResult();
+	std::cout << "Path toString:" << std::endl << path->toString();
+	delete path;
 
-		Graph* graph = reader->asUndirectedMatrixGraph();
-		int firstVerticle = reader->getFirstVerticle();
+	path = spath->getResult();
 
-		graph->print(std::cout);
+	if (path == nullptr)
+		std::cout << "nptr";
 
-		MST* kruskal = new MSTKruskal();
-		kruskal->execute(graph);
+	delete gfr;
+	delete graph;
+	delete spath;
 
-		Graph* result = kruskal->getResult();
-		result->print(std::cout);
 
-		delete result;
-		delete kruskal;
-		delete graph;
-
-	} else { // failure
-		std::cout << "ERROR: " << reader->getErrorMessage();
-	}
-
-	delete reader;
 
 	int x;
 	std::cin >> x;
+
 
 	// CLInterface::enter();
 }

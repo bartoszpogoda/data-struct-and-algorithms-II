@@ -1,10 +1,9 @@
 #pragma once
-#include "Edge.h"
-
 #include <string>
 
-class MinimumEdgeHeap {
-	Edge* elements;
+template <class Type>
+class MinimumHeap {
+	Type* elements;
 	int currentSize;
 
 	void fixUp(int nodeId);
@@ -14,16 +13,21 @@ class MinimumEdgeHeap {
 	int leftChild(int nodeId) { return 2 * nodeId + 1; }
 	int rightChild(int nodeId) { return 2 * nodeId + 2; }
 
+	int find(int id);
+
 public:
-	MinimumEdgeHeap() : elements(nullptr), currentSize(0) {};
-	MinimumEdgeHeap(Edge* elements, int size);
-	~MinimumEdgeHeap();
+	MinimumHeap() : elements(nullptr), currentSize(0) {};
+	MinimumHeap(Type* elements, int size);
+	~MinimumHeap();
 
 	int size() { return currentSize; }
 	bool isEmpty() { return currentSize == 0; }
 
-	void add(Edge element);
-	Edge getRoot();
+	void add(Type element);
+	void update(int id, Type newElement);
+	Type get(int id);
 
-	std::string toStringTable();
+	Type popRoot();
+
+	std::string toString();
 };

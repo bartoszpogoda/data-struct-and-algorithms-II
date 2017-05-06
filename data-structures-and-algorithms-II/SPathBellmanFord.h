@@ -4,5 +4,5 @@
 /* NOT YET IMPLEMENTED */
 class SPathBellmanFord : public SPath {
 public:
-	Path* execute(Graph* graph);
+	void execute(Graph* graph);
 };

@@ -1,7 +1,7 @@
 #pragma once
 #include "ListGraph.h"
 
-#include <ostream>
+#include <string>
 
 class DirectedListGraph : public ListGraph {
 public:
@@ -10,5 +10,5 @@ public:
 	void addEdge(Edge edge);
 	Edge* getAllEdges();
 
-	void print(std::ostream &out);
+	std::string toString();
 };
