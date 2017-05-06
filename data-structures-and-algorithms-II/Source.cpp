@@ -13,11 +13,21 @@
 
 int main() {
 
-	Graph* graph = GraphFileReader("data4.txt").asDirectedListGraph();
-	SPathDijkstra().execute(graph);
+	GraphFileReader* gfr = new GraphFileReader("data4.txt");
+	Graph* graph = gfr->asDirectedListGraph();
+	SPath* spath = new SPathDijkstra();
+	
+	spath->execute(graph, gfr->getFirstVerticle());
+	spath->printResult(std::cout);
+
+
+	delete gfr;
+	delete graph;
+	delete spath;
 
 	int x;
 	std::cin >> x;
+
 
 	// CLInterface::enter();
 }

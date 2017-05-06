@@ -5,6 +5,7 @@
 #include "MinimumHeap.h"
 
 void MSTKruskal::execute(Graph * graph) {
+	delete result;
 	result = new MSTGraph(graph->getSize());
 
 	// init helper structures

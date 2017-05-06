@@ -2,14 +2,19 @@
 #include "MinimumHeap.h"
 #include "DistanceNode.h"
 
-#include <iostream> //temp
-
-Path * SPathDijkstra::execute(Graph * graph) {
+void SPathDijkstra::execute(Graph * graph, int startVerticle) {
+	delete result;
+	this->startVerticle = startVerticle;
+	resultSize = graph->getSize();
+	result = new DistanceNode[resultSize];
 
 	MinimumHeap<DistanceNode>* unvisitedHeap = new MinimumHeap<DistanceNode>();
-	
-	unvisitedHeap->add(DistanceNode(0, 0, -1));
-	for (size_t i = 1; i < graph->getSize(); i++) {
+
+	unvisitedHeap->add(DistanceNode(startVerticle, 0, -1));
+	for (size_t i = 0; i < startVerticle; i++) {
+		unvisitedHeap->add(DistanceNode(i));
+	}
+	for (size_t i = startVerticle+1; i < graph->getSize(); i++) {
 		unvisitedHeap->add(DistanceNode(i));
 	}
 
@@ -28,14 +33,9 @@ Path * SPathDijkstra::execute(Graph * graph) {
 			}
 		}
 
-		std::cout << "Node: " << node.getPrevious() << "->" << node.getVerticle() << " distance " << node.getDistance() << std::endl;
-
+		result[node.getVerticle()] = node;
+		delete[] adjacentEdges;
 	}
 
-	//heap->update(start, DistanceNode(start))
-
-
 	delete unvisitedHeap;
-
-	return nullptr;
 }

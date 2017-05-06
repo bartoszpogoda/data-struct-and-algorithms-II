@@ -129,6 +129,9 @@
     <ClCompile Include="SPathDijkstra.cpp">
       <Filter>Source Files\model\algorithms-SPath</Filter>
     </ClCompile>
+    <ClCompile Include="SPath.cpp">
+      <Filter>Source Files\model\algorithms-SPath</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">

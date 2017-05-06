@@ -3,5 +3,5 @@
 
 class SPathDijkstra : public SPath {
 public:
-	Path* execute(Graph* graph);
+	void execute(Graph* graph, int startVerticle);
 };

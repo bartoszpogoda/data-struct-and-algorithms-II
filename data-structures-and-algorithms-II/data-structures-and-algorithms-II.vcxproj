@@ -148,6 +148,7 @@
     <ClCompile Include="DirectedMatrixGraph.cpp" />
     <ClCompile Include="DisjointSet.cpp" />
     <ClCompile Include="GraphFileReader.cpp" />
+    <ClCompile Include="SPath.cpp" />
     <ClCompile Include="SPathDijkstra.cpp" />
     <ClCompile Include="UndirectedListGraph.cpp" />
     <ClCompile Include="UndirectedMatrixGraph.cpp" />
