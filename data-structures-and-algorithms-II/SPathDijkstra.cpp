@@ -1,25 +1,22 @@
 #include "SPathDijkstra.h"
 #include "MinimumHeap.h"
-#include "DistanceNode.h"
+#include "PathNode.h"
 
 void SPathDijkstra::execute(Graph * graph, int startVerticle) {
-	delete result;
-	this->startVerticle = startVerticle;
-	resultSize = graph->getSize();
-	result = new DistanceNode[resultSize];
+	PathNode* resultNodes = new PathNode[graph->getSize()];
 
-	MinimumHeap<DistanceNode>* unvisitedHeap = new MinimumHeap<DistanceNode>();
+	MinimumHeap<PathNode>* unvisitedHeap = new MinimumHeap<PathNode>();
 
-	unvisitedHeap->add(DistanceNode(startVerticle, 0, -1));
+	unvisitedHeap->add(PathNode(startVerticle, 0, -1));
 	for (size_t i = 0; i < startVerticle; i++) {
-		unvisitedHeap->add(DistanceNode(i));
+		unvisitedHeap->add(PathNode(i));
 	}
 	for (size_t i = startVerticle+1; i < graph->getSize(); i++) {
-		unvisitedHeap->add(DistanceNode(i));
+		unvisitedHeap->add(PathNode(i));
 	}
 
 	while (!unvisitedHeap->isEmpty()) {
-		DistanceNode node = unvisitedHeap->popRoot();
+		PathNode node = unvisitedHeap->popRoot();
 		
 		Edge* adjacentEdges = graph->getAdjacentEdges(node.getVerticle());
 		for (size_t i = 0; i < graph->degree(node.getVerticle()); i++) {
@@ -27,15 +24,18 @@ void SPathDijkstra::execute(Graph * graph, int startVerticle) {
 			int distance = unvisitedHeap->get(nodeToRelax).getDistance();
 
 			if (distance > node.getDistance() + adjacentEdges[i].getWeight()) {
-				DistanceNode newDistanceNode = DistanceNode(nodeToRelax, node.getDistance() + adjacentEdges[i].getWeight(), node.getVerticle());
+				PathNode newDistanceNode = PathNode(nodeToRelax, node.getDistance() + adjacentEdges[i].getWeight(), node.getVerticle());
 				unvisitedHeap->update(nodeToRelax, newDistanceNode);
 
 			}
 		}
 
-		result[node.getVerticle()] = node;
+		resultNodes[node.getVerticle()] = node;
 		delete[] adjacentEdges;
 	}
 
 	delete unvisitedHeap;
+
+	delete result;
+	result = new Path(startVerticle, graph->getSize(), resultNodes);
 }

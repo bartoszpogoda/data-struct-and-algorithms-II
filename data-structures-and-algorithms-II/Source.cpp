@@ -8,25 +8,30 @@
 #include "MST.h"
 #include "MSTKruskal.h"
 #include "MinimumHeap.h"
-#include "DistanceNode.h"
 #include "SPathDijkstra.h"
 
 int main() {
 	// new class Path containg results of SPath algorithm along with print methods? would be better!
 
 	GraphFileReader* gfr = new GraphFileReader("data4.txt");
-	Graph* graph = gfr->asUndirectedListGraph();
-	/*SPath* spath = new SPathDijkstra();
+	Graph* graph = gfr->asDirectedListGraph();
+
+	SPath* spath = new SPathDijkstra();
 	std::cout << graph->toString();
 	spath->execute(graph, gfr->getFirstVerticle());
-	std::cout << spath->resultToString();
+	Path* path = spath->getResult();
+	std::cout << "Path toString:" << std::endl << path->toString();
+	delete path;
+
+	path = spath->getResult();
+
+	if (path == nullptr)
+		std::cout << "nptr";
+
 	delete gfr;
 	delete graph;
-	delete spath;*/
+	delete spath;
 
-	MST* mst = new MSTKruskal();
-	mst->execute(graph);
-	std::cout << mst->getResult()->toString();
 
 
 	int x;

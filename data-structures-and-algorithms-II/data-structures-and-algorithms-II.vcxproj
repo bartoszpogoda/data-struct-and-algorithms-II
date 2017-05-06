@@ -149,6 +149,7 @@
     <ClCompile Include="DisjointSet.cpp" />
     <ClCompile Include="GraphFileReader.cpp" />
     <ClCompile Include="MSTGraph.cpp" />
+    <ClCompile Include="Path.cpp" />
     <ClCompile Include="SPath.cpp" />
     <ClCompile Include="SPathDijkstra.cpp" />
     <ClCompile Include="UndirectedListGraph.cpp" />
@@ -166,7 +167,8 @@
     <ClInclude Include="AdjacencyList.h" />
     <ClInclude Include="DirectedMatrixGraph.h" />
     <ClInclude Include="DisjointSet.h" />
-    <ClInclude Include="DistanceNode.h" />
+    <ClInclude Include="Path.h" />
+    <ClInclude Include="PathNode.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="GraphFileReader.h" />
     <ClInclude Include="Graph.h" />

@@ -1,25 +1,17 @@
 #pragma once
 #include "Graph.h"
-#include "DistanceNode.h"
+#include "Path.h"
 
-/* NOT YET IMPLEMENTED */
 class SPath {
 protected:
-	DistanceNode* result;
-	int resultSize;
-	int startVerticle;
+	Path* result;
 
 public:
 	SPath() : result(nullptr) {}
 	~SPath() { delete result; }
 
-	DistanceNode* getResult();
-	int getResultSize() { return resultSize; }
-	int getStartVerticle() { return startVerticle; }
+	Path* getResult();
 
-	std::string resultToString();
-	std::string resultToString(DistanceNode* result, int resultSize);
-
-	/* Returns Shortest Path in the graph */
+	/* Finds the Shortest Path in the graph */
 	virtual void execute(Graph* graph, int startVerticle) = 0;
 };

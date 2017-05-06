@@ -135,6 +135,9 @@
     <ClCompile Include="MSTGraph.cpp">
       <Filter>Source Files\model\structures\other</Filter>
     </ClCompile>
+    <ClCompile Include="Path.cpp">
+      <Filter>Source Files\model\structures\other</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">
@@ -206,11 +209,14 @@
     <ClInclude Include="MinimumHeap.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
-    <ClInclude Include="DistanceNode.h">
-      <Filter>Header Files\model\structures\impl\other</Filter>
-    </ClInclude>
     <ClInclude Include="SPathDijkstra.h">
       <Filter>Header Files\model\algorithms-spath\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="PathNode.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

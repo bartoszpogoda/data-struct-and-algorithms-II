@@ -1,5 +1,5 @@
 #include "MinimumHeap.h"
-#include "DistanceNode.h"
+#include "PathNode.h"
 #include "Edge.h"
 
 #include <string>
@@ -198,4 +198,4 @@ std::string MinimumHeap<Type>::toString() {
 
 // explicit instantiations
 template class MinimumHeap<Edge>;
-template class MinimumHeap<DistanceNode>;
+template class MinimumHeap<PathNode>;
