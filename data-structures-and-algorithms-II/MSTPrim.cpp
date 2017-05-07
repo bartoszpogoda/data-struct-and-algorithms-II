@@ -14,7 +14,7 @@ void MSTPrim::execute(Graph * graph) {
 	for (size_t i = 1; i < graph->getSize(); i++)
 		unvisited[i] = true;
 
-	MinimumHeap<Edge>* edgeHeap = new MinimumHeap<Edge>();
+	MinimumHeap<Edge>* edgeHeap = new MinimumHeap<Edge>(graph->getEdgeCount());
 	Edge* edges = graph->getAdjacentEdges(0);
 
 	for (size_t i = 0; i < graph->degree(0); i++) {

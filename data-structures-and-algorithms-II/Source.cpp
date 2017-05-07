@@ -11,8 +11,9 @@
 #include "SPathDijkstra.h"
 #include "SPathBellmanFord.h"
 
+// TODO: Heap must be repaired, cause its time complex. is bad
 int main() {
-	GraphFileReader* gfr = new GraphFileReader("data6.txt");
+	GraphFileReader* gfr = new GraphFileReader("data.txt");
 
 	{
 		MSTPrim prim = MSTPrim();
@@ -26,9 +27,9 @@ int main() {
 
 		MSTKruskal krusk = MSTKruskal();
 		input = gfr->asUndirectedListGraph();
-		std::cout << input->toString() << std::endl;
 		krusk.execute(input);
 		graph = krusk.getResult();
+		std::cout << "Kruskal: " << std::endl << graph->toString();
 
 		delete input;
 		delete graph;

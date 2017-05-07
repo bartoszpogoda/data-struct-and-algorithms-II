@@ -78,6 +78,7 @@ int MinimumHeap<Type>::find(int id) {
 template<class Type>
 MinimumHeap<Type>::MinimumHeap(Type * elements, int size) {
 	currentSize = size;
+	maxSize = size;
 	this->elements = elements;
 
 	// fix heap - start from last parent
@@ -94,24 +95,11 @@ MinimumHeap<Type>::~MinimumHeap() {
 
 template<class Type>
 void MinimumHeap<Type>::add(Type element) {
-	if (elements == nullptr) {
-		elements = new Type[1];
-		elements[0] = element;
-	} else {
-		Type* newElements = new Type[currentSize + 1];
+	if (currentSize == maxSize)
+		return;
 
-		for (int i = 0; i < currentSize; i++) {
-			newElements[i] = elements[i];
-		}
-
-		newElements[currentSize] = element;
-
-		delete[] elements;
-		elements = newElements;
-
-		fixUp(currentSize);
-	}
-
+	elements[currentSize] = element;
+	fixUp(currentSize);
 	currentSize++;
 }
 
@@ -144,29 +132,18 @@ Type MinimumHeap<Type>::get(int id) {
 
 template<class Type>
 Type MinimumHeap<Type>::popRoot() {
-	if (elements == nullptr)
+	if(currentSize == 0)
 		return Type();
 
 	Type edge = elements[0];
 
 	if (currentSize - 1 == 0) {
-		delete[] elements;
-		elements = nullptr;
 		currentSize = 0;
 		return edge;
 	}
 
-	Type* newElements = new Type[currentSize - 1];
-
 	// last node becomes root
-	newElements[0] = elements[currentSize - 1];
-
-	for (int i = 1; i < currentSize - 1; i++) {
-		newElements[i] = elements[i];
-	}
-
-	delete[] elements;
-	elements = newElements;
+	elements[0] = elements[currentSize - 1];
 
 	// currentSize must be decreased before fixDown
 	currentSize--;

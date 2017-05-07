@@ -1,10 +1,17 @@
 #pragma once
 #include <string>
 
+/*
+	MinimumHeap is fixed size in memory after construction
+	It allocates memory for (maxSize) specified in constructor
+	It rejects any elements that don't fit 
+	It dealocates memory on object destruction
+*/
 template <class Type>
 class MinimumHeap {
 	Type* elements;
 	int currentSize;
+	int maxSize;
 
 	void fixUp(int nodeId);
 	void fixDown(int nodeId);
@@ -16,7 +23,7 @@ class MinimumHeap {
 	int find(int id);
 
 public:
-	MinimumHeap() : elements(nullptr), currentSize(0) {};
+	MinimumHeap(int maxSize) : elements(new Type[maxSize]), currentSize(0), maxSize(maxSize) {};
 	MinimumHeap(Type* elements, int size);
 	~MinimumHeap();
 
