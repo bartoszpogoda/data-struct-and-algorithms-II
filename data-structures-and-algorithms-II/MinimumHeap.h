@@ -9,7 +9,9 @@
 */
 template <class Type>
 class MinimumHeap {
+protected:
 	Type* elements;
+
 	int currentSize;
 	int maxSize;
 
@@ -20,19 +22,16 @@ class MinimumHeap {
 	int leftChild(int nodeId) { return 2 * nodeId + 1; }
 	int rightChild(int nodeId) { return 2 * nodeId + 2; }
 
-	int find(int id);
 
 public:
 	MinimumHeap(int maxSize) : elements(new Type[maxSize]), currentSize(0), maxSize(maxSize) {};
 	MinimumHeap(Type* elements, int size);
-	~MinimumHeap();
+	virtual ~MinimumHeap();
 
 	int size() { return currentSize; }
 	bool isEmpty() { return currentSize == 0; }
 
 	void add(Type element);
-	void update(int id, Type newElement);
-	Type get(int id);
 
 	Type popRoot();
 

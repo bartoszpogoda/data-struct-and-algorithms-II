@@ -150,6 +150,7 @@
     <ClCompile Include="GraphFileReader.cpp" />
     <ClCompile Include="MSTGraph.cpp" />
     <ClCompile Include="Path.cpp" />
+    <ClCompile Include="SearchableMinimumHeap.cpp" />
     <ClCompile Include="SPath.cpp" />
     <ClCompile Include="SPathBellmanFord.cpp" />
     <ClCompile Include="SPathDijkstra.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Graph.h" />
     <ClInclude Include="CLInterface.h" />
     <ClInclude Include="HeapElement.h" />
+    <ClInclude Include="SearchableMinimumHeap.h" />
     <ClInclude Include="UndirectedListGraph.h" />
     <ClInclude Include="UndirectedMatrixGraph.h" />
     <ClInclude Include="Infinity.h" />

@@ -11,25 +11,24 @@
 #include "SPathDijkstra.h"
 #include "SPathBellmanFord.h"
 
-// TODO: Heap must be repaired, cause its time complex. is bad
 int main() {
-	GraphFileReader* gfr = new GraphFileReader("data.txt");
+	GraphFileReader* gfr = new GraphFileReader("data7.txt");
 
 	{
-		MSTPrim prim = MSTPrim();
-		Graph* input = gfr->asUndirectedMatrixGraph();
-		prim.execute(input);
-		Graph* graph = prim.getResult();
-		std::cout << "Prim: " << std::endl << graph->toString();
+		SPathDijkstra dijks = SPathDijkstra();
+		Graph* input = gfr->asDirectedMatrixGraph();
+		dijks.execute(input, gfr->getFirstVerticle());
+		Path* graph = dijks.getResult();
+		std::cout << "Dijks: " << std::endl << graph->toString();
 
 		delete graph;
 		delete input;
 
-		MSTKruskal krusk = MSTKruskal();
-		input = gfr->asUndirectedListGraph();
-		krusk.execute(input);
-		graph = krusk.getResult();
-		std::cout << "Kruskal: " << std::endl << graph->toString();
+		SPathBellmanFord bford = SPathBellmanFord();
+		input = gfr->asDirectedMatrixGraph();
+		bford.execute(input, gfr->getFirstVerticle());
+		graph = bford.getResult();
+		std::cout << "BFord: " << std::endl << graph->toString();
 
 		delete input;
 		delete graph;

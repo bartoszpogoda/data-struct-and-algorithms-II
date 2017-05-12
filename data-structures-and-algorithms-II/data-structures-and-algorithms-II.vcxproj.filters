@@ -147,6 +147,9 @@
     <ClCompile Include="SPathBellmanFord.cpp">
       <Filter>Source Files\model\algorithms-SPath</Filter>
     </ClCompile>
+    <ClCompile Include="SearchableMinimumHeap.cpp">
+      <Filter>Source Files\model\structures\other</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">
@@ -226,6 +229,9 @@
     </ClInclude>
     <ClInclude Include="MSTGraph.h">
       <Filter>Header Files\model\structures\impl\other</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchableMinimumHeap.h">
+      <Filter>Header Files\model\structures\impl\heap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
