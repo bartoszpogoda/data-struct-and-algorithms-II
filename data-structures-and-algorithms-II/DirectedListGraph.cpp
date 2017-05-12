@@ -20,6 +20,8 @@ Edge * DirectedListGraph::getAllEdges() {
 		for (size_t j = 0; j < verticleDegree; j++) {
 			edges[foundEdges++] = adjacentEdges[j];
 		}
+
+		delete[] adjacentEdges;
 	}
 
 	return edges;
