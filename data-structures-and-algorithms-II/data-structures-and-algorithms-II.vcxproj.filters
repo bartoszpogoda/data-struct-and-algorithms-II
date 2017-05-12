@@ -150,6 +150,12 @@
     <ClCompile Include="SearchableMinimumHeap.cpp">
       <Filter>Source Files\model\structures\other</Filter>
     </ClCompile>
+    <ClCompile Include="CLInterfaceSPath.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="CLInterfaceMST.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">

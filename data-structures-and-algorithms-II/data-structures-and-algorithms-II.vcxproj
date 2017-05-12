@@ -144,6 +144,8 @@
   <ItemGroup>
     <ClCompile Include="AdjacencyList.cpp" />
     <ClCompile Include="CLInterfaceCommon.cpp" />
+    <ClCompile Include="CLInterfaceMST.cpp" />
+    <ClCompile Include="CLInterfaceSPath.cpp" />
     <ClCompile Include="DirectedListGraph.cpp" />
     <ClCompile Include="DirectedMatrixGraph.cpp" />
     <ClCompile Include="DisjointSet.cpp" />
