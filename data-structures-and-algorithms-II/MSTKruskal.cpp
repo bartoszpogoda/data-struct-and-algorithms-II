@@ -4,6 +4,8 @@
 #include "DisjointSet.h"
 #include "MinimumHeap.h"
 
+#include <iostream>
+
 void MSTKruskal::execute(Graph * graph) {
 	delete result;
 	result = new MSTGraph(graph->getSize());

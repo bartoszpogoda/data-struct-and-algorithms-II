@@ -12,4 +12,5 @@ public:
 	int degree(int verticle);
 	Edge* getAdjacentEdges(int verticle);
 	bool hasEdge(Edge edge);
+	void clearEdges();
 };

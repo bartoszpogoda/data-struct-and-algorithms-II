@@ -4,10 +4,16 @@
 #include <sstream>
 
 void UndirectedListGraph::addEdge(Edge edge) {
-	if (adjacencyLists[edge.getStartV()]->add(edge.getEndV(), edge.getWeight()))
-		e++;
+	if (edge.getStartV() == edge.getEndV()) {
+		if (adjacencyLists[edge.getStartV()]->add(edge.getEndV(), edge.getWeight()))
+			e++;
+	} else {
 
-	adjacencyLists[edge.getEndV()]->add(edge.getStartV(), edge.getWeight());
+		if (adjacencyLists[edge.getStartV()]->add(edge.getEndV(), edge.getWeight()))
+			e++;
+
+		adjacencyLists[edge.getEndV()]->add(edge.getStartV(), edge.getWeight());
+	}
 }
 
 void UndirectedListGraph::remEdge(Edge edge) {

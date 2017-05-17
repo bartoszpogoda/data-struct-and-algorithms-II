@@ -18,6 +18,7 @@ public:
 	virtual void addEdge(Edge edge) = 0;
 	virtual bool hasEdge(Edge edge) = 0;
 	virtual void remEdge(Edge edge) = 0;
+	virtual void clearEdges() = 0;
 	virtual Edge* getAdjacentEdges(int verticle) = 0;	// degree is number of adjacent edges
 	virtual Edge* getAllEdges() = 0;
 

@@ -5,7 +5,7 @@
 #include "MinimumHeap.h"
 
 void MSTPrim::execute(Graph * graph) {
-
+	delete result;
 	result = new MSTGraph(graph->getSize());
 
 	// init helper structures

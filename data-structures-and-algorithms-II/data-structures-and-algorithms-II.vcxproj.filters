@@ -156,7 +156,13 @@
     <ClCompile Include="CLInterfaceMST.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
-    <ClCompile Include="GraphGenerator.cpp">
+    <ClCompile Include="PerformanceTester.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphGeneratorExact.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphGeneratorInexact.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -239,7 +245,13 @@
     <ClInclude Include="SearchableMinimumHeap.h">
       <Filter>Header Files\model\structures\impl\heap</Filter>
     </ClInclude>
-    <ClInclude Include="GraphGenerator.h">
+    <ClInclude Include="PerformanceTester.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphGeneratorInexact.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphGeneratorExact.h">
       <Filter>Header Files\helper</Filter>
     </ClInclude>
   </ItemGroup>
