@@ -80,6 +80,7 @@ MinimumHeap<Type>::MinimumHeap(Type * elements, int size) {
 template<class Type>
 MinimumHeap<Type>::~MinimumHeap() {
 	delete[] elements;
+	elements = nullptr;
 }
 
 template<class Type>

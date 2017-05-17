@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream>
+#include <string>
 
 // source: http://staff.iiar.pwr.wroc.pl/antoni.sterna/sdizo/SDiZO_time.pdf
 
@@ -22,5 +22,4 @@ public:
 	std::string timeSecondsMemory();
 	std::string timeMiliSecondsMemory();
 	std::string timeMicroSecondsMemory();
-
 };

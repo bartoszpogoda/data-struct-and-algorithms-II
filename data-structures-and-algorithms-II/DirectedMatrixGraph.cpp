@@ -11,6 +11,13 @@ void DirectedMatrixGraph::addEdge(Edge edge) {
 	adjacencyMatrix[edge.getStartV()][edge.getEndV()] = edge.getWeight();
 }
 
+void DirectedMatrixGraph::remEdge(Edge edge) {
+	if (adjacencyMatrix[edge.getStartV()][edge.getEndV()] < INF)
+		e--;
+
+	adjacencyMatrix[edge.getStartV()][edge.getEndV()] = INF;
+}
+
 Edge * DirectedMatrixGraph::getAllEdges() {
 	Edge* edges = new Edge[e];
 

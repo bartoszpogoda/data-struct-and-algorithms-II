@@ -2,6 +2,11 @@
 #include "Infinity.h"
 #include "HeapElement.h"
 
+/*
+	Result node for SPath algorithms
+	describes verticle, its distance
+	and its previous verticle in path
+*/
 class PathNode : public HeapElement {
 	int verticle, distance, previous;
 public:

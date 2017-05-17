@@ -21,13 +21,11 @@ GraphFileReader::GraphFileReader(std::string filename) : startVerticle(-1), endV
 }
 
 GraphFileReader::~GraphFileReader() {
-	
 	delete[] edges;
 	edges = nullptr;
 }
 
 void GraphFileReader::read(std::string filename) {
-
 	std::ifstream file = std::ifstream(filename);
 	errorFlag = false;
 

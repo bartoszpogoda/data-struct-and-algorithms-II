@@ -8,6 +8,7 @@ public:
 	DirectedMatrixGraph(int n) : MatrixGraph(n) {};
 
 	void addEdge(Edge edge);
+	void remEdge(Edge edge);
 	Edge* getAllEdges();
 
 	std::string toString();

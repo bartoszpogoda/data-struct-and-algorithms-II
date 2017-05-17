@@ -17,7 +17,8 @@ public:
 	~AdjacencyList();
 
 	int getSize() { return size; }
-	bool add(int adjacent, int weight);	// true if added, false if modified
+	bool add(int adjacent, int weight);	// returns true if added, false if modified
+	bool rem(int adjacent);	// returns true if removed
 	Edge* getEdges();
 };
 

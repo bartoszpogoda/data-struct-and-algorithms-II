@@ -1,44 +1,20 @@
+#include "CLInterface.h"
+#include "PerformanceTester.h"
+
 #include <iostream>
-#include <string>
-#include "DirectedListGraph.h"
-#include "UndirectedListGraph.h"
-#include "UndirectedMatrixGraph.h"
-#include "DirectedMatrixGraph.h"
-#include "GraphFileReader.h"
-#include "MSTKruskal.h"
-#include "MSTPrim.h"
-#include "MinimumHeap.h"
-#include "SPathDijkstra.h"
-#include "SPathBellmanFord.h"
 
-int main() {
-	GraphFileReader* gfr = new GraphFileReader("data7.txt");
+int main(int argc, char* argv[]) {
 
-	{
-		SPathDijkstra dijks = SPathDijkstra();
-		Graph* input = gfr->asDirectedMatrixGraph();
-		dijks.execute(input, gfr->getFirstVerticle());
-		Path* graph = dijks.getResult();
-		std::cout << "Dijks: " << std::endl << graph->toString();
+	if (argc == 2 && strcmp(argv[1],"p") == 0) {
+		PerformanceTester pt = PerformanceTester();
+		pt.run();
 
-		delete graph;
-		delete input;
-
-		SPathBellmanFord bford = SPathBellmanFord();
-		input = gfr->asDirectedMatrixGraph();
-		bford.execute(input, gfr->getFirstVerticle());
-		graph = bford.getResult();
-		std::cout << "BFord: " << std::endl << graph->toString();
-
-		delete input;
-		delete graph;
+		std::cout << "Confirm exit." << std::endl;
+		int x;
+		std::cin >> x;
+	} else if (argc >= 2) {
+		std::cout << "Usage:\n -Run without arguments to enter CLI.\n -Run with 'p' argument to execute performance tests";
+	} else {
+		CLInterface::enter();
 	}
-
-	delete gfr;
-
-	int x;
-	std::cin >> x;
-
-
-	// CLInterface::enter();
 }

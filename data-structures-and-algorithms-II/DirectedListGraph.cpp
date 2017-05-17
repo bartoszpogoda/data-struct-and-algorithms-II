@@ -8,6 +8,11 @@ void DirectedListGraph::addEdge(Edge edge) {
 		e++;
 }
 
+void DirectedListGraph::remEdge(Edge edge) {
+	if (adjacencyLists[edge.getStartV()]->rem(edge.getEndV()))
+		e--;
+}
+
 Edge * DirectedListGraph::getAllEdges() {
 	Edge* edges = new Edge[e];
 

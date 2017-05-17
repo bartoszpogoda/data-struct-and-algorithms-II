@@ -150,6 +150,18 @@
     <ClCompile Include="SearchableMinimumHeap.cpp">
       <Filter>Source Files\model\structures\other</Filter>
     </ClCompile>
+    <ClCompile Include="CLInterfaceSPath.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="CLInterfaceMST.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="PerformanceTester.cpp">
+      <Filter>Source Files\helper</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphGenerator.cpp">
+      <Filter>Source Files\helper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">
@@ -186,9 +198,6 @@
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Header Files\helper</Filter>
-    </ClInclude>
-    <ClInclude Include="PerformanceTestingUtil.h">
       <Filter>Header Files\helper</Filter>
     </ClInclude>
     <ClInclude Include="Infinity.h">
@@ -232,6 +241,12 @@
     </ClInclude>
     <ClInclude Include="SearchableMinimumHeap.h">
       <Filter>Header Files\model\structures\impl\heap</Filter>
+    </ClInclude>
+    <ClInclude Include="PerformanceTester.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphGenerator.h">
+      <Filter>Header Files\helper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

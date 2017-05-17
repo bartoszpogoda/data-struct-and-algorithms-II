@@ -1,7 +1,6 @@
 #include "MatrixGraph.h"
 
 MatrixGraph::MatrixGraph(int n) : Graph(n), adjacencyMatrix(new int*[n]) {
-
 	for (size_t i = 0; i < n; i++) {
 		adjacencyMatrix[i] = new int[n];
 
@@ -12,7 +11,6 @@ MatrixGraph::MatrixGraph(int n) : Graph(n), adjacencyMatrix(new int*[n]) {
 }
 
 MatrixGraph::~MatrixGraph() {
-
 	for (size_t i = 0; i < n; i++) {
 		delete[] adjacencyMatrix[i];
 	}
@@ -39,4 +37,19 @@ Edge* MatrixGraph::getAdjacentEdges(int verticle) {
 			adjacentEdges[j++] = Edge(verticle, i, adjacencyMatrix[verticle][i]);
 
 	return adjacentEdges;
+}
+
+bool MatrixGraph::hasEdge(Edge edge) {
+	if (adjacencyMatrix[edge.getStartV()][edge.getEndV()] < INF)
+		return true;
+	return false;
+}
+
+void MatrixGraph::clearEdges() {
+	for (size_t i = 0; i < n; i++) {
+		for (size_t j = 0; j < n; j++) {
+			adjacencyMatrix[i][j] = INF;
+		}
+	}
+	e = 0;
 }

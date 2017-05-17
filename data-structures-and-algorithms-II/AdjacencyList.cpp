@@ -1,11 +1,5 @@
 #include "AdjacencyList.h"
-#include "Infinity.h"
-
-#include <time.h>      
-#include <string>
-#include <sstream>   
-#include <iomanip>   
-
+    
 AdjacencyList::AdjacencyListNode * AdjacencyList::find(int adjacent) {
 	if (head == nullptr)
 		return nullptr;
@@ -36,15 +30,7 @@ AdjacencyList::~AdjacencyList() {
 
 
 bool AdjacencyList::add(int adjacent, int weight) {
-
-	AdjacencyListNode* node = find(adjacent);
-
-	if (node != nullptr) {
-		node->weight = weight;
-		return false;
-	}
-
-	node = new AdjacencyListNode(adjacent, weight);
+	AdjacencyListNode* node = new AdjacencyListNode(adjacent, weight);
 
 	if (head == nullptr) {
 		head = node;
@@ -56,6 +42,39 @@ bool AdjacencyList::add(int adjacent, int weight) {
 	}
 
 	size++;
+	return true;
+}
+
+bool AdjacencyList::rem(int adjacent) {
+	AdjacencyListNode* nodeToRemove = find(adjacent);
+
+	if (nodeToRemove == nullptr) return false;
+
+	if (nodeToRemove == head) {
+		if (head->next == nullptr) {
+			head = nullptr;
+			tail = nullptr;
+		} else {
+			head = head->next;
+			head->prev = nullptr;
+		}
+	}
+	else if (nodeToRemove == tail) {
+		if (tail->prev == nullptr) {
+			tail = nullptr;
+			head = nullptr;
+		} else {
+			tail = tail->prev;
+			tail->next = nullptr;
+		}
+	}
+	else {
+		nodeToRemove->next->prev = nodeToRemove->prev;
+		nodeToRemove->prev->next = nodeToRemove->next;
+	}
+
+	delete nodeToRemove;
+	size--;
 	return true;
 }
 

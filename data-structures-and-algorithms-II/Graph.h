@@ -3,6 +3,11 @@
 
 #include <string>
 
+/* 
+	Graph is a parent class describing 
+	properties and operations which can be performed 
+	on every graph
+*/
 class Graph {
 protected:
 	int n;			// number of verticles
@@ -16,6 +21,9 @@ public:
 	virtual int degree(int verticle) = 0;
 
 	virtual void addEdge(Edge edge) = 0;
+	virtual bool hasEdge(Edge edge) = 0;
+	virtual void remEdge(Edge edge) = 0;
+	virtual void clearEdges() = 0;
 	virtual Edge* getAdjacentEdges(int verticle) = 0;	// degree is number of adjacent edges
 	virtual Edge* getAllEdges() = 0;
 
