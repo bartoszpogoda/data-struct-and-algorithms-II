@@ -1,11 +1,5 @@
 #include "AdjacencyList.h"
-#include "Infinity.h"
-
-#include <time.h>      
-#include <string>
-#include <sstream>   
-#include <iomanip>   
-
+    
 AdjacencyList::AdjacencyListNode * AdjacencyList::find(int adjacent) {
 	if (head == nullptr)
 		return nullptr;
@@ -36,14 +30,6 @@ AdjacencyList::~AdjacencyList() {
 
 
 bool AdjacencyList::add(int adjacent, int weight) {
-
-	/*AdjacencyListNode* node = find(adjacent);		unsafe to comment that but helps performance
-
-	if (node != nullptr) {
-		node->weight = weight;
-		return false;
-	}*/		
-
 	AdjacencyListNode* node = new AdjacencyListNode(adjacent, weight);
 
 	if (head == nullptr) {
@@ -72,7 +58,6 @@ bool AdjacencyList::rem(int adjacent) {
 			head = head->next;
 			head->prev = nullptr;
 		}
-		// zmniejszyc size!
 	}
 	else if (nodeToRemove == tail) {
 		if (tail->prev == nullptr) {

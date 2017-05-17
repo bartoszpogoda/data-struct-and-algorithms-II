@@ -1,7 +1,8 @@
 #include "GraphGeneratorInexact.h"
-
 #include <iostream>
-
+/*
+	This implementation is unused
+*/
 void GraphGeneratorInexact::insertSkeleton(Graph * graph, int weightMin, int weightMax) {
 	int V = graph->getSize();
 
@@ -23,8 +24,6 @@ bool GraphGeneratorInexact::insertEdges(Graph * graph, int weightMin, int weight
 			}
 		}
 	}
-
-	std::cout << "RATIO: " << (double)generatedEdges / (double)possibleEdges << std::endl;
 
 	if ((double)generatedEdges / (double)possibleEdges < edgeDensity - maxError || (double)generatedEdges / (double)possibleEdges > edgeDensity + maxError)
 		return false;
@@ -66,7 +65,6 @@ bool GraphGeneratorInexact::insertEdgesUndirected(Graph * graph, int weightMin, 
 }
 
 bool GraphGeneratorInexact::fillGraphUndirected(Graph * graph, int weightRange, int edgeDensity) {
-
 	insertSkeletonUndirected(graph, weightRange*0.80, weightRange);
 	return insertEdgesUndirected(graph, 0, weightRange, edgeDensity);
 }

@@ -4,7 +4,8 @@
 #include <sstream>
 
 void UndirectedListGraph::addEdge(Edge edge) {
-	if (edge.getStartV() == edge.getEndV()) {
+	if (edge.getStartV() == edge.getEndV()) {	
+		// loop case
 		if (adjacencyLists[edge.getStartV()]->add(edge.getEndV(), edge.getWeight()))
 			e++;
 	} else {

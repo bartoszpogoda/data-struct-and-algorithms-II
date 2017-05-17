@@ -1,26 +1,20 @@
-#include <iostream>
-
 #include "CLInterface.h"
 #include "PerformanceTester.h"
 
-#include "MSTKruskal.h"
-#include "UndirectedListGraph.h"
-#include "GraphGeneratorExact.h"
+#include <iostream>
 
-int main() {
+int main(int argc, char* argv[]) {
 
-	
-	PerformanceTester pt = PerformanceTester();
-	pt.run();
+	if (argc == 2 && strcmp(argv[1],"p") == 0) {
+		PerformanceTester pt = PerformanceTester();
+		pt.run();
 
-
-	int c;
-	std::cin >> c;
-
-	CLInterface::enter();
-	
-	
-
-	int x;
-	std::cin >> x; 
+		std::cout << "Confirm exit." << std::endl;
+		int x;
+		std::cin >> x;
+	} else if (argc >= 2) {
+		std::cout << "Usage:\n -Run without arguments to enter CLI.\n -Run with 'p' argument to execute performance tests";
+	} else {
+		CLInterface::enter();
+	}
 }

@@ -1,11 +1,13 @@
 #include "SPathBellmanFord.h"
 
 void SPathBellmanFord::execute(Graph * graph, int startVerticle) {
-	// algorithm init
+	// init algorithm
 	negativeCycleFlag = false;
 
+	// create result nodes
 	PathNode* resultNodes = new PathNode[graph->getSize()];	
 
+	// init results nodes
 	for (size_t i = 0; i < startVerticle; i++)
 		resultNodes[i] = PathNode(i);
 
@@ -23,7 +25,7 @@ void SPathBellmanFord::execute(Graph * graph, int startVerticle) {
 			int end = edges[j].getEndV();
 			int distance = edges[j].getWeight();
 
-			// relaxation
+			// check for relaxation condition
 			if (resultNodes[start].getDistance() != INF && resultNodes[end].getDistance() > resultNodes[start].getDistance() + distance) {
 				resultNodes[end] = PathNode(end, resultNodes[start].getDistance() + distance, start);
 			}
@@ -48,6 +50,8 @@ void SPathBellmanFord::execute(Graph * graph, int startVerticle) {
 
 	delete[] edges;
 
+
+	// clear previous result and create new one from path nodes
 	delete result;
 	result = new Path(startVerticle, graph->getSize(), resultNodes);
 }

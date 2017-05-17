@@ -9,9 +9,9 @@ CLInterface::GraphRep CLInterface::graphRep = CLInterface::GraphRep::LIST;
 Graph* CLInterface::graph = nullptr;
 
 void CLInterface::enter() {
+	// loop to assert graph data is read
 	while (!viewInputFilename());
 
-	// data is read at this point
 	viewMainMenu();
 
 	delete graphFileReader;
@@ -35,7 +35,7 @@ bool CLInterface::viewInputFilename() {
 		handleUserInput();
 		return true;
 	} else {
-		cout << " > Read failure";
+		cout << " > " << graphFileReader->getErrorMessage();
 		delete graphFileReader;
 		graphFileReader = nullptr;
 		handleUserInput();

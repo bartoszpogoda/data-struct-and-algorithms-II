@@ -5,6 +5,7 @@
 #include <conio.h>
 
 using namespace std;
+
 void CLInterface::viewMSTMenu() {
 	int selected = 0, max = 4, selectedDelta = 0;
 

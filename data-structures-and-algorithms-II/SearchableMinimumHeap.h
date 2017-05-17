@@ -2,7 +2,9 @@
 #include "MinimumHeap.h"
 
 /*
-
+	SearchableMinimumHeap is a MinimumHeap with extension
+	for fast access by element index. It is achieved by 
+	tracking heap-table position of element.
 */
 template <class Type>
 class SearchableMinimumHeap : public MinimumHeap<Type> {

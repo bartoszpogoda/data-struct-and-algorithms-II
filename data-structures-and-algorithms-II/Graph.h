@@ -3,6 +3,11 @@
 
 #include <string>
 
+/* 
+	Graph is a parent class describing 
+	properties and operations which can be performed 
+	on every graph
+*/
 class Graph {
 protected:
 	int n;			// number of verticles

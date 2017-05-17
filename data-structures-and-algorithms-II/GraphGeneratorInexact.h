@@ -1,6 +1,9 @@
 #pragma once
 #include "Graph.h"
 
+/*
+	First implemented but NOT USED for tests
+*/
 class GraphGeneratorInexact {
 private:
 	double maxError;

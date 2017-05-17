@@ -3,6 +3,7 @@
 #include "SPathBellmanFord.h"
 
 #include <conio.h>
+
 using namespace std;
 
 void CLInterface::viewSPathMenu() {
@@ -69,11 +70,16 @@ void CLInterface::viewSPathBellmanFord() {
 	cout << " ++ MST and Shortest Path algorithms demo ++ " << endl << endl;
 	cout << "BellmanFord's algorithm result: " << endl << endl;
 
-	SPath* algorithm = new SPathBellmanFord();
+	SPathBellmanFord* algorithm = new SPathBellmanFord();
 	algorithm->execute(graph, graphFileReader->getFirstVerticle());
 	Path* result = algorithm->getResult();
 
-	cout << result->toString() << endl;
+	if (algorithm->wasGood()) {
+		cout << result->toString() << endl;
+	} else {
+		cout << "Algorithm has detected negative cycle." << endl;
+	}
+
 
 	delete algorithm;
 	delete result;

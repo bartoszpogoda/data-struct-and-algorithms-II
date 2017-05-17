@@ -2,6 +2,10 @@
 #include "Infinity.h"
 #include "HeapElement.h"
 
+/*
+	Simple structure to represent edges
+	in algorithms
+*/
 class Edge : public HeapElement{
 	int startV, endV, weight;
 public:

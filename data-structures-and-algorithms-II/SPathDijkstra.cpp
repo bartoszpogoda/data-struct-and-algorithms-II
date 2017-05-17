@@ -2,43 +2,50 @@
 #include "SearchableMinimumHeap.h"
 #include "PathNode.h"
 
-/* 
-	O(n + n*(log n) + e*(log n)) = O((n+e)logn)
-*/
+
 void SPathDijkstra::execute(Graph * graph, int startVerticle) {
+	// create result nodes
 	PathNode* resultNodes = new PathNode[graph->getSize()];							
 
+	// init helper structures
 	SearchableMinimumHeap<PathNode>* unvisitedHeap = new SearchableMinimumHeap<PathNode>(graph->getSize());				
 
-	unvisitedHeap->add(PathNode(startVerticle, 0, -1));								// add is O(1) operation cause we're adding in order that doesnt require any fixing	
+	// init results nodes (adding in order that doesnt require any heap fixing)
+	unvisitedHeap->add(PathNode(startVerticle, 0, -1));								
 	for (size_t i = 0; i < startVerticle; i++) {									
 		unvisitedHeap->add(PathNode(i));											
 	}																				
-	for (size_t i = startVerticle+1; i < graph->getSize(); i++) {					// adding n elements - O(n);
+	for (size_t i = startVerticle+1; i < graph->getSize(); i++) {					
 		unvisitedHeap->add(PathNode(i));											
 	}
 
-	while (!unvisitedHeap->isEmpty()) {												// [ loop executes n- times
-		PathNode node = unvisitedHeap->popRoot();									// O(logn)
+	// main algorithm loop
+	while (!unvisitedHeap->isEmpty()) {
+		// pop node with shortest path						
+		PathNode node = unvisitedHeap->popRoot();								
 		
-		Edge* adjacentEdges = graph->getAdjacentEdges(node.getVerticle());			// 
-		for (size_t i = 0; i < graph->degree(node.getVerticle()); i++) {			//		[ will execute e-times in general	(sum of degrees)
+		// find adjacent edges and relax them
+		Edge* adjacentEdges = graph->getAdjacentEdges(node.getVerticle());			
+		for (size_t i = 0; i < graph->degree(node.getVerticle()); i++) {			
 			int nodeToRelax = adjacentEdges[i].getEndV();
 			int distance = unvisitedHeap->get(nodeToRelax).getDistance();
 
+			// check for relaxation condition
 			if (node.getDistance() != INF && distance > node.getDistance() + adjacentEdges[i].getWeight()) {
 				PathNode newDistanceNode = PathNode(nodeToRelax, node.getDistance() + adjacentEdges[i].getWeight(), node.getVerticle());
-				unvisitedHeap->update(nodeToRelax, newDistanceNode);				//			O(logn)
-			}																		//		]	
-		}																			// ]
-
-
-		resultNodes[node.getVerticle()] = node;
+				unvisitedHeap->update(nodeToRelax, newDistanceNode);				
+			}																		
+		}																		
 		delete[] adjacentEdges;
+
+		// add node to result
+		resultNodes[node.getVerticle()] = node;
 	}
 
+	// dealocate helper structures
 	delete unvisitedHeap;
 
+	// clear previous result and create new one from path nodes
 	delete result;
 	result = new Path(startVerticle, graph->getSize(), resultNodes);
 }

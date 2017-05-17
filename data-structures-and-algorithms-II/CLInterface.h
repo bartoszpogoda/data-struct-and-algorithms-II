@@ -36,5 +36,4 @@ public:
 	static void viewMSTPrim();
 	static void viewSPathDijkstra();
 	static void viewSPathBellmanFord();
-
 };

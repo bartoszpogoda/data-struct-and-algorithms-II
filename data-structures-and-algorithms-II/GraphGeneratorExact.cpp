@@ -6,19 +6,19 @@ Edge GraphGeneratorExact::randomEdge(int verticleRange, int weightRange) {
 }
 
 void GraphGeneratorExact::fillGraph(Graph * graph, int weightRange, double edgeDensity) {
-
 	int V = graph->getSize();
 
 	if (edgeDensity < 0.50) {
 		// add edges to empty graph
 		int edgesToGenerate = V*V*edgeDensity;
 
-		// cycle of weights in top 20% range
+		// cycle (with weights in top 20% range)
 		for (size_t i = 0; i < V; i++) {
 			graph->addEdge(Edge(i, (i + 1) % V, weightRange*0.8 + rand() % (int)(0.2*weightRange)));
 			edgesToGenerate--;
 		}
 
+		// add regular edges
 		while (edgesToGenerate > 0) {
 			Edge edge;
 			do {
@@ -30,7 +30,6 @@ void GraphGeneratorExact::fillGraph(Graph * graph, int weightRange, double edgeD
 		}
 	} else {
 		// remove edges from full graph
-
 		int edgesToRemove = V*V*(1-edgeDensity);
 		
 		// fill graph (without cycle)
@@ -41,6 +40,7 @@ void GraphGeneratorExact::fillGraph(Graph * graph, int weightRange, double edgeD
 			}
 		}
 		
+		// remove regular edges
 		while (edgesToRemove > 0) {
 			Edge edge;
 			do {
@@ -51,7 +51,7 @@ void GraphGeneratorExact::fillGraph(Graph * graph, int weightRange, double edgeD
 			edgesToRemove--;
 		}
 
-		// add cycle of weights in top 20% range
+		// add cycle (with weights in top 20% range)
 		for (size_t i = 0; i < V; i++) {
 			graph->addEdge(Edge(i, (i + 1) % V, weightRange*0.8 + rand() % (int)(0.2*weightRange)));
 		}
@@ -64,12 +64,13 @@ void GraphGeneratorExact::fillGraphUndirected(Graph * graph, int weightRange, do
 		// add edges to empty graph
 		int edgesToGenerate = (V*(V-1)/2 + V)*edgeDensity;
 
-		// skeleton path of weights in top 20% range
+		// insert 0->1->...->n-1 path (with weights in top 20% range)
 		for (size_t i = 0; i < V-1 ; i++) {
 			graph->addEdge(Edge(i, i + 1, weightRange*0.8 + rand() % (int)(0.2*weightRange)));
 			edgesToGenerate--;
 		}
 
+		// add regular edges
 		while (edgesToGenerate > 0) {
 			Edge edge;
 			do {
@@ -81,10 +82,9 @@ void GraphGeneratorExact::fillGraphUndirected(Graph * graph, int weightRange, do
 		}
 	} else {
 		// remove edges from full graph
-
 		int edgesToRemove = (V*(V - 1) / 2 + V)*(1 - edgeDensity);
 
-		// fill graph (without skeleton path)
+		// fill graph (without 0->1->...->n-1 path)
 		for (size_t i = 0; i < V; i++) {
 			for (size_t j = i; j < V; j++) {
 				if (i + 1 != j) // omit the skeleton path
@@ -92,6 +92,7 @@ void GraphGeneratorExact::fillGraphUndirected(Graph * graph, int weightRange, do
 			}
 		}
 
+		// remove regular edges
 		while (edgesToRemove > 0) {
 			Edge edge;
 			do {
@@ -102,7 +103,7 @@ void GraphGeneratorExact::fillGraphUndirected(Graph * graph, int weightRange, do
 			edgesToRemove--;
 		}
 
-		// add skeleton path of weights in top 20% range
+		// add 0->1->...->n-1 path (with weights in top 20% range)
 		for (size_t i = 0; i < V - 1; i++) {
 			graph->addEdge(Edge(i, i + 1, weightRange*0.8 + rand() % (int)(0.2*weightRange)));
 		}

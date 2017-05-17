@@ -6,7 +6,6 @@
 #include "DirectedListGraph.h"
 #include "UndirectedListGraph.h"
 
-#include <iostream>
 
 /*
 	GraphFileReader reads data from file (filename) given in constructor.
