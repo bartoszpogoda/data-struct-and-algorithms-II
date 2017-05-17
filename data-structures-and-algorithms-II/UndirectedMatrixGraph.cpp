@@ -12,6 +12,14 @@ void UndirectedMatrixGraph::addEdge(Edge edge) {
 	adjacencyMatrix[edge.getEndV()][edge.getStartV()] = edge.getWeight();
 }
 
+void UndirectedMatrixGraph::remEdge(Edge edge) {
+	if (adjacencyMatrix[edge.getStartV()][edge.getEndV()] < INF)
+		e--;
+
+	adjacencyMatrix[edge.getStartV()][edge.getEndV()] = INF;
+	adjacencyMatrix[edge.getEndV()][edge.getStartV()] = INF;
+}
+
 Edge * UndirectedMatrixGraph::getAllEdges() {
 	Edge* edges = new Edge[e];
 

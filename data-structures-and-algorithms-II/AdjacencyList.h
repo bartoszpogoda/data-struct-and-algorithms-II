@@ -18,6 +18,7 @@ public:
 
 	int getSize() { return size; }
 	bool add(int adjacent, int weight);	// true if added, false if modified
+	bool rem(int adjacent);	// true if removed
 	Edge* getEdges();
 };
 

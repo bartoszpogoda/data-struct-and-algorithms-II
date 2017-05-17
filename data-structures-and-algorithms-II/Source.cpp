@@ -32,6 +32,20 @@ int main() {
 
 	std::cout << "Edges dens: " << (double)counter / (double)all;
 
+	for (int i = 0; i < 50; i++)
+		for (int j = 0; j < 50; j++) 
+			graph->remEdge(Edge(i, j, 0));
+
+	counter = 0;
+
+	for (int i = 0; i < 50; i++)
+		for (int j = 0; j < 50; j++) {
+			if (graph->hasEdge(Edge(i, j, 0)))
+				counter++;
+		}
+
+	std::cout << "Edges dens: " << (double)counter / (double)all;
+
 
 	int c;
 	std::cin >> c;

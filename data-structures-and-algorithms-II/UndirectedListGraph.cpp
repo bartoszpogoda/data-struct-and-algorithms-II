@@ -10,6 +10,13 @@ void UndirectedListGraph::addEdge(Edge edge) {
 	adjacencyLists[edge.getEndV()]->add(edge.getStartV(), edge.getWeight());
 }
 
+void UndirectedListGraph::remEdge(Edge edge) {
+	if (adjacencyLists[edge.getStartV()]->rem(edge.getEndV()))
+		e--;
+
+	adjacencyLists[edge.getEndV()]->rem(edge.getStartV());
+}
+
 Edge * UndirectedListGraph::getAllEdges() {
 	Edge* edges = new Edge[e];
 

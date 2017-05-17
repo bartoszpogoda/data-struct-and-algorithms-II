@@ -59,6 +59,40 @@ bool AdjacencyList::add(int adjacent, int weight) {
 	return true;
 }
 
+bool AdjacencyList::rem(int adjacent) {
+	AdjacencyListNode* nodeToRemove = find(adjacent);
+
+	if (nodeToRemove == nullptr) return false;
+
+	if (nodeToRemove == head) {
+		if (head->next == nullptr) {
+			head = nullptr;
+			tail = nullptr;
+		} else {
+			head = head->next;
+			head->prev = nullptr;
+		}
+		// zmniejszyc size!
+	}
+	else if (nodeToRemove == tail) {
+		if (tail->prev == nullptr) {
+			tail = nullptr;
+			head = nullptr;
+		} else {
+			tail = tail->prev;
+			tail->next = nullptr;
+		}
+	}
+	else {
+		nodeToRemove->next->prev = nodeToRemove->prev;
+		nodeToRemove->prev->next = nodeToRemove->next;
+	}
+
+	delete nodeToRemove;
+	size--;
+	return true;
+}
+
 Edge * AdjacencyList::getEdges() {
 	if (size <= 0) return nullptr;
 
