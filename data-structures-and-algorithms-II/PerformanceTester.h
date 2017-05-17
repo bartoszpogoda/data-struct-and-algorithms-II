@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Timer.h"
-#include "GraphGeneratorExact.h"
+#include "GraphGenerator.h"
 #include "MST.h"
 #include "SPath.h"
 
@@ -14,7 +14,7 @@ class PerformanceTester {
 	int weightRange = 5;
 
 	Timer* timer;
-	GraphGeneratorExact* graphGenerator;
+	GraphGenerator* graphGenerator;
 
 	MST* mstAlgorithm;
 	SPath* spathAlgorithm;

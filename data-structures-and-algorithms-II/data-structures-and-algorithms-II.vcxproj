@@ -150,10 +150,9 @@
     <ClCompile Include="DirectedMatrixGraph.cpp" />
     <ClCompile Include="DisjointSet.cpp" />
     <ClCompile Include="GraphFileReader.cpp" />
-    <ClCompile Include="GraphGeneratorInexact.cpp" />
     <ClCompile Include="MSTGraph.cpp" />
     <ClCompile Include="Path.cpp" />
-    <ClCompile Include="GraphGeneratorExact.cpp" />
+    <ClCompile Include="GraphGenerator.cpp" />
     <ClCompile Include="PerformanceTester.cpp" />
     <ClCompile Include="SearchableMinimumHeap.cpp" />
     <ClCompile Include="SPath.cpp" />
@@ -174,7 +173,6 @@
     <ClInclude Include="AdjacencyList.h" />
     <ClInclude Include="DirectedMatrixGraph.h" />
     <ClInclude Include="DisjointSet.h" />
-    <ClInclude Include="GraphGeneratorInexact.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="PathNode.h" />
     <ClInclude Include="Edge.h" />
@@ -195,7 +193,7 @@
     <ClInclude Include="MatrixGraph.h" />
     <ClInclude Include="MST.h" />
     <ClInclude Include="MSTKruskal.h" />
-    <ClInclude Include="GraphGeneratorExact.h" />
+    <ClInclude Include="GraphGenerator.h" />
     <ClInclude Include="SPath.h" />
     <ClInclude Include="SPathBellmanFord.h" />
     <ClInclude Include="SPathDijkstra.h" />

@@ -156,13 +156,10 @@
     <ClCompile Include="CLInterfaceMST.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
-    <ClCompile Include="GraphGeneratorExact.cpp">
-      <Filter>Source Files\helper</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphGeneratorInexact.cpp">
-      <Filter>Source Files\helper</Filter>
-    </ClCompile>
     <ClCompile Include="PerformanceTester.cpp">
+      <Filter>Source Files\helper</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphGenerator.cpp">
       <Filter>Source Files\helper</Filter>
     </ClCompile>
   </ItemGroup>
@@ -248,10 +245,7 @@
     <ClInclude Include="PerformanceTester.h">
       <Filter>Header Files\helper</Filter>
     </ClInclude>
-    <ClInclude Include="GraphGeneratorInexact.h">
-      <Filter>Header Files\helper</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphGeneratorExact.h">
+    <ClInclude Include="GraphGenerator.h">
       <Filter>Header Files\helper</Filter>
     </ClInclude>
   </ItemGroup>

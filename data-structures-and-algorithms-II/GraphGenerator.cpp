@@ -1,11 +1,11 @@
-#include "GraphGeneratorExact.h"
+#include "GraphGenerator.h"
 
 
-Edge GraphGeneratorExact::randomEdge(int verticleRange, int weightRange) {
+Edge GraphGenerator::randomEdge(int verticleRange, int weightRange) {
 	return Edge(rand() % verticleRange, rand() % verticleRange, weightRange == 0 ? 0 : rand() % weightRange);
 }
 
-void GraphGeneratorExact::fillGraph(Graph * graph, int weightRange, double edgeDensity) {
+void GraphGenerator::fillGraph(Graph * graph, int weightRange, double edgeDensity) {
 	int V = graph->getSize();
 
 	if (edgeDensity < 0.50) {
@@ -57,7 +57,7 @@ void GraphGeneratorExact::fillGraph(Graph * graph, int weightRange, double edgeD
 		}
 	}
 }
-void GraphGeneratorExact::fillGraphUndirected(Graph * graph, int weightRange, double edgeDensity) {
+void GraphGenerator::fillGraphUndirected(Graph * graph, int weightRange, double edgeDensity) {
 	int V = graph->getSize();
 
 	if (edgeDensity < 0.50) {

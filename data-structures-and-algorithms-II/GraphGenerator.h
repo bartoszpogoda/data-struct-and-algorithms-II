@@ -1,7 +1,7 @@
 #pragma once
 #include "Graph.h"
 
-class GraphGeneratorExact {
+class GraphGenerator {
 	Edge randomEdge(int verticleRange, int weightRange);
 
 public:

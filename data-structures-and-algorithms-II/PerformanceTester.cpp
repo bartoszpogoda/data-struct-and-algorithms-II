@@ -6,7 +6,6 @@
 #include "SPathDijkstra.h"
 #include "DirectedMatrixGraph.h"
 #include "DirectedListGraph.h"
-#include "GraphGeneratorInexact.h"
 
 #include <iostream>
 
@@ -236,7 +235,7 @@ void PerformanceTester::runSPathBellmanFord() {
 
 PerformanceTester::PerformanceTester() {
 	timer = new Timer();
-	graphGenerator = new GraphGeneratorExact();
+	graphGenerator = new GraphGenerator();
 }
 
 PerformanceTester::~PerformanceTester() {
