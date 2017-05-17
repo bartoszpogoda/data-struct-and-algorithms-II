@@ -11,17 +11,17 @@ void MSTPrim::execute(Graph * graph) {
 	// init helper structures
 	bool* unvisited = new bool[graph->getSize()];
 	unvisited[0] = false;
-	for (size_t i = 1; i < graph->getSize(); i++)
-		unvisited[i] = true;
+	for (size_t i = 1; i < graph->getSize(); i++)													// O(V)
+		unvisited[i] = true;															
 
-	MinimumHeap<Edge>* edgeHeap = new MinimumHeap<Edge>(graph->getEdgeCount());
+	MinimumHeap<Edge>* edgeHeap = new MinimumHeap<Edge>(graph->getEdgeCount());						
 	Edge* edges = graph->getAdjacentEdges(0);
 
 	for (size_t i = 0; i < graph->degree(0); i++) {
 		if (unvisited[edges[i].getEndV()])	// to avoid loops in graph
 			edgeHeap->add(edges[i]);
 	}
-	
+																									// adding edge E times - E * logV
 	
 	delete[] edges;
 

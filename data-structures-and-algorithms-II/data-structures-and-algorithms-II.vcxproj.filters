@@ -156,6 +156,9 @@
     <ClCompile Include="CLInterfaceMST.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
+    <ClCompile Include="GraphGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphFileReader.h">
@@ -192,9 +195,6 @@
       <Filter>Header Files\model\structures\impl\other</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Header Files\helper</Filter>
-    </ClInclude>
-    <ClInclude Include="PerformanceTestingUtil.h">
       <Filter>Header Files\helper</Filter>
     </ClInclude>
     <ClInclude Include="Infinity.h">
@@ -238,6 +238,9 @@
     </ClInclude>
     <ClInclude Include="SearchableMinimumHeap.h">
       <Filter>Header Files\model\structures\impl\heap</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphGenerator.h">
+      <Filter>Header Files\helper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

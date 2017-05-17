@@ -40,3 +40,9 @@ Edge* MatrixGraph::getAdjacentEdges(int verticle) {
 
 	return adjacentEdges;
 }
+
+bool MatrixGraph::hasEdge(Edge edge) {
+	if (adjacencyMatrix[edge.getStartV()][edge.getEndV()] < INF)
+		return true;
+	return false;
+}

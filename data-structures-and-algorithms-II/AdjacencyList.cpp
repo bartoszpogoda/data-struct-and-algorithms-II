@@ -37,14 +37,14 @@ AdjacencyList::~AdjacencyList() {
 
 bool AdjacencyList::add(int adjacent, int weight) {
 
-	AdjacencyListNode* node = find(adjacent);
+	/*AdjacencyListNode* node = find(adjacent);		unsafe to comment that but helps performance
 
 	if (node != nullptr) {
 		node->weight = weight;
 		return false;
-	}
+	}*/		
 
-	node = new AdjacencyListNode(adjacent, weight);
+	AdjacencyListNode* node = new AdjacencyListNode(adjacent, weight);
 
 	if (head == nullptr) {
 		head = node;
